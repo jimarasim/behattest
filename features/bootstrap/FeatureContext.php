@@ -180,6 +180,54 @@ class FeatureContext implements Context
         );
     }
     
+        /**
+     * @Given the Schedules Menu is enabled
+     */
+    public function theSchedulesMenuIsEnabled()
+    {
+        Assert::assertTrue($this->driver->findElement(WebDriverBy::xpath('//li[@data-type="menu_item"]/a[contains(text(),"Schedules")]'))->isEnabled());
+    }
+
+    /**
+     * @When I move the mouse over the Schedules Menu
+     */
+    public function iMoveTheMouseOverTheSchedulesMenu()
+    {
+        $schedules = $this->driver->findElement(WebDriverBy::xpath('//li[@data-type="menu_item"]/a[contains(text(),"Schedules")]'));
+        
+        $this->driver->action()->moveToElement($schedules)->perform();
+        
+    }
+
+    /**
+     * @When the menu popup appears
+     */
+    public function theMenuPopupAppears()
+    {
+        $dropdownmenu = $this->driver->findElement(WebDriverBy::cssSelector('div.dropdown-menu'));
+        $this->driver->wait(10, 500)->until(
+            WebDriverExpectedCondition::visibilityOf($dropdownmenu)
+        );
+    }
+
+    /**
+     * @When I select the Alerts menu item
+     */
+    public function iSelectTheAlertsMenuItem()
+    {
+        $this->driver->findElement(WebDriverBy::xpath('//li[@data-type="menu_item"]/a[contains(@href,"rider-alerts")]'))->click();
+    }
+
+    /**
+     * @Then the rider-alerts page is displayed
+     */
+    public function theRiderAlertsPageIsDisplayed()
+    {
+        $pagetitle = $this->driver->findElement(WebDriverBy::id('page-title'));
+        
+        Assert::assertEquals($pagetitle->getText(),'Rider Alerts');
+    }
+    
     /**
      * @AfterScenario
      */
