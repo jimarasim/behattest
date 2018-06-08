@@ -7,6 +7,7 @@ use Behat\Gherkin\Node\TableNode;
 use Facebook\WebDriver\Chrome\ChromeDriver;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverExpectedCondition;
+use Pages\Home;
 use PHPUnit\Framework\Assert;
 
 /**
@@ -15,6 +16,7 @@ use PHPUnit\Framework\Assert;
 class HomepageContext implements Context
 {
     private $driver;
+    private $homePage;
     /**
      * Initializes context.
      *
@@ -26,7 +28,7 @@ class HomepageContext implements Context
     {
         putenv("webdriver.chrome.driver=selenium/chromedriver");
     }
-
+    
     /**
      * @Given an open chrome browser
      */
@@ -41,17 +43,16 @@ class HomepageContext implements Context
      */
     public function httpsSoundtransitOrgIsNavigatedTo()
     {
-        $this->driver->get('https://soundtransit.org');
+        $this->homePage = new Home($this->driver);
+        $this->homePage->open();
     }
 
     /**
      * @Given the home page button is visible
      */
     public function theHomePageButtonIsVisible()
-    {
-        $element = $this->driver->findElement(WebDriverBy::cssSelector('i.icon-home'));
-        
-        Assert::assertTrue($element->isDisplayed());  
+    {        
+        Assert::assertTrue($this->homePage->homePageButton()->isDisplayed());  
     }
 
     /**
@@ -59,9 +60,7 @@ class HomepageContext implements Context
      */
     public function theHomePageButtonIsEnabled()
     {
-        $element = $this->driver->findElement(WebDriverBy::cssSelector('i.icon-home'));
-        
-        Assert::assertTrue($element->isEnabled());
+        Assert::assertTrue($this->homePage->homePageButton()->isEnabled());
     }
 
     /**
@@ -69,9 +68,7 @@ class HomepageContext implements Context
      */
     public function iClickTheHomePageButton()
     {
-        $element = $this->driver->findElement(WebDriverBy::cssSelector('i.icon-home'));
-        
-        $element->click();
+        $this->homePage->homePageButton()->click();
     }
 
     /**
@@ -79,19 +76,15 @@ class HomepageContext implements Context
      */
     public function theUrlShouldBeHttpsWwwSoundtransitOrg()
     {
-        $url = $this->driver->getCurrentURL();
-        
-        Assert::assertEquals($url,'https://www.soundtransit.org/');  
+        Assert::assertEquals($this->driver->getCurrentURL(),'https://www.soundtransit.org/');  
     }
 
     /**
      * @Then the sound transit logo should appear
      */
     public function theSoundTransitLogoShouldAppear()
-    {
-        $logo = $this->driver->findElement(WebDriverBy::id('masthead'));
-        
-        Assert::assertTrue($logo->isDisplayed());
+    {        
+        Assert::assertTrue($this->homePage->soundTransitLogo()->isDisplayed());
     }
 
     /**
@@ -99,17 +92,15 @@ class HomepageContext implements Context
      */
     public function shouldBeDisplayed($arg1)
     {
-        $text = $this->driver->findElement(WebDriverBy::xpath('//*[contains(text(),"'.$arg1.'")]'));
-        
-        Assert::assertTrue($text->isDisplayed());
+        Assert::assertTrue($this->homePage->textDisplayed($arg1));
     }
     
-        /**
+     /**
      * @Given the Start Destination text field is enabled
      */
     public function theStartDestinationTextFieldIsEnabled()
     {
-        Assert::assertTrue($this->driver->findElement(WebDriverBy::id('edit-from'))->isEnabled());
+        Assert::assertTrue($this->homePage->startAddressTextbox()->isEnabled());
     }
 
     /**
@@ -117,7 +108,7 @@ class HomepageContext implements Context
      */
     public function theEndDestinationTextFieldIsEnabled()
     {
-        Assert::assertTrue($this->driver->findElement(WebDriverBy::id('edit-to'))->isEnabled());
+        Assert::assertTrue($this->homePage->endAddressTextbox()->isEnabled());
     }
 
     /**
@@ -125,7 +116,7 @@ class HomepageContext implements Context
      */
     public function thePlanTripButtonIsEnabled()
     {
-        Assert::assertTrue($this->driver->findElement(WebDriverBy::id('edit-submit--2'))->isEnabled());
+        Assert::assertTrue($this->homePage->planTripButton()->isEnabled());
     }
 
     /**
@@ -133,7 +124,7 @@ class HomepageContext implements Context
      */
     public function iSpecifyAsTheStartDestination($arg1)
     {
-        $this->driver->findElement(WebDriverBy::id('edit-from'))->sendKeys($arg1);
+        $this->homePage->startAddressTextbox()->sendKeys($arg1);
     }
 
     /**
@@ -141,7 +132,7 @@ class HomepageContext implements Context
      */
     public function asTheEndDestination($arg1)
     {
-        $this->driver->findElement(WebDriverBy::id('edit-to'))->sendKeys($arg1);
+        $this->homePage->endAddressTextbox()->sendKeys($arg1);
     }
 
     /**
@@ -149,7 +140,7 @@ class HomepageContext implements Context
      */
     public function clickThePlanTripButton()
     {
-        $this->driver->findElement(WebDriverBy::id('edit-submit--2'))->click();
+        $this->homePage->planTripButton()->click();
     }
 
     /**
