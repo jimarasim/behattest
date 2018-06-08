@@ -12,7 +12,7 @@ use PHPUnit\Framework\Assert;
 /**
  * Defines application features from the specific context.
  */
-class FeatureContext implements Context
+class HomepageContext implements Context
 {
     private $driver;
     /**
