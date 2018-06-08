@@ -14,12 +14,25 @@ abstract class Page {
     protected $driver;
     abstract public function url();
     
+    public function pageTitleHeader() {return $this->driver->findElement(WebDriverBy::id('page-title'));}
+    
     public function __construct($driver) {
         $this->driver = $driver;
     }
     
     public function open() {
         $this->driver->get($this->url());
+    }
+    
+    public function clickRiderAlertsMenuItem() {
+        $this->driver->action()->moveToElement($this->getMenuItemWithTextContaining('Schedules'))->perform();
+        $this->waitForDropdownMenu();
+        $this->getMenuItemWithHrefContaining('rider-alerts')->click();
+        
+        $riderAlertsPage = new RiderAlerts($this->driver);
+        $riderAlertsPage->waitForPageUrl();
+        
+        return $riderAlertsPage;
     }
     
     public function getMenuItemWithTextContaining($text){

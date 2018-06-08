@@ -31,10 +31,8 @@ The sound transit homepage when navigating to https://soundtransit.org
             | Seattle Center, WA | CenturyLink Field, WA|
             | Seattle Center, WA | capitol hill         |          
     
-    @alert
+    @smoke
     Scenario: Navigate to Alerts page
         Given the Schedules Menu is enabled
-        When I move the mouse over the Schedules Menu
-        And the menu popup appears
-        And I select the Alerts menu item
+        When I click the Alerts menu item
         Then the rider-alerts page is displayed

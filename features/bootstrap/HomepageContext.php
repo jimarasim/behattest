@@ -16,6 +16,7 @@ class HomepageContext implements Context
     private $driver;
     private $homePage;
     private $tripPlannerPage;
+    private $riderAlertsPage;
     /**
      * Initializes context.
      *
@@ -163,12 +164,10 @@ class HomepageContext implements Context
      */
     public function theRouteShouldFinishLoading()
     {
-        $this->driver->wait(10, 500)->until(
-            WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::id('loading'))
-        );
+        $this->tripPlannerPage->waitForMapToFinishLoading();
     }
     
-        /**
+    /**
      * @Given the Schedules Menu is enabled
      */
     public function theSchedulesMenuIsEnabled()
@@ -176,28 +175,13 @@ class HomepageContext implements Context
         Assert::assertTrue($this->homePage->getMenuItemWithTextContaining('Schedules')->isEnabled());
     }
 
-    /**
-     * @When I move the mouse over the Schedules Menu
-     */
-    public function iMoveTheMouseOverTheSchedulesMenu()
-    {
-        $this->driver->action()->moveToElement($this->homePage->getMenuItemWithTextContaining('Schedules'))->perform();     
-    }
 
     /**
-     * @When the menu popup appears
+     * @When I click the Alerts menu item
      */
-    public function theMenuPopupAppears()
+    public function iClickTheAlertsMenuItem()
     {
-        $this->homePage->waitForDropdownMenu();
-    }
-
-    /**
-     * @When I select the Alerts menu item
-     */
-    public function iSelectTheAlertsMenuItem()
-    {
-        $this->homePage->getMenuItemWithHrefContaining('rider-alerts')->click();
+        $this->riderAlertsPage = $this->homePage->clickRiderAlertsMenuItem();
     }
 
     /**
@@ -205,9 +189,7 @@ class HomepageContext implements Context
      */
     public function theRiderAlertsPageIsDisplayed()
     {
-        $pagetitle = $this->driver->findElement(WebDriverBy::id('page-title'));
-        
-        Assert::assertEquals($pagetitle->getText(),'Rider Alerts');
+        Assert::assertEquals($this->riderAlertsPage->pageTitleHeader()->getText(),'Rider Alerts');
     }
     
     /**
