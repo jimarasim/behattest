@@ -26,11 +26,12 @@ The sound transit homepage when navigating to https://soundtransit.org
         And the route should finish loading
         
         Examples:
-            | start_location     | end_location          |
-            | space needle       | safeco field          |
-            | Seattle Center, WA | CenturyLink Field, WA |
+            | start_location     | end_location|
+            | space needle       | safeco field         |
+            | Seattle Center, WA | CenturyLink Field, WA|
+            | Seattle Center, WA | capitol hill         |          
     
-    @smoke
+    @alert
     Scenario: Navigate to Alerts page
         Given the Schedules Menu is enabled
         When I move the mouse over the Schedules Menu

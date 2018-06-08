@@ -1,13 +1,11 @@
 <?php
 
-use Behat\Behat\Tester\Exception\PendingException;
 use Behat\Behat\Context\Context;
-use Behat\Gherkin\Node\PyStringNode;
-use Behat\Gherkin\Node\TableNode;
 use Facebook\WebDriver\Chrome\ChromeDriver;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use Pages\Home;
+use Pages\TripPlanner;
 use PHPUnit\Framework\Assert;
 
 /**
@@ -17,6 +15,7 @@ class HomepageContext implements Context
 {
     private $driver;
     private $homePage;
+    private $tripPlannerPage;
     /**
      * Initializes context.
      *
@@ -76,7 +75,7 @@ class HomepageContext implements Context
      */
     public function theUrlShouldBeHttpsWwwSoundtransitOrg()
     {
-        Assert::assertEquals($this->driver->getCurrentURL(),'https://www.soundtransit.org/');  
+        Assert::assertEquals($this->driver->getCurrentURL(),$this->homePage->url());  
     }
 
     /**
@@ -140,7 +139,7 @@ class HomepageContext implements Context
      */
     public function clickThePlanTripButton()
     {
-        $this->homePage->planTripButton()->click();
+        $this->tripPlannerPage = $this->homePage->clickPlanTripButton();
     }
 
     /**
@@ -148,9 +147,7 @@ class HomepageContext implements Context
      */
     public function theUrlShouldEndWithTripPlanner()
     {
-        $this->driver->wait(10, 500)->until(
-            WebDriverExpectedCondition::urlContains('/Trip-Planner')
-        );
+        Assert::assertContains('/Trip-Planner', $this->driver->getCurrentUrl());
     }
 
     /**
@@ -158,7 +155,7 @@ class HomepageContext implements Context
      */
     public function aMapShouldBeDisplayed()
     {
-        Assert::assertTrue($this->driver->findElement(WebDriverBy::id('map'))->isDisplayed());
+        Assert::assertTrue($this->tripPlannerPage->mapSvg()->isDisplayed());
     }
 
     /**
@@ -176,7 +173,7 @@ class HomepageContext implements Context
      */
     public function theSchedulesMenuIsEnabled()
     {
-        Assert::assertTrue($this->driver->findElement(WebDriverBy::xpath('//li[@data-type="menu_item"]/a[contains(text(),"Schedules")]'))->isEnabled());
+        Assert::assertTrue($this->homePage->getMenuItemWithTextContaining('Schedules')->isEnabled());
     }
 
     /**
@@ -184,10 +181,7 @@ class HomepageContext implements Context
      */
     public function iMoveTheMouseOverTheSchedulesMenu()
     {
-        $schedules = $this->driver->findElement(WebDriverBy::xpath('//li[@data-type="menu_item"]/a[contains(text(),"Schedules")]'));
-        
-        $this->driver->action()->moveToElement($schedules)->perform();
-        
+        $this->driver->action()->moveToElement($this->homePage->getMenuItemWithTextContaining('Schedules'))->perform();     
     }
 
     /**
@@ -195,10 +189,7 @@ class HomepageContext implements Context
      */
     public function theMenuPopupAppears()
     {
-        $dropdownmenu = $this->driver->findElement(WebDriverBy::cssSelector('div.dropdown-menu'));
-        $this->driver->wait(10, 500)->until(
-            WebDriverExpectedCondition::visibilityOf($dropdownmenu)
-        );
+        $this->homePage->waitForDropdownMenu();
     }
 
     /**
@@ -206,7 +197,7 @@ class HomepageContext implements Context
      */
     public function iSelectTheAlertsMenuItem()
     {
-        $this->driver->findElement(WebDriverBy::xpath('//li[@data-type="menu_item"]/a[contains(@href,"rider-alerts")]'))->click();
+        $this->homePage->getMenuItemWithHrefContaining('rider-alerts')->click();
     }
 
     /**
