@@ -192,6 +192,46 @@ class HomepageContext implements Context
         Assert::assertEquals($this->riderAlertsPage->pageTitleHeader()->getText(),'Rider Alerts');
     }
     
+        /**
+     * @Given top-level menu item :arg1 is enabled
+     */
+    public function topLevelMenuItemIsEnabled($arg1)
+    {
+        Assert::assertTrue($this->homePage->getMenuItemWithTextContaining($arg1)->isEnabled());
+    }
+
+    /**
+     * @When I click the :arg1
+     */
+    public function iClickThe($arg1)
+    {
+        $this->homePage->getMenuItemWithTextContaining($arg1)->click();
+    }
+
+    /**
+     * @Then the :arg1 should be navigated to
+     */
+    public function theShouldBeNavigatedTo($arg1)
+    {
+        Assert::assertEquals($this->homePage->currentUrl(),$arg1);
+    }
+
+    /**
+     * @Then the page title should be :arg1
+     */
+    public function thePageTitleShouldBe($arg1)
+    {
+        Assert::assertEquals($this->homePage->pageTitleHeader()->getText(),$arg1);
+    }
+
+    /**
+     * @Then the :arg1 should exist
+     */
+    public function theShouldExist($arg1)
+    {
+        Assert::assertTrue($this->homePage->xpathElementEnabled($arg1));
+    }
+    
     /**
      * @AfterScenario
      */

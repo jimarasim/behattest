@@ -36,3 +36,21 @@ The sound transit homepage when navigating to https://soundtransit.org
         Given the Schedules Menu is enabled
         When I click the Alerts menu item
         Then the rider-alerts page is displayed
+
+    @menu
+    Scenario Outline: Top-level Menu Items Navigate correctly
+        Given top-level menu item "<menu_item>" is enabled
+        When I click the "<menu_item>"
+        Then the "<page_url>" should be navigated to
+        And the page title should be "<page_title>"
+        And the "<unique_element_xpath>" should exist
+
+        Examples:
+            | menu_item     | page_url                                      | page_title    | unique_element_xpath                                          | 
+            | Schedules     | https://www.soundtransit.org/schedule         | Schedules     | //select[@id='edit-route-page-id']                            |
+            | Fares & Passes| https://www.soundtransit.org/Fares-and-Passes | Fares & Passes| //img[@alt='Image showing stylized ORCA card in hand']        |
+            | Rider Guide   | https://www.soundtransit.org/Rider-Guide      | Rider Guide   | //a[contains(text(),'Airport service')]                       |
+            | Trip Planner  | https://www.soundtransit.org/tripplanner      | Trip Planner  | //input[@id='from']                                           |
+            | Maps          | https://www.soundtransit.org/Maps             | Maps          | //div[@id='tripplanner-wrap']                                 |
+            | Contact Us    | https://www.soundtransit.org/contact-us       | Contact us    | //img[@alt='Exterior photo of the Union Station building.']   |
+            | The Platform  | https://www.soundtransit.org/blog/platform    | The Platform  | //a[contains(text(),'About The Platform')]                    |

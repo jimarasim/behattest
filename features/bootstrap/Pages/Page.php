@@ -14,7 +14,7 @@ abstract class Page {
     protected $driver;
     abstract public function url();
     
-    public function pageTitleHeader() {return $this->driver->findElement(WebDriverBy::id('page-title'));}
+    public function pageTitleHeader() {return $this->driver->findElement(WebDriverBy::cssSelector('h1.title'));}
     
     public function __construct($driver) {
         $this->driver = $driver;
@@ -22,6 +22,10 @@ abstract class Page {
     
     public function open() {
         $this->driver->get($this->url());
+    }
+    
+    public function currentUrl() {
+        return $this->driver->getCurrentURL();
     }
     
     public function clickRiderAlertsMenuItem() {
@@ -33,6 +37,10 @@ abstract class Page {
         $riderAlertsPage->waitForPageUrl();
         
         return $riderAlertsPage;
+    }
+    
+    public function xpathElementEnabled($xpath) {
+        return $this->driver->findElement(WebDriverBy::xpath($xpath))->isEnabled();
     }
     
     public function getMenuItemWithTextContaining($text){
