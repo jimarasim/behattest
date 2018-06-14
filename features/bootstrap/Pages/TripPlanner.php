@@ -25,9 +25,20 @@ class TripPlanner extends Page {
     public $seattleOffset = array("x"=>-6, "y"=>-43, "latlon"=>"47.611340,-122.335706");
     public $bellevueOffset = array("x"=>20, "y"=>-45, "latlon"=>"47.618746,-122.192883");
     
-    //visibility (checks if elements are displayed or enabled)
+    //state checks
     public function tripResultSummaryTableEnabled() {
         return $this->tripResultSummaryTable()->isEnabled();
+    }
+    
+    public function startAddressMatchesGeocode() {
+        $pattern = '/^[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)$/';
+        $subject = $this->getStartAddressText();
+        
+        if(preg_match($pattern,$subject)===1) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
     }
     
     //waits (waiting for page updates)

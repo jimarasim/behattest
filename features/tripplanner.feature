@@ -19,13 +19,13 @@ The sound transit trip planner page at https://soundtransit.org/tripplanner
     Scenario: Add seattle geocoordinate via map
         Given I context click the map on seattle
         When I click Start Trip Here
-        Then seattles geocoordinate should appear in the start address textbox
+        Then a geocoordinate should appear in the start address textbox
 
     @geobellevue
     Scenario: Add bellevue geocoordinate via map
         Given I context click the map on bellevue
         When I click Start Trip Here
-        Then bellevues geocoordinate should appear in the start address textbox
+        Then a geocoordinate should appear in the start address textbox
 
     @feature @georoute
     Scenario: Obtain route through map geocoordinates

@@ -98,18 +98,10 @@ class TripPlannerContext implements Context {
     }
 
     /**
-     * @Then seattles geocoordinate should appear in the start address textbox
+     * @Then a geocoordinate should appear in the start address textbox
      */
-    public function seattlesGeocoordinateShouldAppearInTheStartAddressTextbox()
+    public function aGeocoordinateShouldAppearInTheStartAddressTextbox()
     {
-        Assert::assertEquals($this->tripPlannerPage->seattleOffset["latlon"],$this->tripPlannerPage->getStartAddressText());
-    }
-    
-    /**
-     * @Then bellevues geocoordinate should appear in the start address textbox
-     */
-    public function bellevuesGeocoordinateShouldAppearInTheStartAddressTextbox()
-    {
-        Assert::assertEquals($this->tripPlannerPage->bellevueOffset["latlon"],$this->tripPlannerPage->getStartAddressText());
+        Assert::assertTrue($this->tripPlannerPage->startAddressMatchesGeocode());
     }
 }

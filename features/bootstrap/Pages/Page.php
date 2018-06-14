@@ -18,6 +18,7 @@ abstract class Page {
         $this->driver = $driver;
     }
     
+    //elements
     public function pageTitleHeader() {return $this->driver->findElement(WebDriverBy::cssSelector('h1.title'));}
     
     public function open() {
