@@ -55,4 +55,44 @@ class TripPlannerContext implements Context {
     {
         Assert::assertTrue($this->tripPlannerPage->tripResultSummaryTableEnabled());
     }
+    
+     /**
+     * @Given I context click the map on seattle
+     */
+    public function iContextClickTheMapOnSeattle()
+    {
+        $this->tripPlannerPage->contextClickMapOnSeattle();
+    }
+    
+    /**
+     * @Given I context click the map on bellevue
+     */
+    public function iContextClickTheMapOnBellevue()
+    {
+        $this->tripPlannerPage->contextClickMapOnBellevue();
+    }
+
+    /**
+     * @When I click Start Trip Here
+     */
+    public function iClickStartTripHere()
+    {
+        $this->tripPlannerPage->clickMapStartTripHereFromContextClick();
+    }
+
+    /**
+     * @Then seattles geocoordinate should appear in the start address textbox
+     */
+    public function seattlesGeocoordinateShouldAppearInTheStartAddressTextbox()
+    {
+        Assert::assertEquals($this->tripPlannerPage->seattleOffset["latlon"],$this->tripPlannerPage->getStartAddressText());
+    }
+    
+    /**
+     * @Then bellevues geocoordinate should appear in the start address textbox
+     */
+    public function bellevuesGeocoordinateShouldAppearInTheStartAddressTextbox()
+    {
+        Assert::assertEquals($this->tripPlannerPage->bellevueOffset["latlon"],$this->tripPlannerPage->getStartAddressText());
+    }
 }

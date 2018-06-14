@@ -1,3 +1,4 @@
+@homepage
 Feature: Soundtransit Homepage
 The sound transit homepage when navigating to https://soundtransit.org
     Background:
