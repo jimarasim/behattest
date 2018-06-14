@@ -26,3 +26,12 @@ The sound transit trip planner page at https://soundtransit.org/tripplanner
         Given I context click the map on bellevue
         When I click Start Trip Here
         Then bellevues geocoordinate should appear in the start address textbox
+
+    @feature @georoute
+    Scenario: Obtain route through map geocoordinates
+        Given I context click the map on seattle
+        And I click Start Trip Here
+        When I context click the map on bellevue
+        And click End Trip Here
+        Then the map should load a route 
+        And a route is displayed

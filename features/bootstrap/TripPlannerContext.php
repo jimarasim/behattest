@@ -79,6 +79,23 @@ class TripPlannerContext implements Context {
     {
         $this->tripPlannerPage->clickMapStartTripHereFromContextClick();
     }
+    
+    /**
+     * @When click End Trip Here
+     */
+    public function clickEndTripHere()
+    {
+        $this->tripPlannerPage->clickMapEndTripHereFromContextClick();
+    }
+    
+    /**
+     * @Then the map should load a route
+     */
+    public function theMapShouldLoadARoute()
+    {
+        $this->tripPlannerPage->waitForMapToStartLoading();
+        $this->tripPlannerPage->waitForMapToFinishLoading();
+    }
 
     /**
      * @Then seattles geocoordinate should appear in the start address textbox
