@@ -12,7 +12,7 @@ class Home extends Page {
     public function planTripButton() {return $this->driver->findElement(WebDriverBy::id('edit-submit--2'));}
     public function soundTransitLogo() {return $this->driver->findElement(WebDriverBy::id('masthead'));}
     public function startAddressTextbox() {return $this->driver->findElement(WebDriverBy::id('edit-from'));}
-
+    
     public function clickPlanTripButton() {
         $this->planTripButton()->click();
         

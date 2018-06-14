@@ -13,37 +13,18 @@ use PHPUnit\Framework\Assert;
  */
 class HomepageContext implements Context
 {
-    private $driver;
     private $homePage;
     private $tripPlannerPage;
     private $riderAlertsPage;
-    /**
-     * Initializes context.
-     *
-     * Every scenario gets its own context instance.
-     * You can also pass arbitrary arguments to the
-     * context constructor through behat.yml.
-     */
-    public function __construct()
-    {
-        putenv("webdriver.chrome.driver=selenium/chromedriver");
-    }
     
-    /**
-     * @Given an open chrome browser
-     */
-    public function anOpenChromeBrowser()
-    {
-        
-        $this->driver = ChromeDriver::start();
-    }
 
     /**
      * @Given https:\/\/soundtransit.org is navigated to
      */
     public function httpsSoundtransitOrgIsNavigatedTo()
     {
-        $this->homePage = new Home($this->driver);
+        $this->homePage = new Home(CommonContext::$driver);
+        
         $this->homePage->open();
     }
 
@@ -76,7 +57,7 @@ class HomepageContext implements Context
      */
     public function theUrlShouldBeHttpsWwwSoundtransitOrg()
     {
-        Assert::assertEquals($this->driver->getCurrentURL(),$this->homePage->url());  
+        Assert::assertEquals($this->homePage->currentUrl(),$this->homePage->url());  
     }
 
     /**
@@ -148,7 +129,7 @@ class HomepageContext implements Context
      */
     public function theUrlShouldEndWithTripPlanner()
     {
-        Assert::assertContains('/Trip-Planner', $this->driver->getCurrentUrl());
+        Assert::assertContains('/Trip-Planner', $this->homePage->currentUrl());
     }
 
     /**
@@ -230,15 +211,5 @@ class HomepageContext implements Context
     public function theShouldExist($arg1)
     {
         Assert::assertTrue($this->homePage->xpathElementEnabled($arg1));
-    }
-    
-    /**
-     * @AfterScenario
-     */
-    public function after()
-    {
-        if($this->driver) {
-            $this->driver->quit();
-        }
     }
 }

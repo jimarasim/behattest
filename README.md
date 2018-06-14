@@ -10,4 +10,5 @@ To run the tests on OSX:
     php composer.phar install
 4. run bhat
     vendor/bin/behat
+    vendor/bin/behat --tags=@smoke
 

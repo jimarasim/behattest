@@ -14,11 +14,11 @@ abstract class Page {
     protected $driver;
     abstract public function url();
     
-    public function pageTitleHeader() {return $this->driver->findElement(WebDriverBy::cssSelector('h1.title'));}
-    
     public function __construct($driver) {
         $this->driver = $driver;
     }
+    
+    public function pageTitleHeader() {return $this->driver->findElement(WebDriverBy::cssSelector('h1.title'));}
     
     public function open() {
         $this->driver->get($this->url());

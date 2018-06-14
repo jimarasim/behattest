@@ -3,4 +3,6 @@ default:
         default:            
             contexts:
                 - HomepageContext
+                - TripPlannerContext
+                - CommonContext
     
