@@ -15,13 +15,13 @@ class CommonContext implements Context{
     /**
      * @Given an open chrome browser
      */
-    public static function anOpenChromeBrowser()
+    public function anOpenChromeBrowser()
     {
         CommonContext::$driver = WebDriverFactory::getDriver('chrome');       
     }
     
     /** @AfterStep */
-    public static function afterStep(AfterStepScope $scope)
+    public function afterStep(AfterStepScope $scope)
     {
         //TAKE SCREENSHOT IF STEP FAILED
         if(!$scope->getTestResult()->isPassed()) {
@@ -35,7 +35,7 @@ class CommonContext implements Context{
     /**
      * @AfterScenario
      */
-    public static function after()
+    public function after()
     {
         CommonContext::$driver->quit();
     }

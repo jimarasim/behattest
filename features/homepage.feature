@@ -13,7 +13,7 @@ The sound transit homepage when navigating to https://soundtransit.org
         And the sound transit logo should appear
         And "Plan your trip!" should be displayed
 
-    @feature
+    @feature @hometrip
     Scenario Outline: Plan a Trip Happy Path
         Given the Start Destination text field is enabled
         And the End Destination text field is enabled
