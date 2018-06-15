@@ -22,12 +22,16 @@ class TripPlanner extends Page {
     public function tripResultSummaryTable() {return $this->driver->findElement(WebDriverBy::id('tripresult-summaries'));}
 
     //map location offsets; offsets from the center of the map element
-    public $seattleOffset = array("x"=>-6, "y"=>-43, "latlon"=>"47.611340,-122.335706");
-    public $bellevueOffset = array("x"=>20, "y"=>-45, "latlon"=>"47.618746,-122.192883");
+    public $seattleOffset = array("x"=>-6, "y"=>-43);
+    public $bellevueOffset = array("x"=>20, "y"=>-45);
     
     //state checks
     public function tripResultSummaryTableEnabled() {
         return $this->tripResultSummaryTable()->isEnabled();
+    }
+
+    public function startAddressTextboxEnabled() {
+        return $this->startAddressTextbox()->isEnabled();
     }
     
     public function startAddressMatchesGeocode() {
@@ -52,6 +56,13 @@ class TripPlanner extends Page {
         $this->driver->wait(10, 500)->until(
             WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::id('loading'))
         );
+    }
+    
+    public function waitForAlert() {
+        $this->driver->wait(10, 500)->until(
+            WebDriverExpectedCondition::alertIsPresent()
+        );
+        
     }
     
     //clicks
@@ -79,8 +90,10 @@ class TripPlanner extends Page {
     
     public function clickPlanTripButton() {
         $this->planTripButton()->click();
-        $this->waitForMapToStartLoading();
-        $this->waitForMapToFinishLoading();
+    }
+    
+    public function acceptAlert() {
+        $this->driver->switchTo()->alert()->accept();
     }
     
     //input (sending data to elements)
@@ -92,9 +105,21 @@ class TripPlanner extends Page {
         $this->endAddressTextbox()->sendKeys($address);
     }
     
+    public function clearStartAddress() {
+        $this->startAddressTextbox()->clear();
+    }
+    
+    public function clearEndAddress() {
+        $this->endAddressTextbox()->clear();
+    }
+    
     //values (retrieving data from elements)
     public function getStartAddressText() {
         $startAddressText = $this->driver->executeScript("return document.getElementById('from').value;");
         return $startAddressText;
+    }
+    
+    public function getAlertMessage() {
+        return $this->driver->switchTo()->alert()->getText();
     }
 }

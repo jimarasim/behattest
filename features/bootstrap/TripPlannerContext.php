@@ -2,6 +2,7 @@
 
 use Behat\Behat\Context\Context;
 use Behat\Behat\Tester\Exception\PendingException;
+use Behat\Gherkin\Node\PyStringNode;
 use Pages\TripPlanner;
 use PHPUnit\Framework\Assert;
 
@@ -48,6 +49,7 @@ class TripPlannerContext implements Context {
         $this->tripPlannerPage->clickPlanTripButton();
     }
 
+    
     /**
      * @Then a route is displayed
      */
@@ -103,5 +105,44 @@ class TripPlannerContext implements Context {
     public function aGeocoordinateShouldAppearInTheStartAddressTextbox()
     {
         Assert::assertTrue($this->tripPlannerPage->startAddressMatchesGeocode());
+    }
+    
+        /**
+     * @Given I havent entered a start address
+     */
+    public function iHaventEnteredAStartAddress()
+    {
+        $this->tripPlannerPage->clearStartAddress();
+    }
+
+    /**
+     * @Given I havent entered an end address
+     */
+    public function iHaventEnteredAnEndAddress()
+    {
+        $this->tripPlannerPage->clearEndAddress();
+    }
+
+    /**
+     * @Then an alert pops up saying:
+     */
+    public function anAlertPopsUpSaying(PyStringNode $string)
+    {
+        $this->tripPlannerPage->waitForAlert();
+        
+        $message = $this->tripPlannerPage->getAlertMessage();
+        
+        Assert::assertTrue(strpos($message,(string)$string)!==FALSE);
+    }
+
+    /**
+     * @Then alert can be dismissed by clicking ok
+     */
+    public function alertCanBeDismissedByClickingOk()
+    {
+        $this->tripPlannerPage->acceptAlert();
+        
+        //check for an element on the page to verify the alert has closed
+        Assert::assertTrue($this->tripPlannerPage->startAddressTextboxEnabled());
     }
 }

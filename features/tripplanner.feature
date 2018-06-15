@@ -10,7 +10,8 @@ The sound transit trip planner page at https://soundtransit.org/tripplanner
         Given I set the start address to "<start_address>"
         And the end address to "<end_address>"
         When I click the plan trip button
-        Then a route is displayed
+        Then the map should load a route
+        And a route is displayed
         Examples:
         |start_address                      |end_address                |
         |1530 3rd Ave, Seattle              |10850 NE 6th St, Bellevue  |
@@ -35,3 +36,14 @@ The sound transit trip planner page at https://soundtransit.org/tripplanner
         And click End Trip Here
         Then the map should load a route 
         And a route is displayed
+
+    @empty
+    Scenario: empty start and end address
+        Given I havent entered a start address
+        And I havent entered an end address
+        When I click the plan trip button
+        Then an alert pops up saying:
+            """
+            Trip planner requires both start and end locations.
+            """
+        And alert can be dismissed by clicking ok
