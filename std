@@ -1,0 +1,102 @@
+[36m@homepage[39m
+[1mFeature:[22m Soundtransit Homepage
+  The sound transit homepage when navigating to https://soundtransit.org
+
+  [1mBackground:[22m                                    [30m# features/homepage.feature:4[39m
+    [32mGiven an open chrome browser[39m                 [30m# CommonContext::anOpenChromeBrowser()[39m
+    [32mAnd https://soundtransit.org is navigated to[39m [30m# HomepageContext::httpsSoundtransitOrgIsNavigatedTo()[39m
+
+  [36m@smoke[39m
+  [1mScenario:[22m Home Page Button                            [30m# features/homepage.feature:9[39m
+    [32mGiven the home page button is visible[39m               [30m# HomepageContext::theHomePageButtonIsVisible()[39m
+    [32mAnd the home page button is enabled[39m                 [30m# HomepageContext::theHomePageButtonIsEnabled()[39m
+    [32mWhen I click the home page button[39m                   [30m# HomepageContext::iClickTheHomePageButton()[39m
+    [32mThen the url should be https://www.soundtransit.org[39m [30m# HomepageContext::theUrlShouldBeHttpsWwwSoundtransitOrg()[39m
+    [32mAnd the sound transit logo should appear[39m            [30m# HomepageContext::theSoundTransitLogoShouldAppear()[39m
+    [32mAnd "[39m[32;1mPlan your trip![39;22m[32m" should be displayed[39m           [30m# HomepageContext::shouldBeDisplayed()[39m
+
+  [36m@feature @hometrip[39m
+  [1mScenario Outline:[22m Plan a Trip Happy Path                     [30m# features/homepage.feature:18[39m
+    [36mGiven the Start Destination text field is enabled[39m          [30m# HomepageContext::theStartDestinationTextFieldIsEnabled()[39m
+    [36mAnd the End Destination text field is enabled[39m              [30m# HomepageContext::theEndDestinationTextFieldIsEnabled()[39m
+    [36mAnd the Plan Trip button is enabled[39m                        [30m# HomepageContext::thePlanTripButtonIsEnabled()[39m
+    [36mWhen I specify "[39m[36;1m<start_location>[39;22m[36m" as the Start Destination[39m [30m# HomepageContext::iSpecifyAsTheStartDestination()[39m
+    [36mAnd "[39m[36;1m<end_location>[39;22m[36m" as the End Destination[39m                [30m# HomepageContext::asTheEndDestination()[39m
+    [36mAnd click the Plan Trip button[39m                             [30m# HomepageContext::clickThePlanTripButton()[39m
+    [36mThen the url should end with /Trip-Planner[39m                 [30m# HomepageContext::theUrlShouldEndWithTripPlanner()[39m
+    [36mAnd a map should be displayed[39m                              [30m# HomepageContext::aMapShouldBeDisplayed()[39m
+    [36mAnd the route should finish loading[39m                        [30m# HomepageContext::theRouteShouldFinishLoading()[39m
+
+    [1mExamples:[22m
+      |[36;1m start_location     [39;22m|[36;1m end_location          [39;22m|
+      |[32m space needle       [39m|[32m safeco field          [39m|
+      |[32m Seattle Center, WA [39m|[32m CenturyLink Field, WA [39m|
+      |[32m Seattle Center, WA [39m|[32m capitol hill          [39m|
+
+  [36m@smoke[39m
+  [1mScenario:[22m Navigate to Alerts page         [30m# features/homepage.feature:36[39m
+    [32mGiven the Schedules Menu is enabled[39m     [30m# HomepageContext::theSchedulesMenuIsEnabled()[39m
+    [32mWhen I click the Alerts menu item[39m       [30m# HomepageContext::iClickTheAlertsMenuItem()[39m
+    [32mThen the rider-alerts page is displayed[39m [30m# HomepageContext::theRiderAlertsPageIsDisplayed()[39m
+
+  [36m@menu[39m
+  [1mScenario Outline:[22m Top-level Menu Items Navigate correctly [30m# features/homepage.feature:42[39m
+    [36mGiven top-level menu item "[39m[36;1m<menu_item>[39;22m[36m" is enabled[39m      [30m# HomepageContext::topLevelMenuItemIsEnabled()[39m
+    [36mWhen I click the "[39m[36;1m<menu_item>[39;22m[36m"[39m                          [30m# HomepageContext::iClickThe()[39m
+    [36mThen the "[39m[36;1m<page_url>[39;22m[36m" should be navigated to[39m            [30m# HomepageContext::theShouldBeNavigatedTo()[39m
+    [36mAnd the page title should be "[39m[36;1m<page_title>[39;22m[36m"[39m             [30m# HomepageContext::thePageTitleShouldBe()[39m
+    [36mAnd the "[39m[36;1m<unique_element_xpath>[39;22m[36m" should exist[39m           [30m# HomepageContext::theShouldExist()[39m
+
+    [1mExamples:[22m
+      |[36;1m menu_item      [39;22m|[36;1m page_url                                      [39;22m|[36;1m page_title     [39;22m|[36;1m unique_element_xpath                                        [39;22m|
+      |[32m Schedules      [39m|[32m https://www.soundtransit.org/schedule         [39m|[32m Schedules      [39m|[32m //select[@id='edit-route-page-id']                          [39m|
+      |[32m Fares & Passes [39m|[32m https://www.soundtransit.org/Fares-and-Passes [39m|[32m Fares & Passes [39m|[32m //img[@alt='Image showing stylized ORCA card in hand']      [39m|
+      |[32m Rider Guide    [39m|[32m https://www.soundtransit.org/Rider-Guide      [39m|[32m Rider Guide    [39m|[32m //a[contains(text(),'Airport service')]                     [39m|
+      |[32m Trip Planner   [39m|[32m https://www.soundtransit.org/tripplanner      [39m|[32m Trip Planner   [39m|[32m //input[@id='from']                                         [39m|
+      |[32m Maps           [39m|[32m https://www.soundtransit.org/Maps             [39m|[32m Maps           [39m|[32m //div[@id='tripplanner-wrap']                               [39m|
+      |[32m Contact Us     [39m|[32m https://www.soundtransit.org/contact-us       [39m|[32m Contact us     [39m|[32m //img[@alt='Exterior photo of the Union Station building.'] [39m|
+      |[32m The Platform   [39m|[32m https://www.soundtransit.org/blog/platform    [39m|[32m The Platform   [39m|[32m //a[contains(text(),'About The Platform')]                  [39m|
+
+[36m@tripplanner[39m
+[1mFeature:[22m Trip Planner Page
+  The sound transit trip planner page at https://soundtransit.org/tripplanner
+
+  [1mBackground:[22m                                                [30m# features/tripplanner.feature:4[39m
+    [32mGiven an open chrome browser[39m                             [30m# CommonContext::anOpenChromeBrowser()[39m
+    [32mAnd https://soundtransit.org/tripplanner is navigated to[39m [30m# TripPlannerContext::httpsSoundtransitOrgTripplannerIsNavigatedTo()[39m
+
+  [36m@feature @triptrip[39m
+  [1mScenario Outline:[22m Plan a trip happy path             [30m# features/tripplanner.feature:9[39m
+    [36mGiven I set the start address to "[39m[36;1m<start_address>[39;22m[36m"[39m [30m# TripPlannerContext::iSetTheStartAddressTo()[39m
+    [36mAnd the end address to "[39m[36;1m<end_address>[39;22m[36m"[39m             [30m# TripPlannerContext::theEndAddressTo()[39m
+    [36mWhen I click the plan trip button[39m                  [30m# TripPlannerContext::iClickThePlanTripButton()[39m
+    [36mThen a route is displayed[39m                          [30m# TripPlannerContext::aRouteIsDisplayed()[39m
+
+    [1mExamples:[22m
+      |[36;1m start_address         [39;22m|[36;1m end_address               [39;22m|
+      |[32m 1530 3rd Ave, Seattle [39m|[32m 10850 NE 6th St, Bellevue [39m|
+
+  [36m@smoke @geoseattle[39m
+  [1mScenario:[22m Add seattle geocoordinate via map                       [30m# features/tripplanner.feature:19[39m
+    [32mGiven I context click the map on seattle[39m                        [30m# TripPlannerContext::iContextClickTheMapOnSeattle()[39m
+    [32mWhen I click Start Trip Here[39m                                    [30m# TripPlannerContext::iClickStartTripHere()[39m
+    [32mThen a geocoordinate should appear in the start address textbox[39m [30m# TripPlannerContext::aGeocoordinateShouldAppearInTheStartAddressTextbox()[39m
+
+  [36m@geobellevue[39m
+  [1mScenario:[22m Add bellevue geocoordinate via map                      [30m# features/tripplanner.feature:25[39m
+    [32mGiven I context click the map on bellevue[39m                       [30m# TripPlannerContext::iContextClickTheMapOnBellevue()[39m
+    [32mWhen I click Start Trip Here[39m                                    [30m# TripPlannerContext::iClickStartTripHere()[39m
+    [32mThen a geocoordinate should appear in the start address textbox[39m [30m# TripPlannerContext::aGeocoordinateShouldAppearInTheStartAddressTextbox()[39m
+
+  [36m@feature @georoute[39m
+  [1mScenario:[22m Obtain route through map geocoordinates [30m# features/tripplanner.feature:31[39m
+    [32mGiven I context click the map on seattle[39m        [30m# TripPlannerContext::iContextClickTheMapOnSeattle()[39m
+    [32mAnd I click Start Trip Here[39m                     [30m# TripPlannerContext::iClickStartTripHere()[39m
+    [32mWhen I context click the map on bellevue[39m        [30m# TripPlannerContext::iContextClickTheMapOnBellevue()[39m
+    [32mAnd click End Trip Here[39m                         [30m# TripPlannerContext::clickEndTripHere()[39m
+    [32mThen the map should load a route[39m                [30m# TripPlannerContext::theMapShouldLoadARoute()[39m
+    [32mAnd a route is displayed[39m                        [30m# TripPlannerContext::aRouteIsDisplayed()[39m
+
+16 scenarios ([32m16 passed[39m)
+119 steps ([32m119 passed[39m)
+1m39.12s (9.58Mb)

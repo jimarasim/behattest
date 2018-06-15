@@ -5,4 +5,18 @@ default:
                 - HomepageContext
                 - TripPlannerContext
                 - CommonContext
-    
+    formatters: 
+        html:
+          output_path: "%paths.base%/build/"
+        pretty:
+          output_path: null
+    extensions:
+        elkan\BehatFormatter\BehatFormatterExtension:
+          projectName: BehatTest
+          name: html
+          renderer: Twig,Behat2
+          file_name: Index
+          print_args: true
+          print_outp: true
+          loop_break: true
+          show_tags: true

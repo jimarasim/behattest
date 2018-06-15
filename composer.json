@@ -1,7 +1,8 @@
 {
     "require-dev": {
         "behat/behat": "^3.4",
-        "phpunit/phpunit": "^7.2"
+        "phpunit/phpunit": "^7.2",
+        "elkan/behatformatter": "^1.2"
     },
     "require": {
         "facebook/webdriver": "^1.6"
