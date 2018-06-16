@@ -47,3 +47,16 @@ The sound transit trip planner page at https://soundtransit.org/tripplanner
             Trip planner requires both start and end locations.
             """
         And alert can be dismissed by clicking ok
+
+    @sorry
+    Scenario Outline: address outside of service area
+        Given I set the start address to "<start_address>"
+        And the end address to "<end_address>"
+        When I click the plan trip button
+        Then I see a We're Sorry message
+        Examples:
+        |start_address  |end_address        |
+        |Bellingham, WA |Seattle, WA        |
+        |Seattle, WA    |Bellingham, WA     |
+        |Vancouver, WA  |Bellingham, WA     |
+        

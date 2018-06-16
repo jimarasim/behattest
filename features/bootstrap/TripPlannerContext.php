@@ -145,4 +145,12 @@ class TripPlannerContext implements Context {
         //check for an element on the page to verify the alert has closed
         Assert::assertTrue($this->tripPlannerPage->startAddressTextboxEnabled());
     }
+    
+     /**
+     * @Then I see a We're Sorry message
+     */
+    public function iSeeAWereSorryMessage()
+    {
+        $this->tripPlannerPage->waitForWereSorryHeader();
+    }
 }

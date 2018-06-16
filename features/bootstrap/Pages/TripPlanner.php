@@ -61,8 +61,13 @@ class TripPlanner extends Page {
     public function waitForAlert() {
         $this->driver->wait(10, 500)->until(
             WebDriverExpectedCondition::alertIsPresent()
+        );      
+    }
+    
+    public function waitForWereSorryHeader() {
+        $this->driver->wait(10, 500)->until(
+            WebDriverExpectedCondition::visibilityOfElementLocated(WebDriverBy::xpath("//div[@id=\"trip-data\"]/div[@id=\"no-results\"]/h3[contains(text(),\"We're sorry!\")]"))
         );
-        
     }
     
     //clicks
