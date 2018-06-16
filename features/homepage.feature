@@ -2,10 +2,10 @@
 Feature: Soundtransit Homepage
 The sound transit homepage when navigating to https://soundtransit.org
     Background:
-        Given an open chrome browser
+        Given an open browser
         And https://soundtransit.org is navigated to
 
-    @smoke
+    @smoke @home
     Scenario: Home Page Button
         Given the home page button is visible
         And the home page button is enabled

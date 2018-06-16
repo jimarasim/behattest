@@ -11,13 +11,18 @@ use Utilities\WebDriverFactory;
  */
 class CommonContext implements Context{
     public static $driver;
+    public static $browser;
+    
+    public function __construct($browser) {
+        $this->browser = $browser;
+    }
     
     /**
-     * @Given an open chrome browser
+     * @Given an open browser
      */
     public function anOpenChromeBrowser()
     {
-        CommonContext::$driver = WebDriverFactory::getDriver('chrome');       
+        CommonContext::$driver = WebDriverFactory::getDriver($this->browser);       
     }
     
     /** @AfterStep */

@@ -3,6 +3,9 @@
 namespace Utilities;
 
 use Facebook\WebDriver\Chrome\ChromeDriver;
+use Facebook\WebDriver\Firefox\FirefoxDriver;
+use Facebook\WebDriver\Remote\DesiredCapabilities;
+use Facebook\WebDriver\Remote\RemoteWebDriver;
 
 /**
  * Description of WebDriverFactory
@@ -17,6 +20,11 @@ class WebDriverFactory {
         if ($browser === 'chrome') {
             putenv("webdriver.chrome.driver=selenium/chromedriver");
             $driver = ChromeDriver::start();
+        } elseif ($browser === 'firefox') {
+            //NOTE: FIREFOX must be run with selenium grid version 3.8.1 because it requires -enablePassThrough false, which isn't available on later versions of grid
+            $host = 'http://localhost:4444/wd/hub';
+            $capabilities = DesiredCapabilities::firefox();
+            $driver = RemoteWebDriver::create($host, $capabilities);         
         } else {
             throw new Exception('INVALID BROWSER SPECIFIED');
         }

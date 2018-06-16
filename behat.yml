@@ -1,10 +1,17 @@
 default:
     suites:
-        default:            
+        chrome:            
             contexts:
                 - HomepageContext
                 - TripPlannerContext
-                - CommonContext
+                - CommonContext:
+                    browser: 'chrome'
+        firefox:            
+            contexts:
+                - HomepageContext
+                - TripPlannerContext
+                - CommonContext:
+                    browser: 'firefox'            
     formatters: 
         html:
           output_path: "%paths.base%/build/"
