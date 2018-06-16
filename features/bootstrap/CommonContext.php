@@ -13,6 +13,11 @@ class CommonContext implements Context{
     public static $driver;
     public static $browser;
     
+    /*
+     * $browser parameter comes from behat.yml as a parameter and must be specified
+     * chrome and firefox are supported
+     * for firefox, selenium grid hub and firefox node must be running. run selenium/HUB.sh and selenium/FIREFOX_LOCAL.sh
+     */
     public function __construct($browser) {
         $this->browser = $browser;
     }
