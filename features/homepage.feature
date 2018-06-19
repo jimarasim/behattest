@@ -32,7 +32,7 @@ The sound transit homepage when navigating to https://soundtransit.org
             | Seattle Center, WA | CenturyLink Field, WA|
             | Seattle Center, WA | capitol hill         |          
     
-    @smoke
+    @smoke @alerts
     Scenario: Navigate to Alerts page
         Given the Schedules Menu is enabled
         When I click the Alerts menu item

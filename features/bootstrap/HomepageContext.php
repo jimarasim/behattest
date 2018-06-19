@@ -33,7 +33,7 @@ class HomepageContext implements Context
      */
     public function theHomePageButtonIsVisible()
     {        
-        Assert::assertTrue($this->homePage->homePageButton()->isDisplayed());  
+        Assert::assertTrue($this->homePage->homePageButtonDisplayed());  
     }
 
     /**
@@ -41,7 +41,7 @@ class HomepageContext implements Context
      */
     public function theHomePageButtonIsEnabled()
     {
-        Assert::assertTrue($this->homePage->homePageButton()->isEnabled());
+        Assert::assertTrue($this->homePage->homePageButtonEnabled());
     }
 
     /**
@@ -49,7 +49,7 @@ class HomepageContext implements Context
      */
     public function iClickTheHomePageButton()
     {
-        $this->homePage->homePageButton()->click();
+        $this->homePage->clickHomePageButton();
     }
 
     /**
@@ -65,7 +65,7 @@ class HomepageContext implements Context
      */
     public function theSoundTransitLogoShouldAppear()
     {        
-        Assert::assertTrue($this->homePage->soundTransitLogo()->isDisplayed());
+        Assert::assertTrue($this->homePage->soundTransitLogoDisplayed());
     }
 
     /**
@@ -81,7 +81,7 @@ class HomepageContext implements Context
      */
     public function theStartDestinationTextFieldIsEnabled()
     {
-        Assert::assertTrue($this->homePage->startAddressTextbox()->isEnabled());
+        Assert::assertTrue($this->homePage->startAddressTextboxEnabled());
     }
 
     /**
@@ -89,7 +89,7 @@ class HomepageContext implements Context
      */
     public function theEndDestinationTextFieldIsEnabled()
     {
-        Assert::assertTrue($this->homePage->endAddressTextbox()->isEnabled());
+        Assert::assertTrue($this->homePage->endAddressTextboxEnabled());
     }
 
     /**
@@ -97,7 +97,7 @@ class HomepageContext implements Context
      */
     public function thePlanTripButtonIsEnabled()
     {
-        Assert::assertTrue($this->homePage->planTripButton()->isEnabled());
+        Assert::assertTrue($this->homePage->planTripButtonEnabled());
     }
 
     /**
@@ -105,7 +105,7 @@ class HomepageContext implements Context
      */
     public function iSpecifyAsTheStartDestination($arg1)
     {
-        $this->homePage->startAddressTextbox()->sendKeys($arg1);
+        $this->homePage->enterStartAddress($arg1);
     }
 
     /**
@@ -113,7 +113,7 @@ class HomepageContext implements Context
      */
     public function asTheEndDestination($arg1)
     {
-        $this->homePage->endAddressTextbox()->sendKeys($arg1);
+        $this->homePage->enterEndAddress($arg1);
     }
 
     /**
@@ -137,7 +137,7 @@ class HomepageContext implements Context
      */
     public function aMapShouldBeDisplayed()
     {
-        Assert::assertTrue($this->tripPlannerPage->mapSvg()->isDisplayed());
+        Assert::assertTrue($this->tripPlannerPage->mapSvgDisplayed());
     }
 
     /**
@@ -153,7 +153,7 @@ class HomepageContext implements Context
      */
     public function theSchedulesMenuIsEnabled()
     {
-        Assert::assertTrue($this->homePage->getMenuItemWithTextContaining('Schedules')->isEnabled());
+        Assert::assertTrue($this->homePage->menuItemWithTextEnabled('Schedules'));
     }
 
 
@@ -170,7 +170,7 @@ class HomepageContext implements Context
      */
     public function theRiderAlertsPageIsDisplayed()
     {
-        Assert::assertEquals($this->riderAlertsPage->pageTitleHeader()->getText(),'Rider Alerts');
+        Assert::assertEquals($this->riderAlertsPage->getPageTitleHeaderText(),'Rider Alerts');
     }
     
         /**
@@ -178,7 +178,7 @@ class HomepageContext implements Context
      */
     public function topLevelMenuItemIsEnabled($arg1)
     {
-        Assert::assertTrue($this->homePage->getMenuItemWithTextContaining($arg1)->isEnabled());
+        Assert::assertTrue($this->homePage->menuItemWithTextEnabled($arg1));
     }
 
     /**
@@ -186,7 +186,7 @@ class HomepageContext implements Context
      */
     public function iClickThe($arg1)
     {
-        $this->homePage->getMenuItemWithTextContaining($arg1)->click();
+        $this->homePage->clickMenuItemWithText($arg1);
     }
 
     /**
@@ -202,7 +202,7 @@ class HomepageContext implements Context
      */
     public function thePageTitleShouldBe($arg1)
     {
-        Assert::assertEquals($this->homePage->pageTitleHeader()->getText(),$arg1);
+        Assert::assertEquals($this->homePage->getPageTitleHeaderText(),$arg1);
     }
 
     /**

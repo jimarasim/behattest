@@ -15,17 +15,21 @@ class TripPlanner extends Page {
     public function url() {return 'https://www.soundtransit.org/tripplanner';}
     
     //elements
-    public function mapSvg() {return $this->driver->findElement(WebDriverBy::id('map'));}
-    public function startAddressTextbox() {return $this->driver->findElement(WebDriverBy::id('from'));}
-    public function endAddressTextbox() {return $this->driver->findElement(WebDriverBy::id('to'));}
-    public function planTripButton() {return $this->driver->findElement(WebDriverBy::id('trip-submit'));}
-    public function tripResultSummaryTable() {return $this->driver->findElement(WebDriverBy::id('tripresult-summaries'));}
+    private function mapSvg() {return $this->driver->findElement(WebDriverBy::id('map'));}
+    private function startAddressTextbox() {return $this->driver->findElement(WebDriverBy::id('from'));}
+    private function endAddressTextbox() {return $this->driver->findElement(WebDriverBy::id('to'));}
+    private function planTripButton() {return $this->driver->findElement(WebDriverBy::id('trip-submit'));}
+    private function tripResultSummaryTable() {return $this->driver->findElement(WebDriverBy::id('tripresult-summaries'));}
 
     //map location offsets; offsets from the center of the map element
     public $seattleOffset = array("x"=>-6, "y"=>-43);
     public $bellevueOffset = array("x"=>20, "y"=>-45);
     
     //state checks
+    public function mapSvgDisplayed() {
+        return $this->mapSvg()->isDisplayed();
+    }
+    
     public function tripResultSummaryTableEnabled() {
         return $this->tripResultSummaryTable()->isEnabled();
     }

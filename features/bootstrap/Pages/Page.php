@@ -7,6 +7,8 @@ use Facebook\WebDriver\WebDriverExpectedCondition;
 
 /**
  * Description of Page
+ * 
+ * This class represents the base page elements, and includes functionality available to all pages on soundtransit.org, including menu interaction
  *
  * @author jameskarasim
  */
@@ -19,14 +21,46 @@ abstract class Page {
     }
     
     //elements
-    public function pageTitleHeader() {return $this->driver->findElement(WebDriverBy::cssSelector('h1.title'));}
+    private function pageTitleHeader() {return $this->driver->findElement(WebDriverBy::cssSelector('h1.title'));}
+
     
-    public function open() {
-        $this->driver->get($this->url());
+    //state checks
+    public function menuItemWithTextEnabled($text) {
+        return $this->driver->findElement(WebDriverBy::xpath('//li[@data-type="menu_item"]/a[contains(text(),"'.$text.'")]'))->isEnabled();
     }
     
-    public function currentUrl() {
-        return $this->driver->getCurrentURL();
+    public function xpathElementEnabled($xpath) {
+        return $this->driver->findElement(WebDriverBy::xpath($xpath))->isEnabled();
+    }
+   
+    public function textDisplayed($text) {
+        $element = $this->driver->findElement(WebDriverBy::xpath('//*[contains(text(),"'.$text.'")]'));
+        return $element->isDisplayed();
+    }
+    
+    //waits
+    public function waitForPageUrl() {
+        $this->driver->wait(10, 500)->until(
+            WebDriverExpectedCondition::urlIs($this->url())
+        );
+    }
+    
+    public function waitForUrlContains($string) {
+        $this->driver->wait(10, 500)->until(
+            WebDriverExpectedCondition::urlContains($string)
+        );
+    }
+    
+    public function waitForDropdownMenu() {
+        $dropdownmenu = $this->driver->findElement(WebDriverBy::cssSelector('div.dropdown-menu'));
+        $this->driver->wait(10, 500)->until(
+            WebDriverExpectedCondition::visibilityOf($dropdownmenu)
+        );
+    }
+    
+    //clicks  
+    public function clickMenuItemWithText($text){
+        return $this->driver->findElement(WebDriverBy::xpath('//li[@data-type="menu_item"]/a[contains(text(),"'.$text.'")]'))->click();
     }
     
     public function clickRiderAlertsMenuItem() {
@@ -39,11 +73,15 @@ abstract class Page {
         
         return $riderAlertsPage;
     }
-    
-    public function xpathElementEnabled($xpath) {
-        return $this->driver->findElement(WebDriverBy::xpath($xpath))->isEnabled();
+      
+    public function open() {
+        $this->driver->get($this->url());
     }
     
+    public function currentUrl() {
+        return $this->driver->getCurrentURL();
+    }
+        
     public function getMenuItemWithTextContaining($text){
         return $this->driver->findElement(WebDriverBy::xpath('//li[@data-type="menu_item"]/a[contains(text(),"'.$text.'")]'));
     }
@@ -52,30 +90,8 @@ abstract class Page {
         return $this->driver->findElement(WebDriverBy::xpath('//li[@data-type="menu_item"]/a[contains(@href,"'.$text.'")]'));
     }
     
-    public function waitForDropdownMenu() {
-        $dropdownmenu = $this->driver->findElement(WebDriverBy::cssSelector('div.dropdown-menu'));
-        $this->driver->wait(10, 500)->until(
-            WebDriverExpectedCondition::visibilityOf($dropdownmenu)
-        );
-    }
-    
-    public function textDisplayed($text) {
-        if($this->driver->findElement(WebDriverBy::xpath('//*[contains(text(),"'.$text.'")]'))->isDisplayed()) {
-            return TRUE;
-        } else {
-            return FALSE;
-        }
-    }
-
-    public function waitForPageUrl() {
-        $this->driver->wait(10, 500)->until(
-            WebDriverExpectedCondition::urlIs($this->url())
-        );
-    }
-    
-    public function waitForUrlContains($string) {
-        $this->driver->wait(10, 500)->until(
-            WebDriverExpectedCondition::urlContains($string)
-        );
+    //values (retrieving data from elements)
+    public function getPageTitleHeaderText() {
+        return $this->pageTitleHeader()->getText();
     }
 }
