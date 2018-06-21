@@ -152,4 +152,14 @@ class TripPlannerContext implements Context {
     {
         $this->tripPlannerPage->waitForWereSorryHeader();
     }
+    
+     /**
+     * @Given the date to one week in the future
+     */
+    public function theDateToOneWeekInTheFuture()
+    {
+        $futureDate = date('m/d/Y',strtotime("+7 days"));
+        print($futureDate);
+        $this->tripPlannerPage->enterLeaveDate($futureDate);
+    }
 }

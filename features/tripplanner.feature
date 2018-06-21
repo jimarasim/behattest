@@ -59,4 +59,13 @@ The sound transit trip planner page at https://soundtransit.org/tripplanner
         |Bellingham, WA |Seattle, WA        |
         |Seattle, WA    |Bellingham, WA     |
         |Vancouver, WA  |Bellingham, WA     |
+
+    @future
+    Scenario: valid route, future date
+        Given I set the start address to "98126, WA"
+        And the end address to "98121, WA"
+        And the date to one week in the future
+        When I click the plan trip button
+        Then the map should load a route
+        And a route is displayed
         

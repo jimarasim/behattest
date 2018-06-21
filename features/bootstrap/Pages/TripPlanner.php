@@ -20,6 +20,7 @@ class TripPlanner extends Page {
     private function endAddressTextbox() {return $this->driver->findElement(WebDriverBy::id('to'));}
     private function planTripButton() {return $this->driver->findElement(WebDriverBy::id('trip-submit'));}
     private function tripResultSummaryTable() {return $this->driver->findElement(WebDriverBy::id('tripresult-summaries'));}
+    private function leaveDayTextBox() {return $this->driver->findElement(WebDriverBy::id('leaveday'));}
 
     //map location offsets; offsets from the center of the map element
     public $seattleOffset = array("x"=>-6, "y"=>-43);
@@ -120,6 +121,11 @@ class TripPlanner extends Page {
     
     public function clearEndAddress() {
         $this->endAddressTextbox()->clear();
+    }
+    
+    public function enterLeaveDate($day) {
+        $this->leaveDayTextBox()->clear();
+        $this->leaveDayTextBox()->sendKeys($day);
     }
     
     //values (retrieving data from elements)
