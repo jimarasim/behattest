@@ -1,11 +1,8 @@
 <?php
 
 use Behat\Behat\Context\Context;
-use Facebook\WebDriver\Chrome\ChromeDriver;
-use Facebook\WebDriver\WebDriverBy;
-use Facebook\WebDriver\WebDriverExpectedCondition;
 use Pages\Home;
-use Pages\TripPlanner;
+use Pages\Schedules;
 use PHPUnit\Framework\Assert;
 
 /**
@@ -16,6 +13,7 @@ class HomepageContext implements Context
     private $homePage;
     private $tripPlannerPage;
     private $riderAlertsPage;
+    private $route;
     
 
     /**
@@ -211,5 +209,25 @@ class HomepageContext implements Context
     public function theShouldExist($arg1)
     {
         Assert::assertTrue($this->homePage->xpathElementEnabled($arg1));
+    }
+    
+     /**
+     * @When I click any route in the Find Your Schedule dropdown
+     */
+    public function iClickAnyRouteInTheFindYourScheduleDropdown()
+    {
+        $this->route = $this->homePage->clickRandomRoute();
+    }
+
+    /**
+     * @Then I should be taken to its schedule page
+     */
+    public function iShouldBeTakenToItsSchedulePage()
+    {
+        $schedulesPage = new Schedules(CommonContext::$driver);
+        Assert::assertTrue(strpos($schedulesPage->currentUrl(),$schedulesPage->url()) !== FALSE);
+        Assert::assertTrue(strpos($schedulesPage->currentUrl(),$this->route) !== FALSE);
+        Assert::assertTrue(strpos($schedulesPage->getRouteName(),$this->route) !== FALSE);
+        
     }
 }

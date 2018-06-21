@@ -5,7 +5,7 @@ namespace Pages;
 use Facebook\WebDriver\WebDriverBy;
 
 /**
- * Description of TripPlanner
+ * Description of RiderAlerts
  *
  * @author jameskarasim
  */

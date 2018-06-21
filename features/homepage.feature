@@ -55,3 +55,8 @@ The sound transit homepage when navigating to https://soundtransit.org
             | Maps          | https://www.soundtransit.org/Maps             | Maps          | //div[@id='tripplanner-wrap']                                 |
             | Contact Us    | https://www.soundtransit.org/contact-us       | Contact us    | //img[@alt='Exterior photo of the Union Station building.']   |
             | The Platform  | https://www.soundtransit.org/blog/platform    | The Platform  | //a[contains(text(),'About The Platform')]                    |
+
+    @schedule
+    Scenario: Find Your Schedule
+        When I click any route in the Find Your Schedule dropdown
+        Then I should be taken to its schedule page

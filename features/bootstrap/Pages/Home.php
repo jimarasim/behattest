@@ -13,6 +13,8 @@ class Home extends Page {
     private function planTripButton() {return $this->driver->findElement(WebDriverBy::id('edit-submit--2'));}
     private function soundTransitLogo() {return $this->driver->findElement(WebDriverBy::id('masthead'));}
     private function startAddressTextbox() {return $this->driver->findElement(WebDriverBy::id('edit-from'));}
+    private function routeOptions() {return $this->driver->findElements(WebDriverBy::xpath("//select[@id='edit-route-name']/optgroup[1]/option"));}
+    private function routeOptionByIndex($index) {return $this->driver->findElement(WebDriverBy::xpath("//select[@id='edit-route-name']/optgroup[1]/option[".$index."]"));}
     
     //state checks
     public function homePageButtonDisplayed() {
@@ -50,6 +52,18 @@ class Home extends Page {
         $this->waitForUrlContains('Trip-Planner');
         
         return new TripPlanner($this->driver);
+    }
+    
+    public function clickRandomRoute() {
+        $numOptions = count($this->routeOptions());
+        $randomOption = rand(1,$numOptions);
+        $randomOptionValue = $this->routeOptionByIndex($randomOption)->getAttribute("value");
+        
+        $this->routeOptionByIndex($randomOption)->click();
+        
+        $this->waitForUrlContains("schedules");
+        
+        return $randomOptionValue;
     }
     
     //input (sending data to elements)
