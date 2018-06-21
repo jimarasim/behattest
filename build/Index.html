@@ -327,23 +327,22 @@
         </head>
         <body>
         <div id='behat'>
-        <div class="suite">Suite : firefox</div>
+        <div class="suite">Suite : chrome</div>
         <div class="feature">
             <h2>
                 <span id="feat1" class="keyword"> Feature: </span>
-                <span class="title">Soundtransit Homepage</span>
+                <span class="title">Route Schedule page</span>
             </h2>
-            <p>The sound transit homepage when navigating to https://soundtransit.org</p>
+            <p>The sound transit schedule page at https://soundtransit.org/schedules</p>
             <ul class="tags">
-                <li>@homepage</li>
+                <li>@schedules</li>
             </ul>
             <div class="scenario">
                 <ul class="tags">
-                    <li>@schedule</li>
                 </ul>
                 <h3>
                     <span class="keyword"> Scenario: </span>
-                    <span class="title">Find Your Schedule</span>
+                    <span class="title">View route parking options</span>
                 </h3>
                 <ol>
                     <li class="passed">
@@ -356,22 +355,119 @@
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">And </span>
-                            <span class="text">https://soundtransit.org is navigated to </span>
-                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
+                            <span class="text">a route schedule page is navigated to </span>
+                            <span class="path">SchedulesContext::aRouteSchedulePageIsNavigatedTo()</span>
                         </div>
                     </li>
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">When </span>
-                            <span class="text">I click any route in the Find Your Schedule dropdown </span>
-                            <span class="path">HomepageContext::iClickAnyRouteInTheFindYourScheduleDropdown()</span>
+                            <span class="text">I click the Parking tab for the route </span>
+                            <span class="path">SchedulesContext::iClickTheParkingTabForTheRoute()</span>
                         </div>
                     </li>
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">Then </span>
-                            <span class="text">I should be taken to its schedule page </span>
-                            <span class="path">HomepageContext::iShouldBeTakenToItsSchedulePage()</span>
+                            <span class="text">I am taken to the route parking section </span>
+                            <span class="path">SchedulesContext::iAmTakenToTheRouteParkingSection()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">I am shown available parking options for that route </span>
+                            <span class="path">SchedulesContext::iAmShownAvailableParkingOptionsForThatRoute()</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <div class="scenario">
+                <ul class="tags">
+                </ul>
+                <h3>
+                    <span class="keyword"> Scenario: </span>
+                    <span class="title">View route holiday schedule</span>
+                </h3>
+                <ol>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Given </span>
+                            <span class="text">an open browser </span>
+                            <span class="path">CommonContext::anOpenChromeBrowser()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">a route schedule page is navigated to </span>
+                            <span class="path">SchedulesContext::aRouteSchedulePageIsNavigatedTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">When </span>
+                            <span class="text">I click the Holidays tab for the route </span>
+                            <span class="path">SchedulesContext::iClickTheHolidaysTabForTheRoute()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Then </span>
+                            <span class="text">I am taken to the route holidays section </span>
+                            <span class="path">SchedulesContext::iAmTakenToTheRouteHolidaysSection()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">am shown upcoming holidays for the route </span>
+                            <span class="path">SchedulesContext::amShownUpcomingHolidaysForTheRoute()</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <div class="scenario">
+                <ul class="tags">
+                </ul>
+                <h3>
+                    <span class="keyword"> Scenario: </span>
+                    <span class="title">View route map</span>
+                </h3>
+                <ol>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Given </span>
+                            <span class="text">an open browser </span>
+                            <span class="path">CommonContext::anOpenChromeBrowser()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">a route schedule page is navigated to </span>
+                            <span class="path">SchedulesContext::aRouteSchedulePageIsNavigatedTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">When </span>
+                            <span class="text">I click the Map tab for the route </span>
+                            <span class="path">SchedulesContext::iClickTheMapTabForTheRoute()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Then </span>
+                            <span class="text">I am taken to the route map section </span>
+                            <span class="path">SchedulesContext::iAmTakenToTheRouteMapSection()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">am shown a map for the route </span>
+                            <span class="path">SchedulesContext::amShownAMapForTheRoute()</span>
                         </div>
                     </li>
                 </ol>
@@ -477,7 +573,7 @@
                             <tr>
                                 <th>Build on:</th>
                                 <td>
-                                    Thu 21 Jun 2018 18:32
+                                    Thu 21 Jun 2018 21:37
                                 </td>
                                 <td></td>
                             </tr>
@@ -536,11 +632,22 @@
                             </tr>
                                                                                     <tr>
                                 <th>
-                                    Firefox
+                                    Chrome
                                 </th>
                                                                                                             
                                                                                                             
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
@@ -551,14 +658,14 @@
                                     <span id="label" class="label label-info"></span>
                                 </td>
                                 <td>
-                                    <span id="label" class="label label-default">1 scenarios</span>
-                                    <span id="label" class="label label-success">1 passed</span>
+                                    <span id="label" class="label label-default">3 scenarios</span>
+                                    <span id="label" class="label label-success">3 passed</span>
                                     <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
                                 <td>
-                                    <span id="label" class="label label-default">4 steps</span>
-                                    <span id="label" class="label label-success">4 passed</span>
+                                    <span id="label" class="label label-default">15 steps</span>
+                                    <span id="label" class="label label-success">15 passed</span>
                                     <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
@@ -574,28 +681,27 @@
                     <div id="page-break" class="page-break"></div>
                                             <div class="panel panel-default panel-suite">
                             <div class="panel-heading">
-                                <h2>Firefox</h2>
+                                <h2>Chrome</h2>
                             </div>
                             <div class="panel-body">
                                 <ol class="dd-list">
 
                                                                         <div id="collapse-feature" data-role="collapsible" data-inset="false">
                                     <li data-role="listview" class="dd-item feature success" data-id="feature-1">
-                                        <div class="dd-nodrag dd-success">Feature: Soundtransit Homepage
-                                                                                                                                                <span class="pull-right label label-primary">homepage</span>
+                                        <div class="dd-nodrag dd-success">Feature: Route Schedule page
+                                                                                                                                                <span class="pull-right label label-primary">schedules</span>
                                                                                                                                     </div>
 
                                         <ol class="dd-list">
                                                                                         <li class="dd-item feature-extra" data-id="featureinfo-1">
                                                 <div class="dd-nodrag">
-                                                    <p>The sound transit homepage when navigating to https://soundtransit.org</p>
+                                                    <p>The sound transit schedule page at https://soundtransit.org/schedules</p>
                                                 </div>
                                             </li>
                                                                                     <div class="dd">
                                                                                     <li class="dd-item scenario success" data-id="scenario-1-1">
-                                                <div class="dd-nodrag dd-success">Scenario: Find Your Schedule
-                                                                                                                                                                                        <span class="pull-right label label-primary">schedule</span>
-                                                                                                                                                                    </div>
+                                                <div class="dd-nodrag dd-success">Scenario: View route parking options
+                                                                                                                                                                                                                        </div>
 
                                                 <ol class="dd-list">
                                                                                                          <li class="dd-item step" data-id="step-1-1-">
@@ -606,19 +712,99 @@
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>And</b> https://soundtransit.org is navigated to
+                                                            <b>And</b> a route schedule page is navigated to
                                                         </div>
                                                          
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>When</b> I click any route in the Find Your Schedule dropdown
+                                                            <b>When</b> I click the Parking tab for the route
                                                         </div>
                                                          
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> I should be taken to its schedule page
+                                                            <b>Then</b> I am taken to the route parking section
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> I am shown available parking options for that route
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                    </ol>
+                                            </li>
+                                                                                    <li class="dd-item scenario success" data-id="scenario-1-2">
+                                                <div class="dd-nodrag dd-success">Scenario: View route holiday schedule
+                                                                                                                                                                                                                        </div>
+
+                                                <ol class="dd-list">
+                                                                                                         <li class="dd-item step" data-id="step-1-2-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Given</b> an open browser
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-2-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> a route schedule page is navigated to
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-2-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>When</b> I click the Holidays tab for the route
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-2-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Then</b> I am taken to the route holidays section
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-2-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> am shown upcoming holidays for the route
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                    </ol>
+                                            </li>
+                                                                                    <li class="dd-item scenario success" data-id="scenario-1-3">
+                                                <div class="dd-nodrag dd-success">Scenario: View route map
+                                                                                                                                                                                                                        </div>
+
+                                                <ol class="dd-list">
+                                                                                                         <li class="dd-item step" data-id="step-1-3-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Given</b> an open browser
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-3-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> a route schedule page is navigated to
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-3-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>When</b> I click the Map tab for the route
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-3-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Then</b> I am taken to the route map section
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-3-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> am shown a map for the route
                                                         </div>
                                                          
                                                                                                             </li>
@@ -740,13 +926,13 @@
                     1 features ( <strong class="passed">1 success</strong> )
                 </p>
                 <p class="scenarios">
-                    1 scenarios ( <strong class="passed">1 success</strong> )
+                    3 scenarios ( <strong class="passed">3 success</strong> )
                 </p>
                 <p class="steps">
-                    4 steps ( <strong class="passed">4 success</strong> )
+                    15 steps ( <strong class="passed">15 success</strong> )
                 </p>
                 <p class="time">
-                0m13.65s - 11.84Mb
+                0m48.16s - 12.12Mb
                 </p>
             </div>
             <div class="switchers">

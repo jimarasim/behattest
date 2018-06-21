@@ -4,12 +4,14 @@ default:
             contexts:
                 - HomepageContext
                 - TripPlannerContext
+                - SchedulesContext
                 - CommonContext:
                     browser: 'chrome'
         firefox:            
             contexts:
                 - HomepageContext
                 - TripPlannerContext
+                - SchedulesContext
                 - CommonContext:
                     browser: 'firefox'            
     formatters: 
