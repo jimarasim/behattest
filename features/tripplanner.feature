@@ -69,3 +69,11 @@ The sound transit trip planner page at https://soundtransit.org/tripplanner
         Then the map should load a route
         And a route is displayed
         
+    @arriveby
+    Scenario: valid route, arrive by
+        Given I set the start address to "98126, WA"
+        And the end address to "98121, WA"
+        And specify Arrive By instead of Leave At
+        When I click the plan trip button
+        Then the map should load a route
+        And a route is displayed

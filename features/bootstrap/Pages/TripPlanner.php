@@ -4,6 +4,7 @@ namespace Pages;
 
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverExpectedCondition;
+use Facebook\WebDriver\WebDriverSelect;
 
 /**
  * Description of TripPlanner
@@ -21,6 +22,7 @@ class TripPlanner extends Page {
     private function planTripButton() {return $this->driver->findElement(WebDriverBy::id('trip-submit'));}
     private function tripResultSummaryTable() {return $this->driver->findElement(WebDriverBy::id('tripresult-summaries'));}
     private function leaveDayTextBox() {return $this->driver->findElement(WebDriverBy::id('leaveday'));}
+    private function leaveTypeSelect() {return new WebDriverSelect($this->driver->findElement(WebDriverBy::id('leavetype')));}
 
     //map location offsets; offsets from the center of the map element
     public $seattleOffset = array("x"=>-6, "y"=>-43);
@@ -104,6 +106,10 @@ class TripPlanner extends Page {
     
     public function acceptAlert() {
         $this->driver->switchTo()->alert()->accept();
+    }
+    
+    public function selectLeaveTypeArriveBy() {
+        $this->leaveTypeSelect()->selectByValue('Arrive By');
     }
     
     //input (sending data to elements)

@@ -34,7 +34,7 @@ class CommonContext implements Context{
     public function afterStep(AfterStepScope $scope)
     {
         //TAKE SCREENSHOT IF STEP FAILED
-        if(!$scope->getTestResult()->isPassed()) {
+        if(!$scope->getTestResult()->isPassed() && CommonContext::$driver) {
             $screenshotpath = getcwd().'/screenshots/'.date('YmdHis').'.png';
             print('FAIL:'.$scope->getStep()->getText().' SCREENSHOT:'.$screenshotpath);
             
@@ -47,6 +47,8 @@ class CommonContext implements Context{
      */
     public function after()
     {
-        CommonContext::$driver->quit();
+        if(CommonContext::$driver) {
+            CommonContext::$driver->quit();
+        }
     }
 }

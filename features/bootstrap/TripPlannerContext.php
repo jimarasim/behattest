@@ -158,8 +158,15 @@ class TripPlannerContext implements Context {
      */
     public function theDateToOneWeekInTheFuture()
     {
-        $futureDate = date('m/d/Y',strtotime("+7 days"));
-        print($futureDate);
+        $futureDate = date('m/d/Y',strtotime("+7 days"));        
         $this->tripPlannerPage->enterLeaveDate($futureDate);
+    }
+    
+    /**
+     * @Given specify Arrive By instead of Leave At
+     */
+    public function specifyArriveByInsteadOfLeaveAt()
+    {
+        $this->tripPlannerPage->selectLeaveTypeArriveBy();
     }
 }
