@@ -5,7 +5,6 @@ use Behat\Gherkin\Node\PyStringNode;
 use Pages\TripPlanner;
 use PHPUnit\Framework\Assert;
 
-
 /**
  * Description of TripPlannerContext
  *
@@ -176,5 +175,13 @@ class TripPlannerContext implements Context {
     public function uncheckTheBusOption()
     {
         $this->tripPlannerPage->uncheckBusCheckbox();
+    }
+    
+    /**
+     * @Then the map element screenshot named :arg1 should be visually regressed
+     */
+    public function theMapElementScreenshotNamedShouldBeVisuallyRegressed($arg1)
+    {
+        Assert::assertTrue($this->tripPlannerPage->screenShotMapElement($arg1));
     }
 }

@@ -85,3 +85,11 @@ The sound transit trip planner page at https://soundtransit.org/tripplanner
         And uncheck the bus option
         When I click the plan trip button
         Then I see a We're Sorry message
+
+    @visualregression
+    Scenario: valid route, screenshot route
+        Given I set the start address to "98126, WA"
+        And the end address to "98121, WA"
+        When I click the plan trip button
+        Then the map should load a route
+        And the map element screenshot named "map98126to98121" should be visually regressed

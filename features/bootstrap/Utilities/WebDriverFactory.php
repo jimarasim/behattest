@@ -2,8 +2,8 @@
 
 namespace Utilities;
 
+use Exception;
 use Facebook\WebDriver\Chrome\ChromeDriver;
-use Facebook\WebDriver\Firefox\FirefoxDriver;
 use Facebook\WebDriver\Remote\DesiredCapabilities;
 use Facebook\WebDriver\Remote\RemoteWebDriver;
 

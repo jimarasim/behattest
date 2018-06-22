@@ -5,7 +5,7 @@ namespace Pages;
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverExpectedCondition;
 use Facebook\WebDriver\WebDriverSelect;
-
+use Utilities\Screenshot;
 /**
  * Description of TripPlanner
  *
@@ -158,5 +158,10 @@ class TripPlanner extends Page {
     
     public function getAlertMessage() {
         return $this->driver->switchTo()->alert()->getText();
+    }
+    
+    //screenshots
+    public function screenShotMapElement($name) {
+        return Screenshot::takeElementScreenshotAndDiff($this->driver, $this->mapSvg(), $name);
     }
 }
