@@ -2,6 +2,7 @@
 namespace Pages;
 
 use Facebook\WebDriver\WebDriverBy;
+use Utilities\Screenshot;
 
 class Home extends Page {
     
@@ -15,6 +16,10 @@ class Home extends Page {
     private function startAddressTextbox() {return $this->driver->findElement(WebDriverBy::id('edit-from'));}
     private function routeOptions() {return $this->driver->findElements(WebDriverBy::xpath("//select[@id='edit-route-name']/optgroup[1]/option"));}
     private function routeOptionByIndex($index) {return $this->driver->findElement(WebDriverBy::xpath("//select[@id='edit-route-name']/optgroup[1]/option[".$index."]"));}
+    private function toFromAreaDiv() {return $this->driver->findElement(WebDriverby::id('tofrom-area'));}
+    private function blockSystemMainDiv() {return $this->driver->findElement(WebDriverby::id('block-system-main'));}
+
+    
     
     //state checks
     public function homePageButtonDisplayed() {
@@ -74,6 +79,16 @@ class Home extends Page {
     public function enterEndAddress($address) {
         $this->endAddressTextbox()->sendKeys($address);
     }
+    
+    //screenshots
+    public function screenShotDiffToFromArea() {
+        return Screenshot::takeElementScreenshotAndDiff($this->driver, $this->toFromAreaDiv(), 'HomePageToFromArea');
+    }
+    
+    public function screenShotDiffBlockSystemMain() {
+        return Screenshot::takeElementScreenshotAndDiff($this->driver, $this->blockSystemMainDiv(), 'HomePageBlockSystemMainDiv');
+    }
+    
     
 }
 

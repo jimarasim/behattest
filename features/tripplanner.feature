@@ -92,4 +92,4 @@ The sound transit trip planner page at https://soundtransit.org/tripplanner
         And the end address to "98121, WA"
         When I click the plan trip button
         Then the map should load a route
-        And the map element screenshot named "map98126to98121" should be visually regressed
+        And the map element screenshot named "TripPlannerPageMapOf98126To98121" should be visually regressed after its given time to completely render

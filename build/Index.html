@@ -331,6 +331,50 @@
         <div class="feature">
             <h2>
                 <span id="feat1" class="keyword"> Feature: </span>
+                <span class="title">Soundtransit Homepage</span>
+            </h2>
+            <p>The sound transit homepage when navigating to https://soundtransit.org</p>
+            <ul class="tags">
+                <li>@homepage</li>
+            </ul>
+            <div class="scenario">
+                <ul class="tags">
+                    <li>@visualregression</li>
+                </ul>
+                <h3>
+                    <span class="keyword"> Scenario: </span>
+                    <span class="title">menu and header region visual regression</span>
+                </h3>
+                <ol>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Given </span>
+                            <span class="text">an open browser </span>
+                            <span class="path">CommonContext::anOpenChromeBrowser()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">https://soundtransit.org is navigated to </span>
+                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Then </span>
+                            <span class="text">static page elements should look the same as last time </span>
+                            <span class="path">HomepageContext::staticPageElementsShouldLookTheSameAsLastTime()</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <div class="featureResult success">Feature has success
+            </div>
+        </div>
+        <div class="feature">
+            <h2>
+                <span id="feat2" class="keyword"> Feature: </span>
                 <span class="title">Trip Planner Page</span>
             </h2>
             <p>The sound transit trip planner page at https://soundtransit.org/tripplanner</p>
@@ -388,19 +432,16 @@
                             <span class="path">TripPlannerContext::theMapShouldLoadARoute()</span>
                         </div>
                     </li>
-                    <li class="failed">
+                    <li class="passed">
                         <div class="step">
                             <span class="keyword">And </span>
-                            <span class="text">the map element screenshot named "map98126to98121" should be visually regressed </span>
+                            <span class="text">the map element screenshot named "TripPlannerPageMapOf98126To98121" should be visually regressed after its given time to completely render </span>
                             <span class="path">TripPlannerContext::theMapElementScreenshotNamedShouldBeVisuallyRegressed()</span>
                         </div>
-                        <pre class="backtrace">Failed asserting that false is true.</pre>screenshot: /Users/jameskarasim/Downloads/installed/repositories/behattest/results/html/assets/screenshots/chrome/chrome/TripPlannerPage/validroute,screenshotroute.png does not exist
                     </li>
                 </ol>
             </div>
-            <div class="featureResult failed">Feature has failed
-                <span>Scenarios passed : 0%,
-                Scenarios failed : 100%</span>
+            <div class="featureResult success">Feature has success
             </div>
         </div><!DOCTYPE html>
 <html lang="en">
@@ -501,7 +542,7 @@
                             <tr>
                                 <th>Build on:</th>
                                 <td>
-                                    Fri 22 Jun 2018 11:28
+                                    Fri 22 Jun 2018 20:59
                                 </td>
                                 <td></td>
                             </tr>
@@ -521,24 +562,24 @@
                                 <td>
                                     <div class="progress progress-striped active" style="height:8px; margin:5px 0 0 0;">
 
-                                        <div id="label" class="progress-bar progress-bar-success" style="width: 0%">
-                                            <span id="label" class="sr-only">0% Passed</span>
+                                        <div id="label" class="progress-bar progress-bar-success" style="width: 100%">
+                                            <span id="label" class="sr-only">100% Passed</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td>0.00%</td>
+                                <td>100.00%</td>
                             </tr>
                             <tr>
                                 <th>Failed</th>
                                 <td>
 
                                     <div class="progress progress-striped active" style="height:8px; margin:5px 0 0 0;">
-                                        <div id="label" class="progress-bar progress-bar-danger" style="width: 100%">
-                                            <span id="label" class="sr-only">100% failed</span>
+                                        <div id="label" class="progress-bar progress-bar-danger" style="width: 0%">
+                                            <span id="label" class="sr-only">0% failed</span>
                                         </div>
                                     </div>
                                 </td>
-                                <td>100.00%</td>
+                                <td>0.00%</td>
                             </tr>
                             </tbody>
                         </table>
@@ -567,26 +608,29 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
                                                                                                                                             <td>
-                                    <span id="label" class="label label-default">1 features </span>
-                                    <span id="label" class="label label-success"></span>
-                                    <span id="label" class="label label-danger">1 failed</span>
+                                    <span id="label" class="label label-default">2 features </span>
+                                    <span id="label" class="label label-success">2 passed</span>
+                                    <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
                                 <td>
-                                    <span id="label" class="label label-default">1 scenarios</span>
-                                    <span id="label" class="label label-success"></span>
-                                    <span id="label" class="label label-danger">1 failed</span>
+                                    <span id="label" class="label label-default">2 scenarios</span>
+                                    <span id="label" class="label label-success">2 passed</span>
+                                    <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
                                 <td>
-                                    <span id="label" class="label label-default">7 steps</span>
-                                    <span id="label" class="label label-success">6 passed</span>
-                                    <span id="label" class="label label-danger">1 failed</span>
+                                    <span id="label" class="label label-default">10 steps</span>
+                                    <span id="label" class="label label-success">10 passed</span>
+                                    <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
                             </tr>
@@ -607,20 +651,20 @@
                                 <ol class="dd-list">
 
                                                                         <div id="collapse-feature" data-role="collapsible" data-inset="false">
-                                    <li data-role="listview" class="dd-item feature failed" data-id="feature-1">
-                                        <div class="dd-nodrag dd-failed">Feature: Trip Planner Page
-                                                                                                                                                <span class="pull-right label label-primary">tripplanner</span>
+                                    <li data-role="listview" class="dd-item feature success" data-id="feature-1">
+                                        <div class="dd-nodrag dd-success">Feature: Soundtransit Homepage
+                                                                                                                                                <span class="pull-right label label-primary">homepage</span>
                                                                                                                                     </div>
 
                                         <ol class="dd-list">
                                                                                         <li class="dd-item feature-extra" data-id="featureinfo-1">
                                                 <div class="dd-nodrag">
-                                                    <p>The sound transit trip planner page at https://soundtransit.org/tripplanner</p>
+                                                    <p>The sound transit homepage when navigating to https://soundtransit.org</p>
                                                 </div>
                                             </li>
                                                                                     <div class="dd">
-                                                                                    <li class="dd-item scenario failed" data-id="scenario-1-1">
-                                                <div class="dd-nodrag dd-failed">Scenario: valid route, screenshot route
+                                                                                    <li class="dd-item scenario success" data-id="scenario-1-1">
+                                                <div class="dd-nodrag dd-success">Scenario: menu and header region visual regression
                                                                                                                                                                                         <span class="pull-right label label-primary">visualregression</span>
                                                                                                                                                                     </div>
 
@@ -633,46 +677,82 @@
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>And</b> https://soundtransit.org/tripplanner is navigated to
+                                                            <b>And</b> https://soundtransit.org is navigated to
                                                         </div>
                                                          
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Then</b> static page elements should look the same as last time
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                    </ol>
+                                            </li>
+                                                                                </div>
+                                        </ol>
+                                    </li>
+                                    </div>
+                                                                        <div id="collapse-feature" data-role="collapsible" data-inset="false">
+                                    <li data-role="listview" class="dd-item feature success" data-id="feature-2">
+                                        <div class="dd-nodrag dd-success">Feature: Trip Planner Page
+                                                                                                                                                <span class="pull-right label label-primary">tripplanner</span>
+                                                                                                                                    </div>
+
+                                        <ol class="dd-list">
+                                                                                        <li class="dd-item feature-extra" data-id="featureinfo-2">
+                                                <div class="dd-nodrag">
+                                                    <p>The sound transit trip planner page at https://soundtransit.org/tripplanner</p>
+                                                </div>
+                                            </li>
+                                                                                    <div class="dd">
+                                                                                    <li class="dd-item scenario success" data-id="scenario-2-1">
+                                                <div class="dd-nodrag dd-success">Scenario: valid route, screenshot route
+                                                                                                                                                                                        <span class="pull-right label label-primary">visualregression</span>
+                                                                                                                                                                    </div>
+
+                                                <ol class="dd-list">
+                                                                                                         <li class="dd-item step" data-id="step-2-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Given</b> an open browser
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-2-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> https://soundtransit.org/tripplanner is navigated to
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-2-1-">
                                                         <div class="dd-nodrag dd-success">
                                                             <b>Given</b> I set the start address to &quot;98126, WA&quot;
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                                                                        <li class="dd-item step" data-id="step-2-1-">
                                                         <div class="dd-nodrag dd-success">
                                                             <b>And</b> the end address to &quot;98121, WA&quot;
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                                                                        <li class="dd-item step" data-id="step-2-1-">
                                                         <div class="dd-nodrag dd-success">
                                                             <b>When</b> I click the plan trip button
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                                                                        <li class="dd-item step" data-id="step-2-1-">
                                                         <div class="dd-nodrag dd-success">
                                                             <b>Then</b> the map should load a route
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-failed">
-                                                            <b>And</b> the map element screenshot named &quot;map98126to98121&quot; should be visually regressed
+                                                                                                        <li class="dd-item step" data-id="step-2-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> the map element screenshot named &quot;TripPlannerPageMapOf98126To98121&quot; should be visually regressed after its given time to completely render
                                                         </div>
-                                                                                                                  <ol class="dd-list">
-                                                             <li class="dd-item step-argument dd-collapsed" data-id="step-1-1--argument">
-                                                                 <div class="dd-nodrag dd-failed">
-                                                                                                                                                                                                                                                                                                                                                                                                                               <p style="padding-left:2em ; color:gray">(Failed asserting that false is true.)</p>
-                                                                                                                                                                                                         </div>
-                                                             </li>
-                                                         </ol>
-                                                        
+                                                         
                                                                                                             </li>
                                                                                                     </ol>
                                             </li>
@@ -786,19 +866,19 @@
 </body>
 </html>
 
-        <div class="summary failed">
+        <div class="summary passed">
             <div class="counters">
                 <p class="features">
-                    1 features ( <strong class="failed">1 fail</strong> )
+                    2 features ( <strong class="passed">2 success</strong> )
                 </p>
                 <p class="scenarios">
-                    1 scenarios ( <strong class="failed">1 fail</strong> )
+                    2 scenarios ( <strong class="passed">2 success</strong> )
                 </p>
                 <p class="steps">
-                    7 steps ( <strong class="passed">6 success</strong> <strong class="failed">1 fail</strong> )
+                    10 steps ( <strong class="passed">10 success</strong> )
                 </p>
                 <p class="time">
-                0m7.32s - 12.24Mb
+                0m17.14s - 12.20Mb
                 </p>
             </div>
             <div class="switchers">

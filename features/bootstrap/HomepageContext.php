@@ -230,4 +230,15 @@ class HomepageContext implements Context
         Assert::assertTrue(strpos($schedulesPage->getRouteName(),$this->route) !== FALSE);
         
     }
+    
+     /**
+     * @Then static page elements should look the same as last time
+     */
+    public function staticPageElementsShouldLookTheSameAsLastTime()
+    {
+        Assert::assertTrue($this->homePage->screenShotDiffToFromArea());
+        Assert::assertTrue($this->homePage->screenShotDiffBlockSystemMain());
+
+        
+    }
 }

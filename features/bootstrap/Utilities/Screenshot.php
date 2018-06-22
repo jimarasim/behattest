@@ -15,30 +15,29 @@ class Screenshot {
     }
     
     public static function takeElementScreenshotAndDiff(RemoteWebDriver $driver, WebDriverElement $element, string $name) {
+        //take screenshot of whole page to crop element screenshot out of.
         $screenshot = Screenshot::takeScreenshot($driver);
         
-        //if master element screenshot does not exist, create it; otherwise, save a separate copy in taken for diff comparison
+        //path for element screenshot. 
         $element_screenshot = getcwd().'/screenshots/master/'.$name.'.png';
+        //if one already exists in the "master" directory, save it to "taken" for diff'ing.
         if(file_exists($element_screenshot)) {
             $element_screenshot = str_replace("master","taken",$element_screenshot);
         }
         
-        //create cropping of element screenshot by copying main screenshot
+        //get dimensions and location of element screenshot to crop.
         $element_width = $element->getSize()->getWidth();
-        $element_height = $element->getSize()->getHeight();
-        
+        $element_height = $element->getSize()->getHeight();      
         $element_src_x = $element->getLocation()->getX();
         $element_src_y = $element->getLocation()->getY();
         
-        // Create image instances
+        // crop element screenshot from whole page screenshot, and save it to destination 
         $src = imagecreatefrompng($screenshot);
         $dest = imagecreatetruecolor($element_width, $element_height);
-
-        // Copy
         imagecopy($dest, $src, 0, 0, $element_src_x, $element_src_y, $element_width, $element_height);        
         imagepng($dest, $element_screenshot);
      
-        // DIFF image to master if this was a taken shot
+        // DIFF element screenshot if "master" exists, and this was a "taken" shot
         if(strpos($element_screenshot,"taken")!==FALSE) {
             $master_screenshot = str_replace("taken","master",$element_screenshot);
             
@@ -46,12 +45,12 @@ class Screenshot {
             $taken = new Imagick($element_screenshot);
             
             $result = $master->compareimages($taken, Imagick::METRIC_MEANSQUAREERROR);
-            //first array entry is imagick image object. convert it to png and save
+            //first array entry is imagick image object for the DIFF image. convert it to png and save
             $result[0]->setImageFormat("png");
             $diff_screenshot = getcwd().'/screenshots/diff/'.$name.'.png';
             $result[0]->writeImage($diff_screenshot);
-            //second array entry will return a number > 0 if there are differences
-            if($result[1]===0) {
+            //second array entry will return 0.0 if the images are exact
+            if($result[1]===0.0) {
                 return TRUE;
             } else {
                 print('SCREENSHOT DIFF FAILED COMPARISON: ' . $diff_screenshot);

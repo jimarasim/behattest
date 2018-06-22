@@ -178,10 +178,12 @@ class TripPlannerContext implements Context {
     }
     
     /**
-     * @Then the map element screenshot named :arg1 should be visually regressed
+     * @Then the map element screenshot named :arg1 should be visually regressed after its given time to completely render
      */
     public function theMapElementScreenshotNamedShouldBeVisuallyRegressed($arg1)
     {
-        Assert::assertTrue($this->tripPlannerPage->screenShotMapElement($arg1));
+        //map needs to be given time after loading indicator has gone away, to completely render before taking screenshot
+        sleep(3);
+        Assert::assertTrue($this->tripPlannerPage->screenShotDiffMapElement($arg1));
     }
 }
