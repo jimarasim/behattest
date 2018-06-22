@@ -23,6 +23,8 @@ class TripPlanner extends Page {
     private function tripResultSummaryTable() {return $this->driver->findElement(WebDriverBy::id('tripresult-summaries'));}
     private function leaveDayTextBox() {return $this->driver->findElement(WebDriverBy::id('leaveday'));}
     private function leaveTypeSelect() {return new WebDriverSelect($this->driver->findElement(WebDriverBy::id('leavetype')));}
+    private function busCheckbox() {return $this->driver->findElement(WebDriverBy::id('bus'));}
+    private function advancedOptionsToggle() {return $this->driver->findElement(WebDriverBy::id('optionstoggle'));}
 
     //map location offsets; offsets from the center of the map element
     public $seattleOffset = array("x"=>-6, "y"=>-43);
@@ -31,6 +33,10 @@ class TripPlanner extends Page {
     //state checks
     public function mapSvgDisplayed() {
         return $this->mapSvg()->isDisplayed();
+    }
+    
+    public function busCheckboxDisplayed() {
+        return $this->busCheckbox()->isDisplayed();
     }
     
     public function tripResultSummaryTableEnabled() {
@@ -110,6 +116,16 @@ class TripPlanner extends Page {
     
     public function selectLeaveTypeArriveBy() {
         $this->leaveTypeSelect()->selectByValue('Arrive By');
+    }
+    
+    public function uncheckBusCheckbox() {
+        if(!$this->busCheckboxDisplayed()) {
+            $this->advancedOptionsToggle()->click();
+        }
+        
+        if($this->busCheckbox()->isSelected()) {
+            $this->busCheckbox()->click();
+        }
     }
     
     //input (sending data to elements)

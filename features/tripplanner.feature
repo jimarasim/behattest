@@ -77,3 +77,11 @@ The sound transit trip planner page at https://soundtransit.org/tripplanner
         When I click the plan trip button
         Then the map should load a route
         And a route is displayed
+
+    @nobus
+    Scenario: valid route, no bus
+        Given I set the start address to "98126, WA"
+        And the end address to "98121, WA"
+        And uncheck the bus option
+        When I click the plan trip button
+        Then I see a We're Sorry message

@@ -169,4 +169,12 @@ class TripPlannerContext implements Context {
     {
         $this->tripPlannerPage->selectLeaveTypeArriveBy();
     }
+    
+    /**
+     * @Given uncheck the bus option
+     */
+    public function uncheckTheBusOption()
+    {
+        $this->tripPlannerPage->uncheckBusCheckbox();
+    }
 }

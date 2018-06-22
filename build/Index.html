@@ -327,7 +327,7 @@
         </head>
         <body>
         <div id='behat'>
-        <div class="suite">Suite : chrome</div>
+        <div class="suite">Suite : firefox</div>
         <div class="feature">
             <h2>
                 <span id="feat1" class="keyword"> Feature: </span>
@@ -339,11 +339,11 @@
             </ul>
             <div class="scenario">
                 <ul class="tags">
-                    <li>@arriveby</li>
+                    <li>@nobus</li>
                 </ul>
                 <h3>
                     <span class="keyword"> Scenario: </span>
-                    <span class="title">valid route, arrive by</span>
+                    <span class="title">valid route, no bus</span>
                 </h3>
                 <ol>
                     <li class="passed">
@@ -377,8 +377,8 @@
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">And </span>
-                            <span class="text">specify Arrive By instead of Leave At </span>
-                            <span class="path">TripPlannerContext::specifyArriveByInsteadOfLeaveAt()</span>
+                            <span class="text">uncheck the bus option </span>
+                            <span class="path">TripPlannerContext::uncheckTheBusOption()</span>
                         </div>
                     </li>
                     <li class="passed">
@@ -391,15 +391,8 @@
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">Then </span>
-                            <span class="text">the map should load a route </span>
-                            <span class="path">TripPlannerContext::theMapShouldLoadARoute()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">a route is displayed </span>
-                            <span class="path">TripPlannerContext::aRouteIsDisplayed()</span>
+                            <span class="text">I see a We're Sorry message </span>
+                            <span class="path">TripPlannerContext::iSeeAWereSorryMessage()</span>
                         </div>
                     </li>
                 </ol>
@@ -505,7 +498,7 @@
                             <tr>
                                 <th>Build on:</th>
                                 <td>
-                                    Fri 22 Jun 2018 00:36
+                                    Fri 22 Jun 2018 01:37
                                 </td>
                                 <td></td>
                             </tr>
@@ -564,12 +557,11 @@
                             </tr>
                                                                                     <tr>
                                 <th>
-                                    Chrome
+                                    Firefox
                                 </th>
                                                                                                             
                                                                                                             
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                                                                                                                                            
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
@@ -589,8 +581,8 @@
                                     <span id="label" class="label label-info"></span>
                                 </td>
                                 <td>
-                                    <span id="label" class="label label-default">8 steps</span>
-                                    <span id="label" class="label label-success">8 passed</span>
+                                    <span id="label" class="label label-default">7 steps</span>
+                                    <span id="label" class="label label-success">7 passed</span>
                                     <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
@@ -606,7 +598,7 @@
                     <div id="page-break" class="page-break"></div>
                                             <div class="panel panel-default panel-suite">
                             <div class="panel-heading">
-                                <h2>Chrome</h2>
+                                <h2>Firefox</h2>
                             </div>
                             <div class="panel-body">
                                 <ol class="dd-list">
@@ -625,8 +617,8 @@
                                             </li>
                                                                                     <div class="dd">
                                                                                     <li class="dd-item scenario success" data-id="scenario-1-1">
-                                                <div class="dd-nodrag dd-success">Scenario: valid route, arrive by
-                                                                                                                                                                                        <span class="pull-right label label-primary">arriveby</span>
+                                                <div class="dd-nodrag dd-success">Scenario: valid route, no bus
+                                                                                                                                                                                        <span class="pull-right label label-primary">nobus</span>
                                                                                                                                                                     </div>
 
                                                 <ol class="dd-list">
@@ -656,7 +648,7 @@
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>And</b> specify Arrive By instead of Leave At
+                                                            <b>And</b> uncheck the bus option
                                                         </div>
                                                          
                                                                                                             </li>
@@ -668,13 +660,7 @@
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> the map should load a route
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> a route is displayed
+                                                            <b>Then</b> I see a We&#039;re Sorry message
                                                         </div>
                                                          
                                                                                                             </li>
@@ -799,10 +785,10 @@
                     1 scenarios ( <strong class="passed">1 success</strong> )
                 </p>
                 <p class="steps">
-                    8 steps ( <strong class="passed">8 success</strong> )
+                    7 steps ( <strong class="passed">7 success</strong> )
                 </p>
                 <p class="time">
-                0m6.61s - 12.18Mb
+                0m10.24s - 11.59Mb
                 </p>
             </div>
             <div class="switchers">
