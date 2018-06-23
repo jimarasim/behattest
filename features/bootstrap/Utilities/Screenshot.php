@@ -15,6 +15,9 @@ class Screenshot {
     }
     
     public static function takeElementScreenshotAndDiff(RemoteWebDriver $driver, WebDriverElement $element, string $name) {
+        //move to element so it's clearly in the view
+        $driver->action()->moveToElement($element)->perform();
+
         //take screenshot of whole page to crop element screenshot out of.
         $screenshot = Screenshot::takeScreenshot($driver);
         
