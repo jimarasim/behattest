@@ -31,6 +31,8 @@ class Screenshot {
         $element_src_x = $element->getLocation()->getX();
         $element_src_y = $element->getLocation()->getY();
         
+        print('WIDTH:'.$element_width.' HEIGHT:'.$element_height.' X:'.$element_src_x.' Y:'.$element_src_y);
+        
         // crop element screenshot from whole page screenshot, and save it to destination 
         $src = imagecreatefrompng($screenshot);
         $dest = imagecreatetruecolor($element_width, $element_height);
