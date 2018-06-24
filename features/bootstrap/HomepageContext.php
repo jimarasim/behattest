@@ -238,7 +238,6 @@ class HomepageContext implements Context
     {
         Assert::assertTrue($this->homePage->screenShotDiffToFromArea());
         Assert::assertTrue($this->homePage->screenShotDiffBlockSystemMain());
-
-        
+        Assert::assertTrue($this->homePage->screenShotDiffRiderAlertsSubscription());        
     }
 }

@@ -18,6 +18,7 @@ class Home extends Page {
     private function routeOptionByIndex($index) {return $this->driver->findElement(WebDriverBy::xpath("//select[@id='edit-route-name']/optgroup[1]/option[".$index."]"));}
     private function toFromAreaDiv() {return $this->driver->findElement(WebDriverby::id('tofrom-area'));}
     private function blockSystemMainDiv() {return $this->driver->findElement(WebDriverby::id('block-system-main'));}
+    private function riderAlertsSubscriptionForm() {return $this->driver->findElement(WebDriverBy::id('rider-alerts-subscription-form'));}
 
     
     
@@ -87,6 +88,10 @@ class Home extends Page {
     
     public function screenShotDiffBlockSystemMain() {
         return Screenshot::takeElementScreenshotAndDiff($this->blockSystemMainDiv(), 'HomePageBlockSystemMainDiv');
+    }
+    
+    public function screenShotDiffRiderAlertsSubscription() {
+        return Screenshot::takeElementScreenshotAndDiff($this->riderAlertsSubscriptionForm(), 'HomePageRiderAlertsSubscriptionForm');
     }
     
     

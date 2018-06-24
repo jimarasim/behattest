@@ -2,7 +2,6 @@
 namespace Utilities;
 
 use CommonContext;
-use Exception;
 use Facebook\WebDriver\WebDriverElement;
 use Imagick; //must install ImageMagick and the PHP imagick extension (see notes)
 
@@ -28,6 +27,10 @@ class Screenshot {
         //move to element so it's clearly in the view
         $driver->action()->moveToElement($element)->perform();
         
+        //if we scrolled, get the page scroll offsets for calculating image position in crop
+        $pageXOffset = $driver->executeScript("return window.pageXOffset;");
+        $pageYOffset = $driver->executeScript("return window.pageYOffset;");
+        
         //take full page screenshot to crop element screenshot from
         $screenshot = Screenshot::takeScreenshot($driver);
         
@@ -41,8 +44,8 @@ class Screenshot {
         //get dimensions and location of element screenshot to crop.
         $element_width = $element->getSize()->getWidth();
         $element_height = $element->getSize()->getHeight();      
-        $element_src_x = $element->getLocation()->getX();
-        $element_src_y = $element->getLocation()->getY();
+        $element_src_x = $element->getLocation()->getX()-$pageXOffset;
+        $element_src_y = $element->getLocation()->getY()-$pageYOffset;
         
         // crop element screenshot from whole page screenshot, and save it to destination 
         $src = imagecreatefrompng($screenshot);
