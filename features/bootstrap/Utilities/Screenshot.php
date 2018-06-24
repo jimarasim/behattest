@@ -47,6 +47,7 @@ class Screenshot {
         $element_src_x = $element->getLocation()->getX()-$pageXOffset;
         $element_src_y = $element->getLocation()->getY()-$pageYOffset;
         print(" X:".$element_src_x." Y:".$element_src_y." WIDTH:".$element_width." HEIGHT:".$element_height."\n");
+        print(" window.innerWidth:".$driver->executeScript("return window.innerWidth;")." window.innerHeight:".$driver->executeScript("return window.innerHeight;")."\n");
         
         // crop element screenshot from whole page screenshot, and save it to destination 
         $src = imagecreatefrompng($screenshot);
