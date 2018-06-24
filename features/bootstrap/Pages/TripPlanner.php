@@ -162,6 +162,6 @@ class TripPlanner extends Page {
     
     //screenshots
     public function screenShotDiffMapElement($name) {
-        return Screenshot::takeElementScreenshotAndDiff($this->driver, $this->mapSvg(), $name);
+        return Screenshot::takeElementScreenshotAndDiff($this->mapSvg(), $name);
     }
 }

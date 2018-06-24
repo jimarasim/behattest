@@ -37,7 +37,7 @@ class CommonContext implements Context{
         //TAKE SCREENSHOT IF STEP FAILED
         if(!$scope->getTestResult()->isPassed() && CommonContext::$driver) {
             print('FAIL:'.$scope->getStep()->getText());
-            print(' SCREENSHOT: '.Screenshot::takeScreenshot(CommonContext::$driver));
+            print(' SCREENSHOT: '.Screenshot::takeScreenshot());
         }
     }
     

@@ -82,11 +82,11 @@ class Home extends Page {
     
     //screenshots
     public function screenShotDiffToFromArea() {
-        return Screenshot::takeElementScreenshotAndDiff($this->driver, $this->toFromAreaDiv(), 'HomePageToFromArea');
+        return Screenshot::takeElementScreenshotAndDiff($this->toFromAreaDiv(), 'HomePageToFromArea');
     }
     
     public function screenShotDiffBlockSystemMain() {
-        return Screenshot::takeElementScreenshotAndDiff($this->driver, $this->blockSystemMainDiv(), 'HomePageBlockSystemMainDiv');
+        return Screenshot::takeElementScreenshotAndDiff($this->blockSystemMainDiv(), 'HomePageBlockSystemMainDiv');
     }
     
     
