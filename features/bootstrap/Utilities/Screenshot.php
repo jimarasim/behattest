@@ -61,6 +61,13 @@ class Screenshot {
         imagecopy($dest, $src, 0, 0, $element_src_x, $element_src_y, $element_width, $element_height);        
         imagepng($dest, $element_screenshot);
         
+        //if the device pixel ratio is greater than 1, then we need to size it down to 1 for consistency across devices
+        if($devicePixelRatio > 1) {
+            $dest_resized = imagecreatetruecolor($element_width/$devicePixelRatio, $element_height/$devicePixelRatio);
+            imagecopyresampled($dest_resized, $dest, 0, 0, 0, 0, $element_width/$devicePixelRatio, $element_height/$devicePixelRatio, $element_width, $element_height);
+            imagepng($dest_resized, $element_screenshot);
+        }
+        
         return $element_screenshot;
     }
     
