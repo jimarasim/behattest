@@ -50,6 +50,7 @@ class Screenshot {
         print(" window.innerWidth:".$driver->executeScript("return window.innerWidth;")." window.innerHeight:".$driver->executeScript("return window.innerHeight;")."\n");
         $image_dimensions_screenshot = getimagesize($screenshot);
         print(" screenshot width:".$image_dimensions_screenshot[0]." screenshot height:".$image_dimensions_screenshot[1]."\n");
+        print(" device pixel ratio:".$driver->executeScript("return window.devicePixelRatio;"));
         
         // crop element screenshot from whole page screenshot, and save it to destination 
         $src = imagecreatefrompng($screenshot);
