@@ -31,6 +31,9 @@ class Screenshot {
         $pageXOffset = $driver->executeScript("return window.pageXOffset;");
         $pageYOffset = $driver->executeScript("return window.pageYOffset;");
         
+        //if we're on a high resolution display, pixels returned from selenium should be n times as much
+        $devicePixelRatio = $driver->executeScript("return window.devicePixelRatio;");
+        
         //take full page screenshot to crop element screenshot from
         $screenshot = Screenshot::takeScreenshot($driver);
         
@@ -42,10 +45,10 @@ class Screenshot {
         }
         
         //get dimensions and location of element screenshot to crop.
-        $element_width = $element->getSize()->getWidth();
-        $element_height = $element->getSize()->getHeight();      
-        $element_src_x = $element->getLocation()->getX()-$pageXOffset;
-        $element_src_y = $element->getLocation()->getY()-$pageYOffset;
+        $element_width = $devicePixelRatio*$element->getSize()->getWidth();
+        $element_height = $devicePixelRatio*$element->getSize()->getHeight();      
+        $element_src_x = $devicePixelRatio*$element->getLocation()->getX()-$pageXOffset;
+        $element_src_y = $devicePixelRatio*$element->getLocation()->getY()-$pageYOffset;
         print(" X:".$element_src_x." Y:".$element_src_y." WIDTH:".$element_width." HEIGHT:".$element_height."\n");
         print(" window.innerWidth:".$driver->executeScript("return window.innerWidth;")." window.innerHeight:".$driver->executeScript("return window.innerHeight;")."\n");
         $image_dimensions_screenshot = getimagesize($screenshot);
