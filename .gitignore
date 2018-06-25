@@ -1,2 +1,4 @@
 vendor
 screenshots/*.png
+screenshots/taken/*.png
+screenshots/diff/*.png

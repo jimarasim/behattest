@@ -66,7 +66,7 @@ class TripPlanner extends Page {
     }
     
     public function waitForMapToFinishLoading() {
-        $this->driver->wait(10, 500)->until(
+        $this->driver->wait(20, 500)->until(
             WebDriverExpectedCondition::invisibilityOfElementLocated(WebDriverBy::id('loading'))
         );
     }
