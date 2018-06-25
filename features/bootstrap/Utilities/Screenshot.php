@@ -89,7 +89,7 @@ class Screenshot {
         if($result[1]===0.0) {
             return TRUE;
         } else {
-            print('SCREENSHOT DIFF FAILED COMPARISON: ' . $diff_screenshot);
+            print('SCREENSHOT DIFF FAILED. RESULT:'.$result[1].' DIFF:/screenshots/diff/'.$name.'.png');
             return FALSE;
         }
     }
