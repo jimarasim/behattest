@@ -26,7 +26,7 @@ class CommonContext implements Context{
     /**
      * @Given an open browser
      */
-    public function anOpenChromeBrowser()
+    public function anOpenBrowser()
     {
         CommonContext::$driver = WebDriverFactory::getDriver(CommonContext::$browser);       
     }
