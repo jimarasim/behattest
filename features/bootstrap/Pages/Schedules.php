@@ -3,6 +3,7 @@
 namespace Pages;
 
 use Facebook\WebDriver\WebDriverBy;
+use Utilities\Screenshot;
 
 /**
  * Description of Schedules
@@ -21,6 +22,7 @@ class Schedules extends Page {
     private function holidayListItems() {return $this->driver->findElements(WebDriverBy::cssSelector('li.holiday-service-item'));}
     private function mapTab() {return $this->driver->findElement(WebDriverBy::xpath('//ul[@id="route-content-menu"]/li/a[contains(text(),"Map")]'));}
     private function map() {return $this->driver->findElement(WebDriverBy::id('map'));}
+    private function mainDiv() {return $this->driver->findElement(WebDriverBy::id('main'));}
     
     //state checks
     public function mapDisplayed() {
@@ -58,6 +60,11 @@ class Schedules extends Page {
     
     public function getHolidaysSize() {
         return count($this->holidayListItems());
+    }
+    
+    //screenshots
+    public function screenshotDiffMainDiv() {
+        return Screenshot::takeElementScreenshotAndDiff($this->mainDiv(), "SchedulesPageMainDiv");
     }
     
 }

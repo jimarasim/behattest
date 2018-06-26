@@ -14,6 +14,23 @@ class SchedulesContext implements Context
     private $schedulesPage;
     private $route;
     
+    /**
+     * @Given the main schedules page is open
+     */
+    public function theMainSchedulesPageIsOpen()
+    {
+        $this->schedulesPage = new Schedules(CommonContext::$driver);
+        $this->schedulesPage->open();
+    }
+
+    /**
+     * @Then the main schedules page should look the same as last time
+     */
+    public function theMainSchedulesPageShouldLookTheSameAsLastTime()
+    {
+        Assert::assertTrue($this->schedulesPage->screenshotDiffMainDiv());
+    }
+    
      /**
      * @Given a route schedule page is navigated to
      */
