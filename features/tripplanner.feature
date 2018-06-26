@@ -53,7 +53,8 @@ The sound transit trip planner page at https://soundtransit.org/tripplanner
         Given I set the start address to "<start_address>"
         And the end address to "<end_address>"
         When I click the plan trip button
-        Then I see a We're Sorry message
+        Then the map should load a route
+        And I see a We're Sorry message
         Examples:
         |start_address  |end_address        |
         |Bellingham, WA |Seattle, WA        |

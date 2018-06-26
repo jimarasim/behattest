@@ -327,173 +327,10 @@
         </head>
         <body>
         <div id='behat'>
-        <div class="suite">Suite : chrome</div>
-        <div class="feature">
-            <h2>
-                <span id="feat1" class="keyword"> Feature: </span>
-                <span class="title">Soundtransit Homepage</span>
-            </h2>
-            <p>The sound transit homepage when navigating to https://soundtransit.org</p>
-            <ul class="tags">
-                <li>@homepage</li>
-            </ul>
-            <div class="scenario">
-                <ul class="tags">
-                    <li>@visualregression</li>
-                    <li>@bug</li>
-                </ul>
-                <h3>
-                    <span class="keyword"> Scenario: </span>
-                    <span class="title">menu and header region visual regression</span>
-                </h3>
-                <ol>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">an open browser </span>
-                            <span class="path">CommonContext::anOpenBrowser()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">https://soundtransit.org is navigated to </span>
-                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Then </span>
-                            <span class="text">static page elements should look the same as last time </span>
-                            <span class="path">HomepageContext::staticPageElementsShouldLookTheSameAsLastTime()</span>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-            <div class="featureResult success">Feature has success
-            </div>
-        </div>
-        <div class="feature">
-            <h2>
-                <span id="feat2" class="keyword"> Feature: </span>
-                <span class="title">Trip Planner Page</span>
-            </h2>
-            <p>The sound transit trip planner page at https://soundtransit.org/tripplanner</p>
-            <ul class="tags">
-                <li>@tripplanner</li>
-            </ul>
-            <div class="scenario">
-                <ul class="tags">
-                    <li>@visualregression</li>
-                </ul>
-                <h3>
-                    <span class="keyword"> Scenario: </span>
-                    <span class="title">valid route, screenshot route</span>
-                </h3>
-                <ol>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">an open browser </span>
-                            <span class="path">CommonContext::anOpenBrowser()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">https://soundtransit.org/tripplanner is navigated to </span>
-                            <span class="path">TripPlannerContext::httpsSoundtransitOrgTripplannerIsNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">I set the start address to "98126, WA" </span>
-                            <span class="path">TripPlannerContext::iSetTheStartAddressTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the end address to "98121, WA" </span>
-                            <span class="path">TripPlannerContext::theEndAddressTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">When </span>
-                            <span class="text">I click the plan trip button </span>
-                            <span class="path">TripPlannerContext::iClickThePlanTripButton()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Then </span>
-                            <span class="text">the map should load a route </span>
-                            <span class="path">TripPlannerContext::theMapShouldLoadARoute()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the map element screenshot named "TripPlannerPageMapOf98126To98121" should be visually regressed after its given time to completely render </span>
-                            <span class="path">TripPlannerContext::theMapElementScreenshotNamedShouldBeVisuallyRegressed()</span>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-            <div class="featureResult success">Feature has success
-            </div>
-        </div>
         <div class="suite">Suite : firefox</div>
         <div class="feature">
             <h2>
-                <span id="feat3" class="keyword"> Feature: </span>
-                <span class="title">Soundtransit Homepage</span>
-            </h2>
-            <p>The sound transit homepage when navigating to https://soundtransit.org</p>
-            <ul class="tags">
-                <li>@homepage</li>
-            </ul>
-            <div class="scenario">
-                <ul class="tags">
-                    <li>@visualregression</li>
-                    <li>@bug</li>
-                </ul>
-                <h3>
-                    <span class="keyword"> Scenario: </span>
-                    <span class="title">menu and header region visual regression</span>
-                </h3>
-                <ol>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">an open browser </span>
-                            <span class="path">CommonContext::anOpenBrowser()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">https://soundtransit.org is navigated to </span>
-                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Then </span>
-                            <span class="text">static page elements should look the same as last time </span>
-                            <span class="path">HomepageContext::staticPageElementsShouldLookTheSameAsLastTime()</span>
-                        </div>
-                    </li>
-                </ol>
-            </div>
-            <div class="featureResult success">Feature has success
-            </div>
-        </div>
-        <div class="feature">
-            <h2>
-                <span id="feat4" class="keyword"> Feature: </span>
+                <span id="feat1" class="keyword"> Feature: </span>
                 <span class="title">Trip Planner Page</span>
             </h2>
             <p>The sound transit trip planner page at https://soundtransit.org/tripplanner</p>
@@ -502,11 +339,11 @@
             </ul>
             <div class="scenario">
                 <ul class="tags">
-                    <li>@visualregression</li>
+                    <li>@sorry</li>
                 </ul>
                 <h3>
-                    <span class="keyword"> Scenario: </span>
-                    <span class="title">valid route, screenshot route</span>
+                    <span class="keyword"> Scenario Outline: </span>
+                    <span class="title">address outside of service area</span>
                 </h3>
                 <ol>
                     <li class="passed">
@@ -526,14 +363,14 @@
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">Given </span>
-                            <span class="text">I set the start address to "98126, WA" </span>
+                            <span class="text">I set the start address to "Bellingham, WA" </span>
                             <span class="path">TripPlannerContext::iSetTheStartAddressTo()</span>
                         </div>
                     </li>
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">And </span>
-                            <span class="text">the end address to "98121, WA" </span>
+                            <span class="text">the end address to "Seattle, WA" </span>
                             <span class="path">TripPlannerContext::theEndAddressTo()</span>
                         </div>
                     </li>
@@ -554,12 +391,108 @@
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">And </span>
-                            <span class="text">the map element screenshot named "TripPlannerPageMapOf98126To98121" should be visually regressed after its given time to completely render </span>
-                            <span class="path">TripPlannerContext::theMapElementScreenshotNamedShouldBeVisuallyRegressed()</span>
+                            <span class="text">I see a We're Sorry message </span>
+                            <span class="path">TripPlannerContext::iSeeAWereSorryMessage()</span>
                         </div>
                     </li>
-                </ol>
-            </div>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Given </span>
+                            <span class="text">an open browser </span>
+                            <span class="path">CommonContext::anOpenBrowser()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">https://soundtransit.org/tripplanner is navigated to </span>
+                            <span class="path">TripPlannerContext::httpsSoundtransitOrgTripplannerIsNavigatedTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Given </span>
+                            <span class="text">I set the start address to "Seattle, WA" </span>
+                            <span class="path">TripPlannerContext::iSetTheStartAddressTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">the end address to "Bellingham, WA" </span>
+                            <span class="path">TripPlannerContext::theEndAddressTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">When </span>
+                            <span class="text">I click the plan trip button </span>
+                            <span class="path">TripPlannerContext::iClickThePlanTripButton()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Then </span>
+                            <span class="text">the map should load a route </span>
+                            <span class="path">TripPlannerContext::theMapShouldLoadARoute()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">I see a We're Sorry message </span>
+                            <span class="path">TripPlannerContext::iSeeAWereSorryMessage()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Given </span>
+                            <span class="text">an open browser </span>
+                            <span class="path">CommonContext::anOpenBrowser()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">https://soundtransit.org/tripplanner is navigated to </span>
+                            <span class="path">TripPlannerContext::httpsSoundtransitOrgTripplannerIsNavigatedTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Given </span>
+                            <span class="text">I set the start address to "Vancouver, WA" </span>
+                            <span class="path">TripPlannerContext::iSetTheStartAddressTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">the end address to "Bellingham, WA" </span>
+                            <span class="path">TripPlannerContext::theEndAddressTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">When </span>
+                            <span class="text">I click the plan trip button </span>
+                            <span class="path">TripPlannerContext::iClickThePlanTripButton()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Then </span>
+                            <span class="text">the map should load a route </span>
+                            <span class="path">TripPlannerContext::theMapShouldLoadARoute()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">I see a We're Sorry message </span>
+                            <span class="path">TripPlannerContext::iSeeAWereSorryMessage()</span>
+                        </div>
+                    </li>
             <div class="featureResult success">Feature has success
             </div>
         </div><!DOCTYPE html>
@@ -661,7 +594,7 @@
                             <tr>
                                 <th>Build on:</th>
                                 <td>
-                                    Tue 26 Jun 2018 01:02
+                                    Tue 26 Jun 2018 02:16
                                 </td>
                                 <td></td>
                             </tr>
@@ -720,41 +653,6 @@
                             </tr>
                                                                                     <tr>
                                 <th>
-                                    Chrome
-                                </th>
-                                                                                                            
-                                                                                                            
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                            <td>
-                                    <span id="label" class="label label-default">2 features </span>
-                                    <span id="label" class="label label-success">2 passed</span>
-                                    <span id="label" class="label label-danger"></span>
-                                    <span id="label" class="label label-info"></span>
-                                </td>
-                                <td>
-                                    <span id="label" class="label label-default">2 scenarios</span>
-                                    <span id="label" class="label label-success">2 passed</span>
-                                    <span id="label" class="label label-danger"></span>
-                                    <span id="label" class="label label-info"></span>
-                                </td>
-                                <td>
-                                    <span id="label" class="label label-default">10 steps</span>
-                                    <span id="label" class="label label-success">10 passed</span>
-                                    <span id="label" class="label label-danger"></span>
-                                    <span id="label" class="label label-info"></span>
-                                </td>
-                            </tr>
-                                                                                                                <tr>
-                                <th>
                                     Firefox
                                 </th>
                                                                                                             
@@ -762,7 +660,18 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
@@ -770,20 +679,20 @@
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
                                                                                                                                             <td>
-                                    <span id="label" class="label label-default">2 features </span>
-                                    <span id="label" class="label label-success">2 passed</span>
+                                    <span id="label" class="label label-default">1 features </span>
+                                    <span id="label" class="label label-success">1 passed</span>
                                     <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
                                 <td>
-                                    <span id="label" class="label label-default">2 scenarios</span>
-                                    <span id="label" class="label label-success">2 passed</span>
+                                    <span id="label" class="label label-default">1 scenarios</span>
+                                    <span id="label" class="label label-success">1 passed</span>
                                     <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
                                 <td>
-                                    <span id="label" class="label label-default">10 steps</span>
-                                    <span id="label" class="label label-success">10 passed</span>
+                                    <span id="label" class="label label-default">21 steps</span>
+                                    <span id="label" class="label label-success">21 passed</span>
                                     <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
@@ -799,28 +708,27 @@
                     <div id="page-break" class="page-break"></div>
                                             <div class="panel panel-default panel-suite">
                             <div class="panel-heading">
-                                <h2>Chrome</h2>
+                                <h2>Firefox</h2>
                             </div>
                             <div class="panel-body">
                                 <ol class="dd-list">
 
                                                                         <div id="collapse-feature" data-role="collapsible" data-inset="false">
                                     <li data-role="listview" class="dd-item feature success" data-id="feature-1">
-                                        <div class="dd-nodrag dd-success">Feature: Soundtransit Homepage
-                                                                                                                                                <span class="pull-right label label-primary">homepage</span>
+                                        <div class="dd-nodrag dd-success">Feature: Trip Planner Page
+                                                                                                                                                <span class="pull-right label label-primary">tripplanner</span>
                                                                                                                                     </div>
 
                                         <ol class="dd-list">
                                                                                         <li class="dd-item feature-extra" data-id="featureinfo-1">
                                                 <div class="dd-nodrag">
-                                                    <p>The sound transit homepage when navigating to https://soundtransit.org</p>
+                                                    <p>The sound transit trip planner page at https://soundtransit.org/tripplanner</p>
                                                 </div>
                                             </li>
                                                                                     <div class="dd">
                                                                                     <li class="dd-item scenario success" data-id="scenario-1-1">
-                                                <div class="dd-nodrag dd-success">Scenario: menu and header region visual regression
-                                                                                                                                                                                        <span class="pull-right label label-primary">visualregression</span>
-                                                                                                                                    <span class="pull-right label label-primary">bug</span>
+                                                <div class="dd-nodrag dd-success">Scenario: address outside of service area
+                                                                                                                                                                                        <span class="pull-right label label-primary">sorry</span>
                                                                                                                                                                     </div>
 
                                                 <ol class="dd-list">
@@ -832,205 +740,123 @@
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>And</b> https://soundtransit.org is navigated to
+                                                            <b>And</b> https://soundtransit.org/tripplanner is navigated to
                                                         </div>
                                                          
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> static page elements should look the same as last time
+                                                            <b>Given</b> I set the start address to &quot;Bellingham, WA&quot;
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                    </ol>
-                                            </li>
-                                                                                </div>
-                                        </ol>
-                                    </li>
-                                    </div>
-                                                                        <div id="collapse-feature" data-role="collapsible" data-inset="false">
-                                    <li data-role="listview" class="dd-item feature success" data-id="feature-2">
-                                        <div class="dd-nodrag dd-success">Feature: Trip Planner Page
-                                                                                                                                                <span class="pull-right label label-primary">tripplanner</span>
-                                                                                                                                    </div>
-
-                                        <ol class="dd-list">
-                                                                                        <li class="dd-item feature-extra" data-id="featureinfo-2">
-                                                <div class="dd-nodrag">
-                                                    <p>The sound transit trip planner page at https://soundtransit.org/tripplanner</p>
-                                                </div>
-                                            </li>
-                                                                                    <div class="dd">
-                                                                                    <li class="dd-item scenario success" data-id="scenario-2-1">
-                                                <div class="dd-nodrag dd-success">Scenario: valid route, screenshot route
-                                                                                                                                                                                        <span class="pull-right label label-primary">visualregression</span>
-                                                                                                                                                                    </div>
-
-                                                <ol class="dd-list">
-                                                                                                         <li class="dd-item step" data-id="step-2-1-">
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> an open browser
+                                                            <b>And</b> the end address to &quot;Seattle, WA&quot;
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-2-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> https://soundtransit.org/tripplanner is navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-2-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> I set the start address to &quot;98126, WA&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-2-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the end address to &quot;98121, WA&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-2-1-">
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
                                                             <b>When</b> I click the plan trip button
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-2-1-">
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
                                                             <b>Then</b> the map should load a route
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-2-1-">
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the map element screenshot named &quot;TripPlannerPageMapOf98126To98121&quot; should be visually regressed after its given time to completely render
+                                                            <b>And</b> I see a We&#039;re Sorry message
                                                         </div>
                                                          
+                                                                                                                    </li><li class="list-group-item break">
                                                                                                             </li>
-                                                                                                    </ol>
-                                            </li>
-                                                                                </div>
-                                        </ol>
-                                    </li>
-                                    </div>
-                                    
-                                </ol>
-                            </div>
-                        </div>
-                                        </div><!-- suite -->
-                                                                                <div id="suite">
-                    <div id="page-break" class="page-break"></div>
-                                            <div class="panel panel-default panel-suite">
-                            <div class="panel-heading">
-                                <h2>Firefox</h2>
-                            </div>
-                            <div class="panel-body">
-                                <ol class="dd-list">
-
-                                                                        <div id="collapse-feature" data-role="collapsible" data-inset="false">
-                                    <li data-role="listview" class="dd-item feature success" data-id="feature-3">
-                                        <div class="dd-nodrag dd-success">Feature: Soundtransit Homepage
-                                                                                                                                                <span class="pull-right label label-primary">homepage</span>
-                                                                                                                                    </div>
-
-                                        <ol class="dd-list">
-                                                                                        <li class="dd-item feature-extra" data-id="featureinfo-3">
-                                                <div class="dd-nodrag">
-                                                    <p>The sound transit homepage when navigating to https://soundtransit.org</p>
-                                                </div>
-                                            </li>
-                                                                                    <div class="dd">
-                                                                                    <li class="dd-item scenario success" data-id="scenario-3-1">
-                                                <div class="dd-nodrag dd-success">Scenario: menu and header region visual regression
-                                                                                                                                                                                        <span class="pull-right label label-primary">visualregression</span>
-                                                                                                                                    <span class="pull-right label label-primary">bug</span>
-                                                                                                                                                                    </div>
-
-                                                <ol class="dd-list">
-                                                                                                         <li class="dd-item step" data-id="step-3-1-">
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
                                                             <b>Given</b> an open browser
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-3-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> https://soundtransit.org is navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-3-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> static page elements should look the same as last time
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                    </ol>
-                                            </li>
-                                                                                </div>
-                                        </ol>
-                                    </li>
-                                    </div>
-                                                                        <div id="collapse-feature" data-role="collapsible" data-inset="false">
-                                    <li data-role="listview" class="dd-item feature success" data-id="feature-4">
-                                        <div class="dd-nodrag dd-success">Feature: Trip Planner Page
-                                                                                                                                                <span class="pull-right label label-primary">tripplanner</span>
-                                                                                                                                    </div>
-
-                                        <ol class="dd-list">
-                                                                                        <li class="dd-item feature-extra" data-id="featureinfo-4">
-                                                <div class="dd-nodrag">
-                                                    <p>The sound transit trip planner page at https://soundtransit.org/tripplanner</p>
-                                                </div>
-                                            </li>
-                                                                                    <div class="dd">
-                                                                                    <li class="dd-item scenario success" data-id="scenario-4-1">
-                                                <div class="dd-nodrag dd-success">Scenario: valid route, screenshot route
-                                                                                                                                                                                        <span class="pull-right label label-primary">visualregression</span>
-                                                                                                                                                                    </div>
-
-                                                <ol class="dd-list">
-                                                                                                         <li class="dd-item step" data-id="step-4-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> an open browser
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-4-1-">
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
                                                             <b>And</b> https://soundtransit.org/tripplanner is navigated to
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-4-1-">
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> I set the start address to &quot;98126, WA&quot;
+                                                            <b>Given</b> I set the start address to &quot;Seattle, WA&quot;
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-4-1-">
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the end address to &quot;98121, WA&quot;
+                                                            <b>And</b> the end address to &quot;Bellingham, WA&quot;
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-4-1-">
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
                                                             <b>When</b> I click the plan trip button
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-4-1-">
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
                                                             <b>Then</b> the map should load a route
                                                         </div>
                                                          
                                                                                                             </li>
-                                                                                                        <li class="dd-item step" data-id="step-4-1-">
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the map element screenshot named &quot;TripPlannerPageMapOf98126To98121&quot; should be visually regressed after its given time to completely render
+                                                            <b>And</b> I see a We&#039;re Sorry message
+                                                        </div>
+                                                         
+                                                                                                                    </li><li class="list-group-item break">
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Given</b> an open browser
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> https://soundtransit.org/tripplanner is navigated to
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Given</b> I set the start address to &quot;Vancouver, WA&quot;
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> the end address to &quot;Bellingham, WA&quot;
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>When</b> I click the plan trip button
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Then</b> the map should load a route
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> I see a We&#039;re Sorry message
                                                         </div>
                                                          
                                                                                                             </li>
@@ -1149,16 +975,16 @@
         <div class="summary passed">
             <div class="counters">
                 <p class="features">
-                    4 features ( <strong class="passed">4 success</strong> )
+                    1 features ( <strong class="passed">1 success</strong> )
                 </p>
                 <p class="scenarios">
-                    4 scenarios ( <strong class="passed">4 success</strong> )
+                    1 scenarios ( <strong class="passed">1 success</strong> )
                 </p>
                 <p class="steps">
-                    20 steps ( <strong class="passed">20 success</strong> )
+                    21 steps ( <strong class="passed">21 success</strong> )
                 </p>
                 <p class="time">
-                0m57.38s - 12.37Mb
+                0m33.39s - 11.72Mb
                 </p>
             </div>
             <div class="switchers">
