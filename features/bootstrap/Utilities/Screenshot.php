@@ -3,6 +3,7 @@ namespace Utilities;
 
 use CommonContext;
 use Facebook\WebDriver\WebDriverElement;
+use Facebook\WebDriver\WebDriverDimension;
 use Imagick; //must install ImageMagick and the PHP imagick extension (see notes)
 use Utilities\Utility;
 
@@ -31,12 +32,7 @@ class Screenshot {
             $element_screenshot = Screenshot::takenElementScreenshotPath($moniker);
         }
         
-        //move to element so it's clearly in the view
-        if(CommonContext::$browser==='firefox') {
-            Utility::scrollToElement($element); //moveToElement does not work for firefox, so need to scroll manually
-        } else {
-            $driver->action()->moveToElement($element)->perform();
-        }
+        Screenshot::optimizeWindowForElementScreenshot($element);
         
         //take full page screenshot to crop element screenshot from
         $screenshot = Screenshot::takeScreenshot($driver);
@@ -121,5 +117,44 @@ class Screenshot {
         
         //screenshots should be specific to browser too, since they take screenshots slightly differently
         return '-'.CommonContext::$browser.'-'.$devicePixelRatio.'.png';
+    }
+    
+    private static function optimizeWindowForElementScreenshot(WebDriverElement $element) {
+        //get element, window, and viewport dimensions and calculate new window size
+        $elementWidth = $element->getSize()->getWidth();
+        $elementHeight = $element->getSize()->getHeight();
+        $windowSize = CommonContext::$driver->manage()->window()->getSize();
+        $windowWidth = $windowSize->getWidth();
+        $windowHeight = $windowSize->getHeight();
+        $viewPortSize = CommonContext::$driver->executeScript("return [window.innerWidth, window.innerHeight];");
+        $viewPortWidth = $viewPortSize[0];
+        $viewPortHeight = $viewPortSize[1];
+        $nonViewPortWidth = $windowWidth - $viewPortWidth;
+        $nonViewPortHeight = $windowHeight - $viewPortHeight;
+        
+        print("elementWidth:".$elementWidth." elementHeight:".$elementHeight." windowWidth: ".$windowWidth." windowHeight:".$windowHeight." viewPortWidth:".$viewPortWidth." viewPortHeight:".$viewPortHeight."\n");
+
+        $newWindowWidth = $windowWidth;
+        $newWindowHeight = $windowHeight;
+        
+        if($elementWidth > $viewPortWidth) {
+            $newWindowWidth = $elementWidth + $nonViewPortWidth;
+        }
+        
+        if($elementHeight > $viewPortHeight) {
+            $newWindowHeight = $elementHeight + $nonViewPortHeight;
+        }
+        
+        print("newWindowWidth:".$newWindowWidth." newWindowHeight:".$newWindowHeight."\n");
+        //set window size to fit element
+        CommonContext::$driver->manage()->window()->setSize(new WebDriverDimension($newWindowWidth,$newWindowHeight));
+        
+        //move to element so it's clearly in the view
+        if(CommonContext::$browser==='firefox') {
+            Utility::scrollToElement($element); //moveToElement does not work for firefox, so need to scroll manually
+        } else {
+            CommonContext::$driver->action()->moveToElement($element)->perform();
+        }
+        
     }
 }
