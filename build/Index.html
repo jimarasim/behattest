@@ -331,20 +331,20 @@
         <div class="feature">
             <h2>
                 <span id="feat1" class="keyword"> Feature: </span>
-                <span class="title">Route Schedule page</span>
+                <span class="title">Soundtransit Homepage</span>
             </h2>
-            <p>The sound transit schedule page at https://soundtransit.org/schedules</p>
+            <p>The sound transit homepage when navigating to https://soundtransit.org</p>
             <ul class="tags">
-                <li>@schedules</li>
+                <li>@homepage</li>
             </ul>
             <div class="scenario">
                 <ul class="tags">
                     <li>@visualregression</li>
-                    <li>@vr</li>
+                    <li>@homevr</li>
                 </ul>
                 <h3>
                     <span class="keyword"> Scenario: </span>
-                    <span class="title">Main Schedules Page Visual Regression</span>
+                    <span class="title">menu and header region visual regression</span>
                 </h3>
                 <ol>
                     <li class="passed">
@@ -356,16 +356,16 @@
                     </li>
                     <li class="passed">
                         <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">the main schedules page is open </span>
-                            <span class="path">SchedulesContext::theMainSchedulesPageIsOpen()</span>
+                            <span class="keyword">And </span>
+                            <span class="text">https://soundtransit.org is navigated to </span>
+                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
                         </div>
                     </li>
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">Then </span>
-                            <span class="text">the main schedules page should look the same as last time </span>
-                            <span class="path">SchedulesContext::theMainSchedulesPageShouldLookTheSameAsLastTime()</span>
+                            <span class="text">static page elements should look the same as last time </span>
+                            <span class="path">HomepageContext::staticPageElementsShouldLookTheSameAsLastTime()</span>
                         </div>
                     </li>
                 </ol>
@@ -377,20 +377,20 @@
         <div class="feature">
             <h2>
                 <span id="feat2" class="keyword"> Feature: </span>
-                <span class="title">Route Schedule page</span>
+                <span class="title">Soundtransit Homepage</span>
             </h2>
-            <p>The sound transit schedule page at https://soundtransit.org/schedules</p>
+            <p>The sound transit homepage when navigating to https://soundtransit.org</p>
             <ul class="tags">
-                <li>@schedules</li>
+                <li>@homepage</li>
             </ul>
             <div class="scenario">
                 <ul class="tags">
                     <li>@visualregression</li>
-                    <li>@vr</li>
+                    <li>@homevr</li>
                 </ul>
                 <h3>
                     <span class="keyword"> Scenario: </span>
-                    <span class="title">Main Schedules Page Visual Regression</span>
+                    <span class="title">menu and header region visual regression</span>
                 </h3>
                 <ol>
                     <li class="passed">
@@ -402,16 +402,16 @@
                     </li>
                     <li class="passed">
                         <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">the main schedules page is open </span>
-                            <span class="path">SchedulesContext::theMainSchedulesPageIsOpen()</span>
+                            <span class="keyword">And </span>
+                            <span class="text">https://soundtransit.org is navigated to </span>
+                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
                         </div>
                     </li>
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">Then </span>
-                            <span class="text">the main schedules page should look the same as last time </span>
-                            <span class="path">SchedulesContext::theMainSchedulesPageShouldLookTheSameAsLastTime()</span>
+                            <span class="text">static page elements should look the same as last time </span>
+                            <span class="path">HomepageContext::staticPageElementsShouldLookTheSameAsLastTime()</span>
                         </div>
                     </li>
                 </ol>
@@ -517,7 +517,7 @@
                             <tr>
                                 <th>Build on:</th>
                                 <td>
-                                    Wed 27 Jun 2018 02:10
+                                    Wed 27 Jun 2018 02:52
                                 </td>
                                 <td></td>
                             </tr>
@@ -648,21 +648,21 @@
 
                                                                         <div id="collapse-feature" data-role="collapsible" data-inset="false">
                                     <li data-role="listview" class="dd-item feature success" data-id="feature-1">
-                                        <div class="dd-nodrag dd-success">Feature: Route Schedule page
-                                                                                                                                                <span class="pull-right label label-primary">schedules</span>
+                                        <div class="dd-nodrag dd-success">Feature: Soundtransit Homepage
+                                                                                                                                                <span class="pull-right label label-primary">homepage</span>
                                                                                                                                     </div>
 
                                         <ol class="dd-list">
                                                                                         <li class="dd-item feature-extra" data-id="featureinfo-1">
                                                 <div class="dd-nodrag">
-                                                    <p>The sound transit schedule page at https://soundtransit.org/schedules</p>
+                                                    <p>The sound transit homepage when navigating to https://soundtransit.org</p>
                                                 </div>
                                             </li>
                                                                                     <div class="dd">
                                                                                     <li class="dd-item scenario success" data-id="scenario-1-1">
-                                                <div class="dd-nodrag dd-success">Scenario: Main Schedules Page Visual Regression
+                                                <div class="dd-nodrag dd-success">Scenario: menu and header region visual regression
                                                                                                                                                                                         <span class="pull-right label label-primary">visualregression</span>
-                                                                                                                                    <span class="pull-right label label-primary">vr</span>
+                                                                                                                                    <span class="pull-right label label-primary">homevr</span>
                                                                                                                                                                     </div>
 
                                                 <ol class="dd-list">
@@ -674,15 +674,23 @@
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> the main schedules page is open
+                                                            <b>And</b> https://soundtransit.org is navigated to
                                                         </div>
                                                          
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> the main schedules page should look the same as last time
+                                                            <b>Then</b> static page elements should look the same as last time
                                                         </div>
-                                                         
+                                                                                                                  <ol class="dd-list">
+                                                             <li class="dd-item step-argument dd-collapsed" data-id="step-1-1--argument">
+                                                                 <div class="dd-nodrag dd-success">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <p style="padding-left:2em ; color:black">| WARN: MASTER AND TAKEN IMAGES TAKEN AT SAME TIME. RUN AGAIN FOR TRUE DIFF TEST.<br />
+</p>
+                                                                                                                                     </div>
+                                                             </li>
+                                                         </ol>
+                                                        
                                                                                                             </li>
                                                                                                     </ol>
                                             </li>
@@ -706,21 +714,21 @@
 
                                                                         <div id="collapse-feature" data-role="collapsible" data-inset="false">
                                     <li data-role="listview" class="dd-item feature success" data-id="feature-2">
-                                        <div class="dd-nodrag dd-success">Feature: Route Schedule page
-                                                                                                                                                <span class="pull-right label label-primary">schedules</span>
+                                        <div class="dd-nodrag dd-success">Feature: Soundtransit Homepage
+                                                                                                                                                <span class="pull-right label label-primary">homepage</span>
                                                                                                                                     </div>
 
                                         <ol class="dd-list">
                                                                                         <li class="dd-item feature-extra" data-id="featureinfo-2">
                                                 <div class="dd-nodrag">
-                                                    <p>The sound transit schedule page at https://soundtransit.org/schedules</p>
+                                                    <p>The sound transit homepage when navigating to https://soundtransit.org</p>
                                                 </div>
                                             </li>
                                                                                     <div class="dd">
                                                                                     <li class="dd-item scenario success" data-id="scenario-2-1">
-                                                <div class="dd-nodrag dd-success">Scenario: Main Schedules Page Visual Regression
+                                                <div class="dd-nodrag dd-success">Scenario: menu and header region visual regression
                                                                                                                                                                                         <span class="pull-right label label-primary">visualregression</span>
-                                                                                                                                    <span class="pull-right label label-primary">vr</span>
+                                                                                                                                    <span class="pull-right label label-primary">homevr</span>
                                                                                                                                                                     </div>
 
                                                 <ol class="dd-list">
@@ -732,15 +740,23 @@
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-2-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> the main schedules page is open
+                                                            <b>And</b> https://soundtransit.org is navigated to
                                                         </div>
                                                          
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-2-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> the main schedules page should look the same as last time
+                                                            <b>Then</b> static page elements should look the same as last time
                                                         </div>
-                                                         
+                                                                                                                  <ol class="dd-list">
+                                                             <li class="dd-item step-argument dd-collapsed" data-id="step-2-1--argument">
+                                                                 <div class="dd-nodrag dd-success">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   <p style="padding-left:2em ; color:black">| WARN: MASTER AND TAKEN IMAGES TAKEN AT SAME TIME. RUN AGAIN FOR TRUE DIFF TEST.<br />
+</p>
+                                                                                                                                     </div>
+                                                             </li>
+                                                         </ol>
+                                                        
                                                                                                             </li>
                                                                                                     </ol>
                                             </li>
@@ -866,7 +882,7 @@
                     6 steps ( <strong class="passed">6 success</strong> )
                 </p>
                 <p class="time">
-                0m29.56s - 12.11Mb
+                0m22.86s - 12.11Mb
                 </p>
             </div>
             <div class="switchers">
