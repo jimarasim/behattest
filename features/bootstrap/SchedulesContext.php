@@ -28,7 +28,11 @@ class SchedulesContext implements Context
      */
     public function theMainSchedulesPageShouldLookTheSameAsLastTime()
     {
-        Assert::assertTrue($this->schedulesPage->screenshotDiffMainDiv());
+        Assert::assertTrue($this->schedulesPage->screenshotDiffScheduleChooserDiv());
+        Assert::assertTrue($this->schedulesPage->screenshotDiffTransitGuideDiv());
+        Assert::assertTrue($this->schedulesPage->screenshotDiffAirportServiceDiv());
+        Assert::assertTrue($this->schedulesPage->screenshotDiffServiceToDiv());
+        Assert::assertTrue($this->schedulesPage->screenshotDiffAlertsDiv());
     }
     
      /**

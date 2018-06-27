@@ -4,6 +4,7 @@ namespace Pages;
 
 use Facebook\WebDriver\WebDriverBy;
 use Facebook\WebDriver\WebDriverExpectedCondition;
+use Utilities\Screenshot;
 
 /**
  * Description of Page
@@ -22,6 +23,7 @@ abstract class Page {
     
     //elements
     private function pageTitleHeader() {return $this->driver->findElement(WebDriverBy::cssSelector('h1.title'));}
+    private function footerDiv() {return $this->driver->findElement(WebDriverBy::id('footer'));}
 
     
     //state checks
@@ -93,5 +95,10 @@ abstract class Page {
     //values (retrieving data from elements)
     public function getPageTitleHeaderText() {
         return $this->pageTitleHeader()->getText();
+    }
+    
+    //screenshots
+    public function screenShotDiffFooterDiv() {
+        return Screenshot::takeElementScreenshotAndDiff($this->footerDiv(), 'HomePageFooterDiv');
     }
 }

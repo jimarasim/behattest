@@ -4,6 +4,7 @@ namespace Utilities;
 use CommonContext;
 use Facebook\WebDriver\WebDriverElement;
 use Facebook\WebDriver\WebDriverDimension;
+use Facebook\WebDriver\WebDriverPoint;
 use Imagick; //must install ImageMagick and the PHP imagick extension (see notes)
 use Utilities\Utility;
 
@@ -20,7 +21,7 @@ class Screenshot {
         return $screenshotpath;
     }
     
-    //element screenshots require a name and are saved to /screenshots/master if one hasn't been taken
+    //element screenshots require a moniker and are saved to /screenshots/master if one hasn't been taken
     //if a master has been taken, they are saved to /screenshots/taken
     public static function takeElementScreenshot(WebDriverElement $element, string $moniker) {
         $driver = CommonContext::$driver;
@@ -32,7 +33,9 @@ class Screenshot {
             $element_screenshot = Screenshot::takenElementScreenshotPath($moniker);
         }
         
+        //get best view of the element
         Screenshot::optimizeWindowForElementScreenshot($element);
+        Utility::scrollToElement($element);
         
         //take full page screenshot to crop element screenshot from
         $screenshot = Screenshot::takeScreenshot($driver);
@@ -88,26 +91,14 @@ class Screenshot {
     }
     
     private static function masterElementScreenshotPath($moniker) {
-        
-        //if devicePixelRatio is higher than 1, we'll take a device specific screenshot
-        $devicePixelRatio = CommonContext::$driver->executeScript("return window.devicePixelRatio;");
-        
         return getcwd().'/screenshots/master/'.$moniker.Screenshot::monikerAttributes();
     }
     
     private static function takenElementScreenshotPath($moniker) {
-        
-        //if devicePixelRatio is higher than 1, we'll take a device specific screenshot
-        $devicePixelRatio = CommonContext::$driver->executeScript("return window.devicePixelRatio;");
-        
         return getcwd().'/screenshots/taken/'.$moniker.Screenshot::monikerAttributes();
     }
     
     private static function diffElementScreenshotPath($moniker) {
-        
-        //if devicePixelRatio is higher than 1, we'll take a device specific screenshot
-        $devicePixelRatio = CommonContext::$driver->executeScript("return window.devicePixelRatio;");
-        
         return getcwd().'/screenshots/diff/'.$moniker.Screenshot::monikerAttributes();
     }
     
@@ -120,41 +111,26 @@ class Screenshot {
     }
     
     private static function optimizeWindowForElementScreenshot(WebDriverElement $element) {
+        CommonContext::$driver->manage()->window()->setPosition(new WebDriverPoint(0,0));
         //get element, window, and viewport dimensions and calculate new window size
         $elementWidth = $element->getSize()->getWidth();
         $elementHeight = $element->getSize()->getHeight();
-        $windowSize = CommonContext::$driver->manage()->window()->getSize();
-        $windowWidth = $windowSize->getWidth();
-        $windowHeight = $windowSize->getHeight();
         $viewPortSize = CommonContext::$driver->executeScript("return [window.innerWidth, window.innerHeight];");
         $viewPortWidth = $viewPortSize[0];
         $viewPortHeight = $viewPortSize[1];
-        $nonViewPortWidth = $windowWidth - $viewPortWidth;
-        $nonViewPortHeight = $windowHeight - $viewPortHeight;
         
-        print("elementWidth:".$elementWidth." elementHeight:".$elementHeight." windowWidth: ".$windowWidth." windowHeight:".$windowHeight." viewPortWidth:".$viewPortWidth." viewPortHeight:".$viewPortHeight."\n");
+        if($elementWidth > $viewPortWidth || $elementHeight > $viewPortHeight) {
+            $windowSize = CommonContext::$driver->manage()->window()->getSize();
+            $windowWidth = $windowSize->getWidth();
+            $windowHeight = $windowSize->getHeight();
+            $nonViewPortWidth = $windowWidth - $viewPortWidth;
+            $nonViewPortHeight = $windowHeight - $viewPortHeight;
 
-        $newWindowWidth = $windowWidth;
-        $newWindowHeight = $windowHeight;
-        
-        if($elementWidth > $viewPortWidth) {
-            $newWindowWidth = $elementWidth + $nonViewPortWidth;
+            $newWindowWidth = ($elementWidth > $viewPortWidth)?$elementWidth + $nonViewPortWidth:$windowWidth;
+            $newWindowHeight = ($elementHeight > $viewPortHeight)?$elementHeight + $nonViewPortHeight:$windowHeight;
+            
+            //set window size to fit element
+            CommonContext::$driver->manage()->window()->setSize(new WebDriverDimension($newWindowWidth,$newWindowHeight));
         }
-        
-        if($elementHeight > $viewPortHeight) {
-            $newWindowHeight = $elementHeight + $nonViewPortHeight;
-        }
-        
-        print("newWindowWidth:".$newWindowWidth." newWindowHeight:".$newWindowHeight."\n");
-        //set window size to fit element
-        CommonContext::$driver->manage()->window()->setSize(new WebDriverDimension($newWindowWidth,$newWindowHeight));
-        
-        //move to element so it's clearly in the view
-        if(CommonContext::$browser==='firefox') {
-            Utility::scrollToElement($element); //moveToElement does not work for firefox, so need to scroll manually
-        } else {
-            CommonContext::$driver->action()->moveToElement($element)->perform();
-        }
-        
     }
 }

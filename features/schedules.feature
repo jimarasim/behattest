@@ -4,7 +4,7 @@ The sound transit schedule page at https://soundtransit.org/schedules
     Background:
         Given an open browser
     
-    @vr
+    @visualregression @vr
     Scenario: Main Schedules Page Visual Regression
         Given the main schedules page is open
         Then the main schedules page should look the same as last time

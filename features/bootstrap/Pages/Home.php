@@ -94,6 +94,5 @@ class Home extends Page {
         return Screenshot::takeElementScreenshotAndDiff($this->riderAlertsSubscriptionForm(), 'HomePageRiderAlertsSubscriptionForm');
     }
     
-    
 }
 

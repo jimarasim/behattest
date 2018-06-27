@@ -22,8 +22,12 @@ class Schedules extends Page {
     private function holidayListItems() {return $this->driver->findElements(WebDriverBy::cssSelector('li.holiday-service-item'));}
     private function mapTab() {return $this->driver->findElement(WebDriverBy::xpath('//ul[@id="route-content-menu"]/li/a[contains(text(),"Map")]'));}
     private function map() {return $this->driver->findElement(WebDriverBy::id('map'));}
-    private function mainDiv() {return $this->driver->findElement(WebDriverBy::id('main'));}
-    
+    private function scheduleChooserDiv() {return $this->driver->findElement(WebDriverBy::cssSelector('div.info-components.col-3'));}
+    private function transitGuideDiv() {return $this->driver->findElement(WebDriverBy::id('node-1310'));}
+    private function airportServiceDiv() {return $this->driver->findElement(WebDriverBy::id('node-10096'));}
+    private function serviceToDiv() {return $this->driver->findElement(WebDriverBy::id('node-1313'));}
+    private function alertsDiv() {return $this->driver->findElement(WebDriverBy::id('node-1314'));}
+
     //state checks
     public function mapDisplayed() {
         return $this->map()->isDisplayed();
@@ -63,8 +67,24 @@ class Schedules extends Page {
     }
     
     //screenshots
-    public function screenshotDiffMainDiv() {
-        return Screenshot::takeElementScreenshotAndDiff($this->mainDiv(), "SchedulesPageMainDiv");
+    public function screenshotDiffScheduleChooserDiv() {
+        return Screenshot::takeElementScreenshotAndDiff($this->scheduleChooserDiv(), "SchedulesPageScheduleChooser");
+    }
+    
+    public function screenshotDiffTransitGuideDiv() {
+        return Screenshot::takeElementScreenshotAndDiff($this->transitGuideDiv(), "SchedulesPageTransitGuideDiv");
+    }
+    
+    public function screenshotDiffAirportServiceDiv() {
+        return Screenshot::takeElementScreenshotAndDiff($this->airportServiceDiv(), "SchedulesPageAirportServiceDiv");
+    }
+    
+    public function screenshotDiffServiceToDiv() {
+        return Screenshot::takeElementScreenshotAndDiff($this->serviceToDiv(), "SchedulesPageServiceToDiv");
+    }
+    
+    public function screenshotDiffAlertsDiv() {
+        return Screenshot::takeElementScreenshotAndDiff($this->alertsDiv(), "SchedulesPageAlertsDiv");
     }
     
 }
