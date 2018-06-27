@@ -2,8 +2,6 @@
 
 namespace Pages;
 
-use Facebook\WebDriver\WebDriverBy;
-
 /**
  * Description of RiderAlerts
  *

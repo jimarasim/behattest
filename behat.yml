@@ -5,6 +5,8 @@ default:
                 - HomepageContext
                 - TripPlannerContext
                 - SchedulesContext
+                - FaresAndPassesContext
+                - RiderGuideContext
                 - CommonContext:
                     browser: 'chrome'
         firefox:            
@@ -12,6 +14,8 @@ default:
                 - HomepageContext
                 - TripPlannerContext
                 - SchedulesContext
+                - FaresAndPassesContext
+                - RiderGuideContext
                 - CommonContext:
                     browser: 'firefox'            
     formatters: 
