@@ -26,7 +26,11 @@ class TripPlanner extends Page {
     private function busCheckbox() {return $this->driver->findElement(WebDriverBy::id('bus'));}
     private function advancedOptionsToggle() {return $this->driver->findElement(WebDriverBy::id('optionstoggle'));}
     private function plannerPanelDiv() {return $this->driver->findElement(WebDriverBy::id('plannerpanel'));}
-
+    private function leaveHourTextBox() {return $this->driver->findElement(WebDriverBy::id('leavehour') );}
+    private function leaveMinuteTextBox() {return $this->driver->findElement(WebDriverBy::id('leaveminute'));}
+    private function leaveAmPmTextBox() {return $this->driver->findElement(WebDriverBy::id('leaveampm'));}
+    
+    
     //map location offsets; offsets from the center of the map element
     public $seattleOffset = array("x"=>-6, "y"=>-43);
     public $bellevueOffset = array("x"=>20, "y"=>-45);
@@ -167,6 +171,9 @@ class TripPlanner extends Page {
     }
     
     public function screenShotDiffPlannerPannelDiv() {
-        return Screenshot::takeElementScreenshotAndDiff($this->plannerPanelDiv(), 'TripPlannerPanelDiv');
+        return Screenshot::takeElementScreenshotAndDiff(
+                $this->plannerPanelDiv(), 
+                'TripPlannerPanelDiv', 
+                [$this->leaveDayTextBox(),$this->leaveHourTextBox(),$this->leaveMinuteTextBox(), $this->leaveAmPmTextBox()]);
     }
 }

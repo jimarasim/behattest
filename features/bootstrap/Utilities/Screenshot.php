@@ -2,10 +2,13 @@
 namespace Utilities;
 
 use CommonContext;
+use Exception;
 use Facebook\WebDriver\WebDriverElement;
 use Facebook\WebDriver\WebDriverDimension;
 use Facebook\WebDriver\WebDriverPoint;
 use Imagick; //must install ImageMagick and the PHP imagick extension (see notes)
+use ImagickDraw; //must install ImageMagick and the PHP imagick extension (see notes)
+use ImagickPixel; //must install ImageMagick and the PHP imagick extension (see notes)
 use Utilities\Utility;
 
 class Screenshot {
@@ -23,7 +26,7 @@ class Screenshot {
     
     //element screenshots require a moniker and are saved to /screenshots/master if one hasn't been taken
     //if a master has been taken, they are saved to /screenshots/taken
-    public static function takeElementScreenshot(WebDriverElement $element, string $moniker, array $hidden=NULL) {
+    public static function takeElementScreenshot(WebDriverElement $element, string $moniker, array $hiddenElements=NULL) {
         $driver = CommonContext::$driver;
  
         //setup path for element screenshot
@@ -40,6 +43,11 @@ class Screenshot {
         //take full page screenshot to crop element screenshot from
         $screenshot = Screenshot::takeScreenshot($driver);
         
+        //if there are any elements we need to hide, white them out in the screenshot
+        if(isset($hiddenElements)) {
+            Screenshot::hideElementsInScreenshot($screenshot, $hiddenElements);
+        }
+        
         //get the element dimensions so we know what to crop
         $element_dimensions = Screenshot::getElementDimensions($element);
         
@@ -52,7 +60,38 @@ class Screenshot {
         return $element_screenshot;
     }
     
-    private static function getElementDimensions(WebDriverElement $element) {
+    public static function hideElementsInScreenshot(string $screenshot,array $hiddenElements) {
+        //get the screenshot to hide elements in
+        $image = new Imagick($screenshot);
+        
+        //create an imagick draw object for drawing on the screenshot
+        $draw = new ImagickDraw();
+        $draw->setfillcolor(new ImagickPixel('white'));
+        $draw->setStrokeWidth(0);
+        
+        //for each element we need to hide, build up the draw object that will will overlay on the screenshot
+        foreach($hiddenElements as $hiddenElement) {
+            //get the dimensions for the element
+            $hiddenelement_dimensions = Screenshot::getElementDimensions($hiddenElement);
+            
+            //draw a rectangle for the object 
+            $draw->rectangle(
+                    $hiddenelement_dimensions["x"], 
+                    $hiddenelement_dimensions["y"], 
+                    $hiddenelement_dimensions["x"]+$hiddenelement_dimensions["width"], 
+                    $hiddenelement_dimensions["y"]+$hiddenelement_dimensions["height"]);
+            
+        }
+        
+        //overlay the draw object on the screenshot
+        $image->drawimage($draw);
+        
+        //save
+        $image->setimageformat("png");
+        $image->writeimage($screenshot);
+    }
+    
+    public static function getElementDimensions(WebDriverElement $element) {
         $driver = CommonContext::$driver;   
         
         $dimension_array = array();
@@ -74,7 +113,7 @@ class Screenshot {
     }
     
     //master element screenshot will be taken if one does not exist
-    public static function takeElementScreenshotAndDiff(WebDriverElement $element, string $moniker) {
+    public static function takeElementScreenshotAndDiff(WebDriverElement $element, string $moniker, array $hiddenElements=NULL) {
         $master_screenshot = Screenshot::masterElementScreenshotPath($moniker);
         
         if(!file_exists($master_screenshot)) {
@@ -82,7 +121,7 @@ class Screenshot {
             print("WARN: MASTER AND TAKEN IMAGES TAKEN AT SAME TIME. RUN AGAIN FOR TRUE DIFF TEST.\n");
         }
         
-        $taken_screenshot = Screenshot::takeElementScreenshot($element, $moniker);
+        $taken_screenshot = Screenshot::takeElementScreenshot($element, $moniker, $hiddenElements);
         
         $master = new Imagick($master_screenshot);
         $taken = new Imagick($taken_screenshot);
