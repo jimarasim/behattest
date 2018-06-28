@@ -186,4 +186,12 @@ class TripPlannerContext implements Context {
         sleep(3);
         Assert::assertTrue($this->tripPlannerPage->screenShotDiffMapElement($arg1));
     }
+    
+    /**
+     * @Then the planner panel should look the same as last time
+     */
+    public function thePlannerPanelShouldLookTheSameAsLastTime()
+    {
+        Assert::assertTrue($this->tripPlannerPage->screenShotDiffPlannerPannelDiv());
+    }
 }

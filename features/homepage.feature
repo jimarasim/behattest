@@ -61,6 +61,6 @@ The sound transit homepage when navigating to https://soundtransit.org
         When I click any route in the Find Your Schedule dropdown
         Then I should be taken to its schedule page
 
-    @visualregression @homevr
+    @visualregression @vr
     Scenario: menu and header region visual regression
         Then static page elements should look the same as last time

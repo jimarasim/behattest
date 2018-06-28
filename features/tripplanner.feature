@@ -87,10 +87,14 @@ The sound transit trip planner page at https://soundtransit.org/tripplanner
         When I click the plan trip button
         Then I see a We're Sorry message
 
-    @visualregression
+    @visualregression @vr
     Scenario: valid route, screenshot route
         Given I set the start address to "98126, WA"
         And the end address to "98121, WA"
         When I click the plan trip button
         Then the map should load a route
         And the map element screenshot named "TripPlannerPageMapOf98126To98121" should be visually regressed after its given time to completely render
+ 
+    @visualregression @vr @panel
+    Scenario: planner panel visual regression
+        Then the planner panel should look the same as last time

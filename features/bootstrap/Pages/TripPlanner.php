@@ -25,6 +25,7 @@ class TripPlanner extends Page {
     private function leaveTypeSelect() {return new WebDriverSelect($this->driver->findElement(WebDriverBy::id('leavetype')));}
     private function busCheckbox() {return $this->driver->findElement(WebDriverBy::id('bus'));}
     private function advancedOptionsToggle() {return $this->driver->findElement(WebDriverBy::id('optionstoggle'));}
+    private function plannerPanelDiv() {return $this->driver->findElement(WebDriverBy::id('plannerpanel'));}
 
     //map location offsets; offsets from the center of the map element
     public $seattleOffset = array("x"=>-6, "y"=>-43);
@@ -163,5 +164,9 @@ class TripPlanner extends Page {
     //screenshots
     public function screenShotDiffMapElement($name) {
         return Screenshot::takeElementScreenshotAndDiff($this->mapSvg(), $name);
+    }
+    
+    public function screenShotDiffPlannerPannelDiv() {
+        return Screenshot::takeElementScreenshotAndDiff($this->plannerPanelDiv(), 'TripPlannerPanelDiv');
     }
 }

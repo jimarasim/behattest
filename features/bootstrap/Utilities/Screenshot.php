@@ -23,7 +23,7 @@ class Screenshot {
     
     //element screenshots require a moniker and are saved to /screenshots/master if one hasn't been taken
     //if a master has been taken, they are saved to /screenshots/taken
-    public static function takeElementScreenshot(WebDriverElement $element, string $moniker) {
+    public static function takeElementScreenshot(WebDriverElement $element, string $moniker, array $hidden=NULL) {
         $driver = CommonContext::$driver;
  
         //setup path for element screenshot
@@ -44,7 +44,7 @@ class Screenshot {
         $pageXOffset = $driver->executeScript("return window.pageXOffset;");
         $pageYOffset = $driver->executeScript("return window.pageYOffset;");
         
-        //if we're on a high resolution display, pixels returned for any dimension will be n times as much
+        //if we're on a high resolution display, pixels returned for any dimension will be n times as much because the screenshot will be n times as large
         $devicePixelRatio = $driver->executeScript("return window.devicePixelRatio;");
         
         //get dimensions and location of element screenshot to crop.

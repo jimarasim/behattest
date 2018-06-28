@@ -5,7 +5,7 @@ The sound transit fares and passes page at https://www.soundtransit.org/Fares-an
         Given an open browser
         And the Fares and Passes page is navigated to
     
-    @visualregression @fares
+    @visualregression @vr
     Scenario: Fares and Passes Page Visual Regression
         Then the fares and passes page should look the same as last time
     
