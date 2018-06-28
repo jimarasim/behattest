@@ -40,7 +40,24 @@ class Screenshot {
         //take full page screenshot to crop element screenshot from
         $screenshot = Screenshot::takeScreenshot($driver);
         
-        //if we scrolled, get the page scroll offsets for calculating image position in crop
+        //get the element dimensions so we know what to crop
+        $element_dimensions = Screenshot::getElementDimensions($element);
+        
+        // crop element screenshot from whole page screenshot, and save it to destination 
+        $src = imagecreatefrompng($screenshot);
+        $dest = imagecreatetruecolor($element_dimensions["width"], $element_dimensions["height"]);
+        imagecopy($dest, $src, 0, 0, $element_dimensions["x"], $element_dimensions["y"], $element_dimensions["width"], $element_dimensions["height"]);        
+        imagepng($dest, $element_screenshot);
+        
+        return $element_screenshot;
+    }
+    
+    private static function getElementDimensions(WebDriverElement $element) {
+        $driver = CommonContext::$driver;   
+        
+        $dimension_array = array();
+
+        //if we're scrolled, get the page scroll offsets for calculating image position in crop
         $pageXOffset = $driver->executeScript("return window.pageXOffset;");
         $pageYOffset = $driver->executeScript("return window.pageYOffset;");
         
@@ -48,18 +65,12 @@ class Screenshot {
         $devicePixelRatio = $driver->executeScript("return window.devicePixelRatio;");
         
         //get dimensions and location of element screenshot to crop.
-        $element_width = $devicePixelRatio*$element->getSize()->getWidth();
-        $element_height = $devicePixelRatio*$element->getSize()->getHeight();      
-        $element_src_x = $devicePixelRatio*$element->getLocation()->getX()-$devicePixelRatio*$pageXOffset;
-        $element_src_y = $devicePixelRatio*$element->getLocation()->getY()-$devicePixelRatio*$pageYOffset;
+        $dimension_array["width"] = $devicePixelRatio*$element->getSize()->getWidth();
+        $dimension_array["height"] = $devicePixelRatio*$element->getSize()->getHeight();      
+        $dimension_array["x"] = $devicePixelRatio*$element->getLocation()->getX()-$devicePixelRatio*$pageXOffset;
+        $dimension_array["y"] = $devicePixelRatio*$element->getLocation()->getY()-$devicePixelRatio*$pageYOffset;
         
-        // crop element screenshot from whole page screenshot, and save it to destination 
-        $src = imagecreatefrompng($screenshot);
-        $dest = imagecreatetruecolor($element_width, $element_height);
-        imagecopy($dest, $src, 0, 0, $element_src_x, $element_src_y, $element_width, $element_height);        
-        imagepng($dest, $element_screenshot);
-        
-        return $element_screenshot;
+        return $dimension_array;
     }
     
     //master element screenshot will be taken if one does not exist
