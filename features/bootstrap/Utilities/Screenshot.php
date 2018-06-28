@@ -117,7 +117,7 @@ class Screenshot {
         $master_screenshot = Screenshot::masterElementScreenshotPath($moniker);
         
         if(!file_exists($master_screenshot)) {
-            Screenshot::takeElementScreenshot($element, $moniker);
+            Screenshot::takeElementScreenshot($element, $moniker, $hiddenElements);
             print("WARN: MASTER AND TAKEN IMAGES TAKEN AT SAME TIME. RUN AGAIN FOR TRUE DIFF TEST.\n");
         }
         
