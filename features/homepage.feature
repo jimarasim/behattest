@@ -61,6 +61,9 @@ The sound transit homepage when navigating to https://soundtransit.org
         When I click any route in the Find Your Schedule dropdown
         Then I should be taken to its schedule page
 
-    @visualregression @vr
-    Scenario: menu and header region visual regression
-        Then static page elements should look the same as last time
+    @visualregression @vr @homevr
+    Scenario: Static page element visual regression
+        Then the Plan Your Trip Div should look the same as last pass 
+        And the Block System Main Div should look the same as last pass
+        And the Rider Alerts Subscription Form should look the same as last pass
+        And the footer Div should look the same as last pass

@@ -237,8 +237,40 @@ class HomepageContext implements Context
     public function staticPageElementsShouldLookTheSameAsLastTime()
     {
         Assert::assertTrue($this->homePage->screenShotDiffToFromArea());
+        
+        
+        
+    }
+    
+        /**
+     * @Then the Plan Your Trip Div should look the same as last pass
+     */
+    public function thePlanYourTripDivShouldLookTheSameAsLastPass()
+    {
+        Assert::assertTrue($this->homePage->screenShotDiffPlanYourTripDiv());
+    }
+
+    /**
+     * @Then the Block System Main Div should look the same as last pass
+     */
+    public function theBlockSystemMainDivShouldLookTheSameAsLastPass()
+    {
         Assert::assertTrue($this->homePage->screenShotDiffBlockSystemMain());
+    }
+
+    /**
+     * @Then the Rider Alerts Subscription Form should look the same as last pass
+     */
+    public function theRiderAlertsSubscriptionFormShouldLookTheSameAsLastPass()
+    {
         Assert::assertTrue($this->homePage->screenShotDiffRiderAlertsSubscription());  
+    }
+
+    /**
+     * @Then the footer Div should look the same as last pass
+     */
+    public function theFooterDivShouldLookTheSameAsLastPass()
+    {
         Assert::assertTrue($this->homePage->screenShotDiffFooterDiv()); 
     }
 }
