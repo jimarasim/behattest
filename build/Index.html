@@ -327,25 +327,25 @@
         </head>
         <body>
         <div id='behat'>
-        <div class="suite">Suite : chrome</div>
+        <div class="suite">Suite : firefox</div>
         <div class="feature">
             <h2>
                 <span id="feat1" class="keyword"> Feature: </span>
-                <span class="title">Soundtransit Homepage</span>
+                <span class="title">Trip Planner Page</span>
             </h2>
-            <p>The sound transit homepage when navigating to https://soundtransit.org</p>
+            <p>The sound transit trip planner page at https://soundtransit.org/tripplanner</p>
             <ul class="tags">
-                <li>@homepage</li>
+                <li>@tripplanner</li>
             </ul>
             <div class="scenario">
                 <ul class="tags">
                     <li>@visualregression</li>
                     <li>@vr</li>
-                    <li>@homevr</li>
+                    <li>@panel</li>
                 </ul>
                 <h3>
                     <span class="keyword"> Scenario: </span>
-                    <span class="title">Static page element visual regression</span>
+                    <span class="title">planner panel visual regression</span>
                 </h3>
                 <ol>
                     <li class="passed">
@@ -358,29 +358,15 @@
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">And </span>
-                            <span class="text">https://soundtransit.org is navigated to </span>
-                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
+                            <span class="text">https://soundtransit.org/tripplanner is navigated to </span>
+                            <span class="path">TripPlannerContext::httpsSoundtransitOrgTripplannerIsNavigatedTo()</span>
                         </div>
                     </li>
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">Then </span>
-                            <span class="text">the Plan Your Trip Div should look the same as last pass </span>
-                            <span class="path">HomepageContext::thePlanYourTripDivShouldLookTheSameAsLastPass()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the Block System Main Div should look the same as last pass </span>
-                            <span class="path">HomepageContext::theBlockSystemMainDivShouldLookTheSameAsLastPass()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the footer Div should look the same as last pass </span>
-                            <span class="path">HomepageContext::theFooterDivShouldLookTheSameAsLastPass()</span>
+                            <span class="text">the planner panel should look the same as last time </span>
+                            <span class="path">TripPlannerContext::thePlannerPanelShouldLookTheSameAsLastTime()</span>
                         </div>
                     </li>
                 </ol>
@@ -486,7 +472,7 @@
                             <tr>
                                 <th>Build on:</th>
                                 <td>
-                                    Sun 01 Jul 2018 01:33
+                                    Sun 01 Jul 2018 01:43
                                 </td>
                                 <td></td>
                             </tr>
@@ -545,13 +531,11 @@
                             </tr>
                                                                                     <tr>
                                 <th>
-                                    Chrome
+                                    Firefox
                                 </th>
                                                                                                             
                                                                                                             
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
                                                                                                                                             <td>
@@ -567,8 +551,8 @@
                                     <span id="label" class="label label-info"></span>
                                 </td>
                                 <td>
-                                    <span id="label" class="label label-default">5 steps</span>
-                                    <span id="label" class="label label-success">5 passed</span>
+                                    <span id="label" class="label label-default">3 steps</span>
+                                    <span id="label" class="label label-success">3 passed</span>
                                     <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
@@ -584,29 +568,29 @@
                     <div id="page-break" class="page-break"></div>
                                             <div class="panel panel-default panel-suite">
                             <div class="panel-heading">
-                                <h2>Chrome</h2>
+                                <h2>Firefox</h2>
                             </div>
                             <div class="panel-body">
                                 <ol class="dd-list">
 
                                                                         <div id="collapse-feature" data-role="collapsible" data-inset="false">
                                     <li data-role="listview" class="dd-item feature success" data-id="feature-1">
-                                        <div class="dd-nodrag dd-success">Feature: Soundtransit Homepage
-                                                                                                                                                <span class="pull-right label label-primary">homepage</span>
+                                        <div class="dd-nodrag dd-success">Feature: Trip Planner Page
+                                                                                                                                                <span class="pull-right label label-primary">tripplanner</span>
                                                                                                                                     </div>
 
                                         <ol class="dd-list">
                                                                                         <li class="dd-item feature-extra" data-id="featureinfo-1">
                                                 <div class="dd-nodrag">
-                                                    <p>The sound transit homepage when navigating to https://soundtransit.org</p>
+                                                    <p>The sound transit trip planner page at https://soundtransit.org/tripplanner</p>
                                                 </div>
                                             </li>
                                                                                     <div class="dd">
                                                                                     <li class="dd-item scenario success" data-id="scenario-1-1">
-                                                <div class="dd-nodrag dd-success">Scenario: Static page element visual regression
+                                                <div class="dd-nodrag dd-success">Scenario: planner panel visual regression
                                                                                                                                                                                         <span class="pull-right label label-primary">visualregression</span>
                                                                                                                                     <span class="pull-right label label-primary">vr</span>
-                                                                                                                                    <span class="pull-right label label-primary">homevr</span>
+                                                                                                                                    <span class="pull-right label label-primary">panel</span>
                                                                                                                                                                     </div>
 
                                                 <ol class="dd-list">
@@ -618,25 +602,13 @@
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>And</b> https://soundtransit.org is navigated to
+                                                            <b>And</b> https://soundtransit.org/tripplanner is navigated to
                                                         </div>
                                                          
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> the Plan Your Trip Div should look the same as last pass
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the Block System Main Div should look the same as last pass
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the footer Div should look the same as last pass
+                                                            <b>Then</b> the planner panel should look the same as last time
                                                         </div>
                                                          
                                                                                                             </li>
@@ -761,10 +733,10 @@
                     1 scenarios ( <strong class="passed">1 success</strong> )
                 </p>
                 <p class="steps">
-                    5 steps ( <strong class="passed">5 success</strong> )
+                    3 steps ( <strong class="passed">3 success</strong> )
                 </p>
                 <p class="time">
-                0m8.66s - 12.16Mb
+                0m28.14s - 11.89Mb
                 </p>
             </div>
             <div class="switchers">
