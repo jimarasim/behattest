@@ -54,7 +54,7 @@ The sound transit homepage when navigating to https://soundtransit.org
             | Trip Planner  | https://www.soundtransit.org/tripplanner      | Trip Planner  | //input[@id='from']                                           |
             | Maps          | https://www.soundtransit.org/Maps             | Maps          | //div[@id='tripplanner-wrap']                                 |
             | Contact Us    | https://www.soundtransit.org/contact-us       | Contact us    | //img[@alt='Exterior photo of the Union Station building.']   |
-            | The Platform  | https://www.soundtransit.org/blog/platform    | The Platform  | //a[contains(text(),'About The Platform')]                    |
+            | The Platform  | https://www.soundtransit.org/blog/platform    | The Platform  | //h1[@id='blog-title' and contains(text(),'The Platform')]    |
 
     @schedule
     Scenario: Find Your Schedule
