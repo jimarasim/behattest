@@ -259,14 +259,6 @@ class HomepageContext implements Context
     }
 
     /**
-     * @Then the Rider Alerts Subscription Form should look the same as last pass
-     */
-    public function theRiderAlertsSubscriptionFormShouldLookTheSameAsLastPass()
-    {
-        Assert::assertTrue($this->homePage->screenShotDiffRiderAlertsSubscription());  
-    }
-
-    /**
      * @Then the footer Div should look the same as last pass
      */
     public function theFooterDivShouldLookTheSameAsLastPass()

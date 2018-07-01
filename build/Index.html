@@ -339,11 +339,13 @@
             </ul>
             <div class="scenario">
                 <ul class="tags">
-                    <li>@menu</li>
+                    <li>@visualregression</li>
+                    <li>@vr</li>
+                    <li>@homevr</li>
                 </ul>
                 <h3>
-                    <span class="keyword"> Scenario Outline: </span>
-                    <span class="title">Top-level Menu Items Navigate correctly</span>
+                    <span class="keyword"> Scenario: </span>
+                    <span class="title">Static page element visual regression</span>
                 </h3>
                 <ol>
                     <li class="passed">
@@ -362,333 +364,27 @@
                     </li>
                     <li class="passed">
                         <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">top-level menu item "Schedules" is enabled </span>
-                            <span class="path">HomepageContext::topLevelMenuItemIsEnabled()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">When </span>
-                            <span class="text">I click the "Schedules" </span>
-                            <span class="path">HomepageContext::iClickThe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
                             <span class="keyword">Then </span>
-                            <span class="text">the "https://www.soundtransit.org/schedule" should be navigated to </span>
-                            <span class="path">HomepageContext::theShouldBeNavigatedTo()</span>
+                            <span class="text">the Plan Your Trip Div should look the same as last pass </span>
+                            <span class="path">HomepageContext::thePlanYourTripDivShouldLookTheSameAsLastPass()</span>
                         </div>
                     </li>
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">And </span>
-                            <span class="text">the page title should be "Schedules" </span>
-                            <span class="path">HomepageContext::thePageTitleShouldBe()</span>
+                            <span class="text">the Block System Main Div should look the same as last pass </span>
+                            <span class="path">HomepageContext::theBlockSystemMainDivShouldLookTheSameAsLastPass()</span>
                         </div>
                     </li>
                     <li class="passed">
                         <div class="step">
                             <span class="keyword">And </span>
-                            <span class="text">the "//select[@id='edit-route-page-id']" should exist </span>
-                            <span class="path">HomepageContext::theShouldExist()</span>
+                            <span class="text">the footer Div should look the same as last pass </span>
+                            <span class="path">HomepageContext::theFooterDivShouldLookTheSameAsLastPass()</span>
                         </div>
                     </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">an open browser </span>
-                            <span class="path">CommonContext::anOpenBrowser()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">https://soundtransit.org is navigated to </span>
-                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">top-level menu item "Fares & Passes" is enabled </span>
-                            <span class="path">HomepageContext::topLevelMenuItemIsEnabled()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">When </span>
-                            <span class="text">I click the "Fares & Passes" </span>
-                            <span class="path">HomepageContext::iClickThe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Then </span>
-                            <span class="text">the "https://www.soundtransit.org/Fares-and-Passes" should be navigated to </span>
-                            <span class="path">HomepageContext::theShouldBeNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the page title should be "Fares & Passes" </span>
-                            <span class="path">HomepageContext::thePageTitleShouldBe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the "//img[@alt='Image showing stylized ORCA card in hand']" should exist </span>
-                            <span class="path">HomepageContext::theShouldExist()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">an open browser </span>
-                            <span class="path">CommonContext::anOpenBrowser()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">https://soundtransit.org is navigated to </span>
-                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">top-level menu item "Rider Guide" is enabled </span>
-                            <span class="path">HomepageContext::topLevelMenuItemIsEnabled()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">When </span>
-                            <span class="text">I click the "Rider Guide" </span>
-                            <span class="path">HomepageContext::iClickThe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Then </span>
-                            <span class="text">the "https://www.soundtransit.org/Rider-Guide" should be navigated to </span>
-                            <span class="path">HomepageContext::theShouldBeNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the page title should be "Rider Guide" </span>
-                            <span class="path">HomepageContext::thePageTitleShouldBe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the "//a[contains(text(),'Airport service')]" should exist </span>
-                            <span class="path">HomepageContext::theShouldExist()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">an open browser </span>
-                            <span class="path">CommonContext::anOpenBrowser()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">https://soundtransit.org is navigated to </span>
-                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">top-level menu item "Trip Planner" is enabled </span>
-                            <span class="path">HomepageContext::topLevelMenuItemIsEnabled()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">When </span>
-                            <span class="text">I click the "Trip Planner" </span>
-                            <span class="path">HomepageContext::iClickThe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Then </span>
-                            <span class="text">the "https://www.soundtransit.org/tripplanner" should be navigated to </span>
-                            <span class="path">HomepageContext::theShouldBeNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the page title should be "Trip Planner" </span>
-                            <span class="path">HomepageContext::thePageTitleShouldBe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the "//input[@id='from']" should exist </span>
-                            <span class="path">HomepageContext::theShouldExist()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">an open browser </span>
-                            <span class="path">CommonContext::anOpenBrowser()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">https://soundtransit.org is navigated to </span>
-                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">top-level menu item "Maps" is enabled </span>
-                            <span class="path">HomepageContext::topLevelMenuItemIsEnabled()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">When </span>
-                            <span class="text">I click the "Maps" </span>
-                            <span class="path">HomepageContext::iClickThe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Then </span>
-                            <span class="text">the "https://www.soundtransit.org/Maps" should be navigated to </span>
-                            <span class="path">HomepageContext::theShouldBeNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the page title should be "Maps" </span>
-                            <span class="path">HomepageContext::thePageTitleShouldBe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the "//div[@id='tripplanner-wrap']" should exist </span>
-                            <span class="path">HomepageContext::theShouldExist()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">an open browser </span>
-                            <span class="path">CommonContext::anOpenBrowser()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">https://soundtransit.org is navigated to </span>
-                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">top-level menu item "Contact Us" is enabled </span>
-                            <span class="path">HomepageContext::topLevelMenuItemIsEnabled()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">When </span>
-                            <span class="text">I click the "Contact Us" </span>
-                            <span class="path">HomepageContext::iClickThe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Then </span>
-                            <span class="text">the "https://www.soundtransit.org/contact-us" should be navigated to </span>
-                            <span class="path">HomepageContext::theShouldBeNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the page title should be "Contact us" </span>
-                            <span class="path">HomepageContext::thePageTitleShouldBe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the "//img[@alt='Exterior photo of the Union Station building.']" should exist </span>
-                            <span class="path">HomepageContext::theShouldExist()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">an open browser </span>
-                            <span class="path">CommonContext::anOpenBrowser()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">https://soundtransit.org is navigated to </span>
-                            <span class="path">HomepageContext::httpsSoundtransitOrgIsNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Given </span>
-                            <span class="text">top-level menu item "The Platform" is enabled </span>
-                            <span class="path">HomepageContext::topLevelMenuItemIsEnabled()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">When </span>
-                            <span class="text">I click the "The Platform" </span>
-                            <span class="path">HomepageContext::iClickThe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">Then </span>
-                            <span class="text">the "https://www.soundtransit.org/blog/platform" should be navigated to </span>
-                            <span class="path">HomepageContext::theShouldBeNavigatedTo()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the page title should be "The Platform" </span>
-                            <span class="path">HomepageContext::thePageTitleShouldBe()</span>
-                        </div>
-                    </li>
-                    <li class="passed">
-                        <div class="step">
-                            <span class="keyword">And </span>
-                            <span class="text">the "//h1[@id='blog-title' and contains(text(),'The Platform')]" should exist </span>
-                            <span class="path">HomepageContext::theShouldExist()</span>
-                        </div>
-                    </li>
+                </ol>
+            </div>
             <div class="featureResult success">Feature has success
             </div>
         </div><!DOCTYPE html>
@@ -790,7 +486,7 @@
                             <tr>
                                 <th>Build on:</th>
                                 <td>
-                                    Sun 01 Jul 2018 01:17
+                                    Sun 01 Jul 2018 01:33
                                 </td>
                                 <td></td>
                             </tr>
@@ -858,50 +554,6 @@
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
-                                                                                                                                                                                                                            
                                                                                                                                             <td>
                                     <span id="label" class="label label-default">1 features </span>
                                     <span id="label" class="label label-success">1 passed</span>
@@ -915,8 +567,8 @@
                                     <span id="label" class="label label-info"></span>
                                 </td>
                                 <td>
-                                    <span id="label" class="label label-default">49 steps</span>
-                                    <span id="label" class="label label-success">49 passed</span>
+                                    <span id="label" class="label label-default">5 steps</span>
+                                    <span id="label" class="label label-success">5 passed</span>
                                     <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
@@ -951,8 +603,10 @@
                                             </li>
                                                                                     <div class="dd">
                                                                                     <li class="dd-item scenario success" data-id="scenario-1-1">
-                                                <div class="dd-nodrag dd-success">Scenario: Top-level Menu Items Navigate correctly
-                                                                                                                                                                                        <span class="pull-right label label-primary">menu</span>
+                                                <div class="dd-nodrag dd-success">Scenario: Static page element visual regression
+                                                                                                                                                                                        <span class="pull-right label label-primary">visualregression</span>
+                                                                                                                                    <span class="pull-right label label-primary">vr</span>
+                                                                                                                                    <span class="pull-right label label-primary">homevr</span>
                                                                                                                                                                     </div>
 
                                                 <ol class="dd-list">
@@ -970,289 +624,19 @@
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> top-level menu item &quot;Schedules&quot; is enabled
+                                                            <b>Then</b> the Plan Your Trip Div should look the same as last pass
                                                         </div>
                                                          
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>When</b> I click the &quot;Schedules&quot;
+                                                            <b>And</b> the Block System Main Div should look the same as last pass
                                                         </div>
                                                          
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> the &quot;https://www.soundtransit.org/schedule&quot; should be navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the page title should be &quot;Schedules&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the &quot;//select[@id=&#039;edit-route-page-id&#039;]&quot; should exist
-                                                        </div>
-                                                         
-                                                                                                                    </li><li class="list-group-item break">
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> an open browser
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> https://soundtransit.org is navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> top-level menu item &quot;Fares &amp; Passes&quot; is enabled
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>When</b> I click the &quot;Fares &amp; Passes&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> the &quot;https://www.soundtransit.org/Fares-and-Passes&quot; should be navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the page title should be &quot;Fares &amp; Passes&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the &quot;//img[@alt=&#039;Image showing stylized ORCA card in hand&#039;]&quot; should exist
-                                                        </div>
-                                                         
-                                                                                                                    </li><li class="list-group-item break">
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> an open browser
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> https://soundtransit.org is navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> top-level menu item &quot;Rider Guide&quot; is enabled
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>When</b> I click the &quot;Rider Guide&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> the &quot;https://www.soundtransit.org/Rider-Guide&quot; should be navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the page title should be &quot;Rider Guide&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the &quot;//a[contains(text(),&#039;Airport service&#039;)]&quot; should exist
-                                                        </div>
-                                                         
-                                                                                                                    </li><li class="list-group-item break">
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> an open browser
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> https://soundtransit.org is navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> top-level menu item &quot;Trip Planner&quot; is enabled
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>When</b> I click the &quot;Trip Planner&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> the &quot;https://www.soundtransit.org/tripplanner&quot; should be navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the page title should be &quot;Trip Planner&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the &quot;//input[@id=&#039;from&#039;]&quot; should exist
-                                                        </div>
-                                                         
-                                                                                                                    </li><li class="list-group-item break">
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> an open browser
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> https://soundtransit.org is navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> top-level menu item &quot;Maps&quot; is enabled
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>When</b> I click the &quot;Maps&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> the &quot;https://www.soundtransit.org/Maps&quot; should be navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the page title should be &quot;Maps&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the &quot;//div[@id=&#039;tripplanner-wrap&#039;]&quot; should exist
-                                                        </div>
-                                                         
-                                                                                                                    </li><li class="list-group-item break">
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> an open browser
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> https://soundtransit.org is navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> top-level menu item &quot;Contact Us&quot; is enabled
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>When</b> I click the &quot;Contact Us&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> the &quot;https://www.soundtransit.org/contact-us&quot; should be navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the page title should be &quot;Contact us&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the &quot;//img[@alt=&#039;Exterior photo of the Union Station building.&#039;]&quot; should exist
-                                                        </div>
-                                                         
-                                                                                                                    </li><li class="list-group-item break">
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> an open browser
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> https://soundtransit.org is navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Given</b> top-level menu item &quot;The Platform&quot; is enabled
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>When</b> I click the &quot;The Platform&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> the &quot;https://www.soundtransit.org/blog/platform&quot; should be navigated to
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the page title should be &quot;The Platform&quot;
-                                                        </div>
-                                                         
-                                                                                                            </li>
-                                                                                                        <li class="dd-item step" data-id="step-1-1-">
-                                                        <div class="dd-nodrag dd-success">
-                                                            <b>And</b> the &quot;//h1[@id=&#039;blog-title&#039; and contains(text(),&#039;The Platform&#039;)]&quot; should exist
+                                                            <b>And</b> the footer Div should look the same as last pass
                                                         </div>
                                                          
                                                                                                             </li>
@@ -1377,10 +761,10 @@
                     1 scenarios ( <strong class="passed">1 success</strong> )
                 </p>
                 <p class="steps">
-                    49 steps ( <strong class="passed">49 success</strong> )
+                    5 steps ( <strong class="passed">5 success</strong> )
                 </p>
                 <p class="time">
-                1m29.17s - 12.33Mb
+                0m8.66s - 12.16Mb
                 </p>
             </div>
             <div class="switchers">

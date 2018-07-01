@@ -17,7 +17,6 @@ class Home extends Page {
     private function routeOptions() {return $this->driver->findElements(WebDriverBy::xpath("//select[@id='edit-route-name']/optgroup[1]/option"));}
     private function routeOptionByIndex($index) {return $this->driver->findElement(WebDriverBy::xpath("//select[@id='edit-route-name']/optgroup[1]/option[".$index."]"));}
     private function blockSystemMainDiv() {return $this->driver->findElement(WebDriverby::id('block-system-main'));}
-    private function riderAlertsSubscriptionForm() {return $this->driver->findElement(WebDriverBy::id('rider-alerts-subscription-form'));}
     private function planYourTripDiv() {return $this->driver->findElement(WebDriverBy::id('block-trip-planner-trip-planner'));}
     private function leaveDayTextBox() {return $this->driver->findElement(WebDriverBy::id('edit-leaveday'));}
     private function leaveHourTextBox() {return $this->driver->findElement(WebDriverBy::id('edit-leavehour'));}
@@ -93,10 +92,6 @@ class Home extends Page {
     
     public function screenShotDiffBlockSystemMain() {
         return Screenshot::takeElementScreenshotAndDiff($this->blockSystemMainDiv(), 'HomePageBlockSystemMainDiv');
-    }
-    
-    public function screenShotDiffRiderAlertsSubscription() {
-        return Screenshot::takeElementScreenshotAndDiff($this->riderAlertsSubscriptionForm(), 'HomePageRiderAlertsSubscriptionForm');
     }
     
 }

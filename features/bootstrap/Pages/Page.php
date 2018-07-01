@@ -23,7 +23,7 @@ abstract class Page {
     
     //elements
     private function pageTitleHeader() {return $this->driver->findElement(WebDriverBy::cssSelector('h1.title'));}
-    private function footerDiv() {return $this->driver->findElement(WebDriverBy::id('footer'));}
+    private function footerDiv() {return $this->driver->findElement(WebDriverBy::cssSelector('div.region-footer'));}
 
     
     //state checks

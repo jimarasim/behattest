@@ -65,5 +65,4 @@ The sound transit homepage when navigating to https://soundtransit.org
     Scenario: Static page element visual regression
         Then the Plan Your Trip Div should look the same as last pass 
         And the Block System Main Div should look the same as last pass
-        And the Rider Alerts Subscription Form should look the same as last pass
         And the footer Div should look the same as last pass
