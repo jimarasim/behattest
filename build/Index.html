@@ -339,13 +339,11 @@
             </ul>
             <div class="scenario">
                 <ul class="tags">
-                    <li>@visualregression</li>
-                    <li>@vr</li>
-                    <li>@panel</li>
+                    <li>@arriveby</li>
                 </ul>
                 <h3>
                     <span class="keyword"> Scenario: </span>
-                    <span class="title">planner panel visual regression</span>
+                    <span class="title">valid route, arrive by</span>
                 </h3>
                 <ol>
                     <li class="passed">
@@ -364,9 +362,104 @@
                     </li>
                     <li class="passed">
                         <div class="step">
+                            <span class="keyword">Given </span>
+                            <span class="text">I set the start address to "98126, WA" </span>
+                            <span class="path">TripPlannerContext::iSetTheStartAddressTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">the end address to "98121, WA" </span>
+                            <span class="path">TripPlannerContext::theEndAddressTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">specify Arrive By instead of Leave At </span>
+                            <span class="path">TripPlannerContext::specifyArriveByInsteadOfLeaveAt()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">When </span>
+                            <span class="text">I click the plan trip button </span>
+                            <span class="path">TripPlannerContext::iClickThePlanTripButton()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
                             <span class="keyword">Then </span>
-                            <span class="text">the planner panel should look the same as last time </span>
-                            <span class="path">TripPlannerContext::thePlannerPanelShouldLookTheSameAsLastTime()</span>
+                            <span class="text">the map should load a route </span>
+                            <span class="path">TripPlannerContext::theMapShouldLoadARoute()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">a route is displayed </span>
+                            <span class="path">TripPlannerContext::aRouteIsDisplayed()</span>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+            <div class="scenario">
+                <ul class="tags">
+                    <li>@nobus</li>
+                </ul>
+                <h3>
+                    <span class="keyword"> Scenario: </span>
+                    <span class="title">valid route, no bus</span>
+                </h3>
+                <ol>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Given </span>
+                            <span class="text">an open browser </span>
+                            <span class="path">CommonContext::anOpenBrowser()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">https://soundtransit.org/tripplanner is navigated to </span>
+                            <span class="path">TripPlannerContext::httpsSoundtransitOrgTripplannerIsNavigatedTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Given </span>
+                            <span class="text">I set the start address to "98126, WA" </span>
+                            <span class="path">TripPlannerContext::iSetTheStartAddressTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">the end address to "98121, WA" </span>
+                            <span class="path">TripPlannerContext::theEndAddressTo()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">And </span>
+                            <span class="text">uncheck the bus option </span>
+                            <span class="path">TripPlannerContext::uncheckTheBusOption()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">When </span>
+                            <span class="text">I click the plan trip button </span>
+                            <span class="path">TripPlannerContext::iClickThePlanTripButton()</span>
+                        </div>
+                    </li>
+                    <li class="passed">
+                        <div class="step">
+                            <span class="keyword">Then </span>
+                            <span class="text">I see a We're Sorry message </span>
+                            <span class="path">TripPlannerContext::iSeeAWereSorryMessage()</span>
                         </div>
                     </li>
                 </ol>
@@ -377,7 +470,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Behat Test report: BehatTest</title>
+    <title>Behat Test report: SoundTransit.org</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Elkan Roelen" >
@@ -411,7 +504,7 @@
     <div id="top-nav" class="skin-6 fixed no-print">
         <div class="brand">
 
-                <span>BehatTest</span>
+                <span>SoundTransit.org</span>
 
         </div><!-- /brand -->
 
@@ -455,7 +548,7 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                                                 <div class="panel-heading text-center">
-                            <h2>BehatTest</h2>
+                            <h2>SoundTransit.org</h2>
                         </div>
                                                                     </div>
                 </div>
@@ -472,7 +565,7 @@
                             <tr>
                                 <th>Build on:</th>
                                 <td>
-                                    Sun 01 Jul 2018 01:43
+                                    Tue 03 Jul 2018 04:17
                                 </td>
                                 <td></td>
                             </tr>
@@ -538,6 +631,18 @@
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
                                                                                                                                                                                                                             
                                                                                                                                                                                                                             
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
+                                                                                                                                                                                                                            
                                                                                                                                             <td>
                                     <span id="label" class="label label-default">1 features </span>
                                     <span id="label" class="label label-success">1 passed</span>
@@ -545,14 +650,14 @@
                                     <span id="label" class="label label-info"></span>
                                 </td>
                                 <td>
-                                    <span id="label" class="label label-default">1 scenarios</span>
-                                    <span id="label" class="label label-success">1 passed</span>
+                                    <span id="label" class="label label-default">2 scenarios</span>
+                                    <span id="label" class="label label-success">2 passed</span>
                                     <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
                                 <td>
-                                    <span id="label" class="label label-default">3 steps</span>
-                                    <span id="label" class="label label-success">3 passed</span>
+                                    <span id="label" class="label label-default">15 steps</span>
+                                    <span id="label" class="label label-success">15 passed</span>
                                     <span id="label" class="label label-danger"></span>
                                     <span id="label" class="label label-info"></span>
                                 </td>
@@ -587,10 +692,8 @@
                                             </li>
                                                                                     <div class="dd">
                                                                                     <li class="dd-item scenario success" data-id="scenario-1-1">
-                                                <div class="dd-nodrag dd-success">Scenario: planner panel visual regression
-                                                                                                                                                                                        <span class="pull-right label label-primary">visualregression</span>
-                                                                                                                                    <span class="pull-right label label-primary">vr</span>
-                                                                                                                                    <span class="pull-right label label-primary">panel</span>
+                                                <div class="dd-nodrag dd-success">Scenario: valid route, arrive by
+                                                                                                                                                                                        <span class="pull-right label label-primary">arriveby</span>
                                                                                                                                                                     </div>
 
                                                 <ol class="dd-list">
@@ -608,7 +711,87 @@
                                                                                                             </li>
                                                                                                         <li class="dd-item step" data-id="step-1-1-">
                                                         <div class="dd-nodrag dd-success">
-                                                            <b>Then</b> the planner panel should look the same as last time
+                                                            <b>Given</b> I set the start address to &quot;98126, WA&quot;
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> the end address to &quot;98121, WA&quot;
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> specify Arrive By instead of Leave At
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>When</b> I click the plan trip button
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Then</b> the map should load a route
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-1-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> a route is displayed
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                    </ol>
+                                            </li>
+                                                                                    <li class="dd-item scenario success" data-id="scenario-1-2">
+                                                <div class="dd-nodrag dd-success">Scenario: valid route, no bus
+                                                                                                                                                                                        <span class="pull-right label label-primary">nobus</span>
+                                                                                                                                                                    </div>
+
+                                                <ol class="dd-list">
+                                                                                                         <li class="dd-item step" data-id="step-1-2-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Given</b> an open browser
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-2-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> https://soundtransit.org/tripplanner is navigated to
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-2-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Given</b> I set the start address to &quot;98126, WA&quot;
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-2-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> the end address to &quot;98121, WA&quot;
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-2-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>And</b> uncheck the bus option
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-2-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>When</b> I click the plan trip button
+                                                        </div>
+                                                         
+                                                                                                            </li>
+                                                                                                        <li class="dd-item step" data-id="step-1-2-">
+                                                        <div class="dd-nodrag dd-success">
+                                                            <b>Then</b> I see a We&#039;re Sorry message
                                                         </div>
                                                          
                                                                                                             </li>
@@ -730,13 +913,13 @@
                     1 features ( <strong class="passed">1 success</strong> )
                 </p>
                 <p class="scenarios">
-                    1 scenarios ( <strong class="passed">1 success</strong> )
+                    2 scenarios ( <strong class="passed">2 success</strong> )
                 </p>
                 <p class="steps">
-                    3 steps ( <strong class="passed">3 success</strong> )
+                    15 steps ( <strong class="passed">15 success</strong> )
                 </p>
                 <p class="time">
-                0m28.14s - 11.89Mb
+                0m22.83s - 12.01Mb
                 </p>
             </div>
             <div class="switchers">

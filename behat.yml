@@ -25,7 +25,7 @@ default:
           output_path: null
     extensions:
         elkan\BehatFormatter\BehatFormatterExtension:
-          projectName: BehatTest
+          projectName: SoundTransit.org
           name: html
           renderer: Twig,Behat2
           file_name: Index
