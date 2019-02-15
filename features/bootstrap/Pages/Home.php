@@ -6,7 +6,7 @@ use Utilities\Screenshot;
 
 class Home extends Page {
     
-    public function url() {return 'https://www.soundtransit.org/';}
+    public function url() {return 'https://legacy.soundtransit.org/';}
    
     //elements
     private function endAddressTextbox() {return $this->driver->findElement(WebDriverBy::id('edit-to'));}    

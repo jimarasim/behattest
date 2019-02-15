@@ -17,7 +17,7 @@ class HomepageContext implements Context
     
 
     /**
-     * @Given https:\/\/soundtransit.org is navigated to
+     * @Given https:\/\/legacy.soundtransit.org is navigated to
      */
     public function httpsSoundtransitOrgIsNavigatedTo()
     {
@@ -51,7 +51,7 @@ class HomepageContext implements Context
     }
 
     /**
-     * @Then the url should be https:\/\/www.soundtransit.org
+     * @Then the url should be https:\/\/legacy.soundtransit.org
      */
     public function theUrlShouldBeHttpsWwwSoundtransitOrg()
     {

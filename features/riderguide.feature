@@ -1,6 +1,6 @@
 @riderguide
 Feature: Rider Guide page
-The sound transit rider guide page at https://www.soundtransit.org/Rider-Guide
+The sound transit rider guide page at https://legacy.soundtransit.org/Rider-Guide
     Background:
         Given an open browser
         And the Rider Guide page is navigated to

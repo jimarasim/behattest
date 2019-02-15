@@ -14,7 +14,7 @@ class TripPlannerContext implements Context {
     private $tripPlannerPage;
     
     /**
-     * @Given https:\/\/soundtransit.org\/tripplanner is navigated to
+     * @Given https:\/\/legacy.soundtransit.org\/tripplanner is navigated to
      */
     public function httpsSoundtransitOrgTripplannerIsNavigatedTo()
     {

@@ -11,7 +11,7 @@ use Utilities\Screenshot;
  * @author jameskarasim
  */
 class Schedules extends Page {
-    public function url() {return 'https://www.soundtransit.org/schedules/';}
+    public function url() {return 'https://legacy.soundtransit.org/schedules/';}
     
     //elements
     private function routePageTitle() {return $this->driver->findElement(WebDriverBy::cssSelector('h1.route-page-title'));}

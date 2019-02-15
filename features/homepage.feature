@@ -1,16 +1,16 @@
 @homepage
 Feature: Soundtransit Homepage
-The sound transit homepage when navigating to https://soundtransit.org
+The sound transit homepage when navigating to https://legacy.soundtransit.org
     Background:
         Given an open browser
-        And https://soundtransit.org is navigated to
+        And https://legacy.soundtransit.org is navigated to
 
     @smoke @home
     Scenario: Home Page Button
         Given the home page button is visible
         And the home page button is enabled
         When I click the home page button
-        Then the url should be https://www.soundtransit.org
+        Then the url should be https://legacy.soundtransit.org
         And the sound transit logo should appear
         And "Plan your trip!" should be displayed
 
@@ -48,13 +48,13 @@ The sound transit homepage when navigating to https://soundtransit.org
 
         Examples:
             | menu_item     | page_url                                      | page_title    | unique_element_xpath                                          | 
-            | Schedules     | https://www.soundtransit.org/schedule         | Schedules     | //select[@id='edit-route-page-id']                            |
-            | Fares & Passes| https://www.soundtransit.org/Fares-and-Passes | Fares & Passes| //img[@alt='Image showing stylized ORCA card in hand']        |
-            | Rider Guide   | https://www.soundtransit.org/Rider-Guide      | Rider Guide   | //a[contains(text(),'Airport service')]                       |
-            | Trip Planner  | https://www.soundtransit.org/tripplanner      | Trip Planner  | //input[@id='from']                                           |
-            | Maps          | https://www.soundtransit.org/Maps             | Maps          | //div[@id='tripplanner-wrap']                                 |
-            | Contact Us    | https://www.soundtransit.org/contact-us       | Contact us    | //img[@alt='Exterior photo of the Union Station building.']   |
-            | The Platform  | https://www.soundtransit.org/blog/platform    | The Platform  | //h1[@id='blog-title' and contains(text(),'The Platform')]    |
+            | Schedules     | https://legacy.soundtransit.org/schedule         | Schedules     | //select[@id='edit-route-page-id']                            |
+            | Fares & Passes| https://legacy.soundtransit.org/Fares-and-Passes | Fares & Passes| //img[@alt='Image showing stylized ORCA card in hand']        |
+            | Rider Guide   | https://legacy.soundtransit.org/Rider-Guide      | Rider Guide   | //a[contains(text(),'Airport service')]                       |
+            | Trip Planner  | https://legacy.soundtransit.org/tripplanner      | Trip Planner  | //input[@id='from']                                           |
+            | Maps          | https://legacy.soundtransit.org/Maps             | Maps          | //div[@id='tripplanner-wrap']                                 |
+            | Contact Us    | https://legacy.soundtransit.org/contact-us       | Contact us    | //img[@alt='Exterior photo of the Union Station building.']   |
+            | The Platform  | https://legacy.soundtransit.org/blog/platform    | The Platform  | //h1[@id='blog-title' and contains(text(),'The Platform')]    |
 
     @schedule
     Scenario: Find Your Schedule

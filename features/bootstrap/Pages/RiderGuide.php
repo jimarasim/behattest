@@ -11,7 +11,7 @@ use Utilities\Screenshot;
  * @author jameskarasim
  */
 class Riderguide extends Page {
-    public function url() {return 'https://www.soundtransit.org/Rider-Guide';}
+    public function url() {return 'https://legacy.soundtransit.org/Rider-Guide';}
     
     //elements
     public function contentDiv() {return $this->driver->findElement(WebDriverBy::id('content'));}

@@ -9,7 +9,7 @@ use Utilities\Screenshot;
 /**
  * Description of Page
  * 
- * This class represents the base page elements, and includes functionality available to all pages on soundtransit.org, including menu interaction
+ * This class represents the base page elements, and includes functionality available to all pages on legacy.soundtransit.org, including menu interaction
  *
  * @author jameskarasim
  */

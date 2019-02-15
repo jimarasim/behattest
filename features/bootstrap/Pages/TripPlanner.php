@@ -13,7 +13,7 @@ use Utilities\Screenshot;
  */
 class TripPlanner extends Page {
     //overrides
-    public function url() {return 'https://www.soundtransit.org/tripplanner';}
+    public function url() {return 'https://legacy.soundtransit.org/tripplanner';}
     
     //elements
     private function mapSvg() {return $this->driver->findElement(WebDriverBy::id('map'));}

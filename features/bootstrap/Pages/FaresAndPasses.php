@@ -11,7 +11,7 @@ use Utilities\Screenshot;
  * @author jameskarasim
  */
 class FaresAndPasses extends Page {
-    public function url() {return 'https://www.soundtransit.org/Fares-and-Passes';}
+    public function url() {return 'https://legacy.soundtransit.org/Fares-and-Passes';}
     
     //elements
     public function contentDiv() {return $this->driver->findElement(WebDriverBy::id('content'));}

@@ -8,6 +8,6 @@ namespace Pages;
  * @author jameskarasim
  */
 class RiderAlerts extends Page {
-    public function url() {return 'https://www.soundtransit.org/schedule/rider-alerts';}
+    public function url() {return 'https://legacy.soundtransit.org/schedule/rider-alerts';}
     
 }

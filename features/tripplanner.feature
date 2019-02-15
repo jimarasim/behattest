@@ -1,9 +1,9 @@
 @tripplanner
 Feature: Trip Planner Page
-The sound transit trip planner page at https://soundtransit.org/tripplanner
+The sound transit trip planner page at https://legacy.soundtransit.org/tripplanner
     Background:
         Given an open browser
-        And https://soundtransit.org/tripplanner is navigated to
+        And https://legacy.soundtransit.org/tripplanner is navigated to
     
     @feature @triptrip
     Scenario Outline: Plan a trip happy path

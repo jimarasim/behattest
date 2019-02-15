@@ -1,6 +1,6 @@
 @schedules
 Feature: Route Schedule page
-The sound transit schedule page at https://soundtransit.org/schedules
+The sound transit schedule page at https://legacy.soundtransit.org/schedules
     Background:
         Given an open browser
     
